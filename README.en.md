@@ -2,7 +2,7 @@
   <h1 align="center">Great Writer</h1>
   <p align="center">AI writing that people actually want to read</p>
   <p align="center">
-    <a href="#three-core-capabilities">Core</a> · <a href="#5-writing-modes">Modes</a> · <a href="#installation">Install</a> · <a href="./README.md">中文</a>
+    <a href="#three-core-capabilities">Core</a> · <a href="#8-writing-modes">Modes</a> · <a href="#enhanced-capabilities">Enhanced</a> · <a href="#installation">Install</a> · <a href="./README.md">中文</a>
   </p>
 </p>
 
@@ -10,7 +10,7 @@
 
 ## TL;DR
 
-A universal AI writing skill covering **tech articles, marketing copy, research reports, Xiaohongshu notes, and technical docs** — five modes in one package. Research-driven, full-pipeline, anti-AI-slop. Bilingual (EN/ZH).
+A universal AI writing skill with **8 writing modes** (tech articles, marketing copy, research reports, Xiaohongshu notes, technical docs, rewrite/polish, editorial review, creative writing) and **5 enhanced capabilities** (style learning, platform adaptation, writing memory, SEO/GEO, data visualization). Research-driven, full-pipeline, anti-AI-slop. Bilingual (EN/ZH).
 
 ## What Problem Does It Solve
 
@@ -31,6 +31,9 @@ Ask AI to write something and you'll probably get this:
 | Research report | "Based on the above analysis, this industry shows broad prospects and immense market potential..." | "$4.7B raised in this space in Q4 2025 — up 340% YoY. Three signals worth watching." |
 | Xiaohongshu note | "This product is really amazing, highly recommend!" | "Used it for two weeks, here's the honest take. Bottom line: worth it, but there's one trap to avoid." |
 | Technical docs | "This document aims to provide developers with a comprehensive API usage guide..." | "5 minutes to first request. Install, configure, call, handle errors, deploy to prod." |
+| Rewrite/Polish | "Here is the revised version: [barely changed]" | "Diagnosis: 3 structural issues, 5 AI-slop phrases, 2 logic gaps. Fixed each with change notes." |
+| Editorial Review | "The article is well-written. Consider adding more data." | "Structure 7/10, argument 5/10, rhythm 6/10, anti-AI-slop 4/10. Four-layer review + priority fix list." |
+| Creative Writing | "The moonlight spilled across the lake like silver silk, breathtakingly beautiful." | "No moonlight on the lake. Just the half-dead bulb at the end of the dock, turning the water the color of rust." |
 
 ## Three Core Capabilities
 
@@ -78,7 +81,7 @@ Adjectives without data support are banned outright: "powerful", "outstanding", 
 - Rhetorical questions for rhythm: 1-2 per piece, no more
 - Mode-specific overrides: Xiaohongshu allows more emojis and internet slang; technical docs forbid rhetorical questions and conversational asides
 
-## 5 Writing Modes
+## 8 Writing Modes
 
 | Mode | Description | Typical platforms |
 |------|-------------|-------------------|
@@ -87,6 +90,9 @@ Adjectives without data support are banned outright: "powerful", "outstanding", 
 | **Research Report** | Deep analysis, rigorous data, actionable conclusions for decision-makers | Whitepapers, competitive analysis, industry research |
 | **Xiaohongshu Note** | Useful + authentic + visually appealing, personal voice, visual formatting | Xiaohongshu / RED, review communities |
 | **Technical Docs** | Clarity > completeness > elegance, 5-minute onboarding, developer-facing | READMEs, API docs, changelogs, internal guides |
+| **Rewrite / Polish** | Diagnose and fix existing drafts; preserves original intent, never writes from zero | Emails, memos, existing drafts, any text |
+| **Editorial Review** | Four-layer review framework (structure / argument / rhythm / anti-AI-slop); gives feedback, not ghostwriting | Editing, content QA, writing coaching |
+| **Creative Writing** | Fiction, essays, speeches, scripts; imagery-first, show don't tell | Personal blogs, literary writing, speeches, screenplays |
 
 ## Architecture
 
@@ -97,17 +103,39 @@ great-writer/
 │   ├── writing-dna.md          #   6 universal writing principles
 │   ├── research-protocol.md    #   Research protocol (3 steps)
 │   ├── review-protocol.md      #   Review protocol (3 dimensions)
-│   └── humanizer.md            #   Anti-AI-slop protocol (2 levels)
+│   ├── humanizer.md            #   Anti-AI-slop protocol (2 levels)
+│   ├── style-learner.md        #   Style learning: extract style fingerprint from reference text
+│   ├── adapt-protocol.md       #   Platform adaptation: one draft → 9 platforms
+│   ├── writing-memory.md       #   Writing memory: cross-session persistence
+│   ├── seo-layer.md            #   SEO/GEO optimization layer (optional)
+│   └── visualization.md        #   Data visualization suggestions
 ├── modes/                      # Mode-specific templates
 │   ├── tech-article.md         #   Tech product article
 │   ├── marketing-copy.md       #   Marketing copy
 │   ├── research-report.md      #   Research report
 │   ├── xiaohongshu.md          #   Xiaohongshu note
-│   └── technical-docs.md       #   Technical documentation
+│   ├── technical-docs.md       #   Technical documentation
+│   ├── rewrite.md              #   Rewrite / Polish
+│   ├── editorial-review.md     #   Editorial review
+│   └── creative-writing.md     #   Creative writing
 └── README.md / README.en.md    # What you're reading
 ```
 
-Layered design: `SKILL.md` handles routing and pipeline orchestration. `core/` contains the writing DNA shared across all modes. `modes/` holds structure templates and self-check checklists for each writing type. Every file is self-contained and loaded on demand.
+Layered design: `SKILL.md` handles routing and pipeline orchestration. `core/` contains the writing DNA and enhanced capability modules shared across all modes. `modes/` holds structure templates and self-check checklists for each writing type. Every file is self-contained and loaded on demand.
+
+## Enhanced Capabilities
+
+These modules activate on demand — not loaded unless triggered:
+
+| Capability | Trigger | Module |
+|-----------|---------|--------|
+| **Style Learning** | "learn this style" / "match this style" / provide reference text | `core/style-learner.md` |
+| **Platform Adaptation** | "adapt for Twitter" / "turn this into a Xiaohongshu post" / "publish everywhere" | `core/adapt-protocol.md` |
+| **Writing Memory** | "remember this style" / "save writing memory" / auto-offered after tasks | `core/writing-memory.md` |
+| **SEO/GEO Optimization** | "SEO" / "keywords" / web-published content | `core/seo-layer.md` |
+| **Data Visualization** | Auto for data-rich content, or "add chart suggestions" / "visualize this" | `core/visualization.md` |
+
+These extend the pipeline — they don't replace it. Style learning affects Phase 2+4, SEO adds to Phase 5, visualization enhances Phase 2, etc.
 
 ## Installation
 
@@ -146,6 +174,9 @@ The skill auto-activates when these keywords appear in conversation:
 | Research Report | 白皮书, 研究报告, 竞品分析, 投研 | whitepaper, research report, competitive analysis |
 | Xiaohongshu | 小红书, 种草, 笔记 | xiaohongshu |
 | Technical Docs | 技术文档, 内部文档 | README, API docs, changelog, technical docs |
+| Rewrite / Polish | 改写, 润色, 帮我改 | rewrite, polish, improve this, edit this |
+| Editorial Review | 审稿, 帮我看看 | editorial review, critique this |
+| Creative Writing | 写小说, 写故事, 写散文, 写演讲稿 | creative writing, fiction, short story, essay, speech |
 
 ### Example Dialogue
 
