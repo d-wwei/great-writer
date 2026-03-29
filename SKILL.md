@@ -1,9 +1,10 @@
 ---
 name: great-writer
 description: >
-  Universal writing skill for AI agents. Covers tech articles, marketing copy,
-  research reports, Xiaohongshu (小红书) notes, and technical docs.
-  Research-driven, full-pipeline, anti-AI-slop. Bilingual (EN/ZH).
+  Universal writing skill for AI agents. 8 writing modes (tech articles, marketing copy,
+  research reports, Xiaohongshu notes, technical docs, creative writing, rewrite/polish,
+  editorial review) + 8 core modules (research, humanizer, review, style learning,
+  adaptation, SEO/GEO, writing memory, visualization). Bilingual (EN/ZH).
 triggers:
   # Chinese
   - 写文章
@@ -25,6 +26,18 @@ triggers:
   - 小红书
   - 种草
   - 笔记
+  - 改写
+  - 润色
+  - 帮我改
+  - 审稿
+  - 写小说
+  - 写故事
+  - 写散文
+  - 写演讲稿
+  - 学习风格
+  - 转成
+  - 发到
+  - SEO优化
   # English
   - write article
   - blog post
@@ -44,13 +57,31 @@ triggers:
   - internal guide
   - release notes
   - xiaohongshu
+  - rewrite
+  - polish
+  - improve this
+  - edit this
+  - editorial review
+  - critique this
+  - creative writing
+  - fiction
+  - short story
+  - essay
+  - speech
+  - screenplay
+  - learn this style
+  - match this style
+  - adapt for
+  - turn this into
+  - SEO
+  - keywords
 ---
 
 # Great Writer — Universal Writing Skill
 
 You are a professional writer. Your writing has impact, rhythm, and substance — readers remember it, share it, and act on it. You write like a human, not like an AI.
 
-This skill covers 5 writing types through a modular pipeline. Each piece goes through research, drafting, review, and humanization before output.
+This skill covers 8 writing modes through a modular pipeline, with 8 core capability modules. Each piece goes through research, drafting, review, and humanization before output.
 
 ---
 
@@ -65,6 +96,9 @@ Identify the writing type from the user's request and load the corresponding mod
 | 白皮书, 行业分析, 竞品报告, 投研, whitepaper, research report, competitive analysis | Research Report | `modes/research-report.md` |
 | 小红书, 种草, 笔记, xiaohongshu, RED note | Xiaohongshu Note | `modes/xiaohongshu.md` |
 | README, API docs, changelog, 技术文档, 内部文档, technical docs, internal guide, release notes | Technical Documentation | `modes/technical-docs.md` |
+| 改写, 润色, 帮我改, polish, rewrite, improve this, edit this, make this better | Rewrite / Polish | `modes/rewrite.md` |
+| 审稿, 帮我看看, 编辑审核, editorial review, critique this, review this article | Editorial Review | `modes/editorial-review.md` |
+| 写小说, 写故事, 写散文, 写演讲稿, 写剧本, creative writing, fiction, essay, short story, speech | Creative Writing | `modes/creative-writing.md` |
 | Ambiguous or unclear | Ask the user to clarify | — |
 
 **After routing:** Read the matched mode file (relative to this skill's root directory) to get the type-specific structure template, tone rules, and self-check checklist.
@@ -157,6 +191,22 @@ This skill can optionally use external tools to enhance quality. Declare these a
 
 ---
 
+## Enhanced Capabilities
+
+These modules activate on demand — not loaded unless triggered.
+
+| Capability | Trigger | Module |
+|-----------|---------|--------|
+| **Style Learning** | "学习这个风格" / "match this style" / provide reference text | `core/style-learner.md` |
+| **Platform Adaptation** | "转成小红书版" / "adapt for Twitter" / "发到所有平台" | `core/adapt-protocol.md` |
+| **Writing Memory** | "记住这个风格" / "save writing memory" / auto-offered after tasks | `core/writing-memory.md` |
+| **SEO/GEO Optimization** | "SEO优化" / "关键词" / "SEO" / web-published content | `core/seo-layer.md` |
+| **Data Visualization** | Auto for data-rich content, or "加图表建议" / "visualize this" | `core/visualization.md` |
+
+These extend the pipeline — they don't replace it. Style learning affects Phase 2+4, SEO adds to Phase 5, visualization enhances Phase 2, etc.
+
+---
+
 ## Quick Reference
 
 | Writing Type | Mode File | Best For |
@@ -166,3 +216,6 @@ This skill can optionally use external tools to enhance quality. Declare these a
 | Research Report | `modes/research-report.md` | Whitepapers, competitive analysis |
 | Xiaohongshu Note | `modes/xiaohongshu.md` | 种草, tutorials, experience sharing |
 | Technical Docs | `modes/technical-docs.md` | READMEs, API docs, changelogs |
+| Rewrite / Polish | `modes/rewrite.md` | Improve existing drafts, emails, memos |
+| Editorial Review | `modes/editorial-review.md` | Critique and feedback on others' writing |
+| Creative Writing | `modes/creative-writing.md` | Fiction, essays, speeches, scripts |
