@@ -96,7 +96,7 @@ Last updated: 2026-03-28
 
 ## Boilerplate
 - Quick start: (see assets/quick-start.md if exists)
-- Compatibility list: Claude Code, Codex, Gemini CLI, agentskills.io
+- Compatibility list: any LLM agent (skill directory or system prompt injection)
 ```
 
 ---

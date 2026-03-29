@@ -891,7 +891,7 @@ Last updated: 2026-03-28
 
 ## Boilerplate
 - Quick start: (see assets/quick-start.md if exists)
-- Compatibility list: Claude Code, Codex, Gemini CLI, agentskills.io
+- Compatibility list: any LLM agent (skill directory or system prompt injection)
 ```
 
 ---
@@ -1421,7 +1421,7 @@ Rules:
 Emphasize that the solution is NOT locked to a specific platform. List supported agents, frameworks, and tools.
 
 - Format: a short list or compatibility table.
-- Highlight breadth: "Works with Claude, GPT, Gemini, open-source models..."
+- Highlight breadth: "Works with any LLM agent — Claude, GPT, Gemini, Codex, open-source models..."
 - If there are integration constraints, state them honestly — credibility matters more than completeness.
 
 ### Module 8: Quick Start

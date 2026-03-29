@@ -30,8 +30,13 @@ Great Writer loads a writing system into your AI agent: mandatory research befor
 
 ```bash
 git clone https://github.com/d-wwei/great-writer.git
-ln -sf "$(pwd)/great-writer" ~/.claude/skills/great-writer
 ```
+
+Then load into your agent:
+
+- **As a skill directory:** Point your agent's skill path to the cloned repo
+- **As a system prompt:** Copy `great-writer-bundled.md` into your agent's system prompt or context
+- **As a rules file:** Import `SKILL.md` as a rules/instructions file
 
 Say "write article", "小红书种草", or "write a README" in conversation to trigger.
 
@@ -108,16 +113,16 @@ great-writer/
 
 ## Installation
 
-**Claude Code:**
+**Any agent that supports skill directories** (Claude Code, Codex, Cursor, Windsurf, etc.):
 
 ```bash
 git clone https://github.com/d-wwei/great-writer.git
-ln -sf "$(pwd)/great-writer" ~/.claude/skills/great-writer
+# Point your agent's skill/rules path to the cloned directory
 ```
 
-**Codex / agentskills.io:** Standard Skill directory structure. Import the repo directly.
+**Single-file agents** (ChatGPT, custom LLM pipelines, etc.):
 
-**Other agents:** Use `great-writer-bundled.md` as your system prompt.
+Use `great-writer-bundled.md` as your system prompt or context injection. One file, all 17 modules included.
 
 ---
 
@@ -125,11 +130,12 @@ ln -sf "$(pwd)/great-writer" ~/.claude/skills/great-writer
 
 | Platform | Method |
 |----------|--------|
-| Claude Code | Native Skill, auto-triggers |
-| Cursor / Windsurf | Load as rules file |
-| Codex | agentskills.io format compatible |
-| ChatGPT | Paste SKILL.md into Custom Instructions |
-| Other LLMs | Inject bundled version as system prompt |
+| Claude Code | Symlink to `~/.claude/skills/` |
+| Codex | agentskills.io format, import directly |
+| Cursor / Windsurf | Load as rules file or project context |
+| ChatGPT / GPT | Paste `SKILL.md` into Custom Instructions |
+| Gemini CLI | Import as agent skill |
+| Custom LLM pipelines | Inject `great-writer-bundled.md` as system prompt |
 
 ---
 

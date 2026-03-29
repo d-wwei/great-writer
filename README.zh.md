@@ -30,8 +30,13 @@ Great Writer 给 AI 加载一套写作系统：写前强制调研，写后自动
 
 ```bash
 git clone https://github.com/d-wwei/great-writer.git
-ln -sf "$(pwd)/great-writer" ~/.claude/skills/great-writer
 ```
+
+然后加载到你的 Agent：
+
+- **技能目录方式：** 把 clone 的目录指向你的 Agent 技能路径
+- **单文件方式：** 把 `great-writer-bundled.md` 注入 system prompt 或上下文
+- **规则文件方式：** 把 `SKILL.md` 作为 rules/instructions 文件导入
 
 对话中说"写文章"、"小红书种草"、"write a README"触发。
 
@@ -107,16 +112,16 @@ great-writer/
 
 ## 安装
 
-**Claude Code：**
+**支持技能目录的 Agent**（Claude Code、Codex、Cursor、Windsurf 等）：
 
 ```bash
 git clone https://github.com/d-wwei/great-writer.git
-ln -sf "$(pwd)/great-writer" ~/.claude/skills/great-writer
+# 把 clone 的目录指向你的 Agent 技能/规则路径
 ```
 
-**Codex / agentskills.io：** 标准 Skill 目录结构，直接导入。
+**单文件 Agent**（ChatGPT、自定义 LLM 管道等）：
 
-**其他 Agent：** 用 `great-writer-bundled.md` 作为 system prompt 注入。
+用 `great-writer-bundled.md` 注入 system prompt。一个文件，17 个模块全包含。
 
 ---
 
@@ -124,7 +129,7 @@ ln -sf "$(pwd)/great-writer" ~/.claude/skills/great-writer
 
 | 平台 | 方式 |
 |------|------|
-| Claude Code | 原生 Skill，自动触发 |
+| Claude Code | 符号链接到 `~/.claude/skills/` |
 | Cursor / Windsurf | 作为 rules 文件加载 |
 | Codex | agentskills.io 格式兼容 |
 | ChatGPT | 粘贴 SKILL.md 到 Custom Instructions |
