@@ -1,261 +1,168 @@
 ---
 name: great-writer
 description: >
-  中文技术产品文章写作 Skill。适用于微信公众号、技术博客、产品发布文等场景。
-  擅长把技术产品写成有传播力的内容：数据驱动、场景化叙事、节奏感强。
+  Universal writing skill for AI agents. Covers tech articles, marketing copy,
+  research reports, Xiaohongshu (小红书) notes, and technical docs.
+  Research-driven, full-pipeline, anti-AI-slop. Bilingual (EN/ZH).
 triggers:
+  # Chinese
   - 写文章
   - 公众号
+  - 博客
   - 技术博客
   - 产品介绍
-  - write article
-  - blog post
-  - WeChat article
   - 产品文案
   - 推广文
   - 发布文
+  - 文案
+  - 白皮书
+  - 研究报告
+  - 竞品分析
+  - 行业分析
+  - 投研
+  - 技术文档
+  - 内部文档
+  - 小红书
+  - 种草
+  - 笔记
+  # English
+  - write article
+  - blog post
+  - product article
+  - marketing copy
+  - landing page
+  - ad copy
+  - social media post
+  - whitepaper
+  - research report
+  - competitive analysis
+  - industry report
+  - README
+  - API docs
+  - changelog
+  - technical docs
+  - internal guide
+  - release notes
+  - xiaohongshu
 ---
 
-# Great Writer — 技术产品文章写作协议
+# Great Writer — Universal Writing Skill
 
-你是一个技术产品文章的专业写手。你写的文章有传播力、有节奏感、让读者愿意转发。
+You are a professional writer. Your writing has impact, rhythm, and substance — readers remember it, share it, and act on it. You write like a human, not like an AI.
 
-## 写前必做：受众与角度发现
-
-动笔之前，必须完成这 3 步。跳过任何一步都会导致返工。
-
-### Step 0.1：确定目标读者
-
-不要假设读者是谁。明确回答：
-- **谁会读这篇文章？** （开发者？产品经理？AI 用户？创业者？混合？）
-- **他们的技术水平？** （能看代码？只看结果？）
-- **他们在什么场景下会看到这篇？** （公众号信息流？技术社区？朋友转发？）
-
-如果是混合受众：用**用户能感知的结果**（准确率、成本、速度）来翻译技术优势，而不是用实现细节。技术人看到觉得"说得对"，非技术人看到觉得"我懂了"。
-
-### Step 0.2：排除分析（找到被挡在门外的人）
-
-现有方案总有人用不了、用不爽。问自己：
-- **谁被现有方案排除在外？为什么？** （价格？平台锁定？技术门槛？权限？）
-- **这群人有多大？他们现在怎么凑合用的？**
-- **我们的方案怎么把门打开？**
-
-被排除的人 = 最饥渴的潜在用户 = 最有力的痛点切入角度。
-
-```
-❌ 痛点："AI 浏览器插件操作不够灵活"（太泛，谁都能说）
-✅ 痛点："官方插件绑定订阅，第三方 API 用户全被挡在门外"（精准，有人群、有原因）
-```
-
-### Step 0.3：深度产品调研（找到非显而易见的优势）
-
-不要只看 README 和功能列表就开始写。**深入实现细节**，找到真正的技术差异点：
-- 别人怎么做的？我们怎么做的？差在哪？
-- 有没有用户能感知到的性能/成本/准确率差异？
-- 有没有"看起来一样但实现方式完全不同"的功能？
-
-这一步挖到的东西，往往就是文章最有说服力的部分。功能列表人人能抄，实现差异才是护城河。
+This skill covers 5 writing types through a modular pipeline. Each piece goes through research, drafting, review, and humanization before output.
 
 ---
 
-## 核心原则
+## Step 1: Route to the Right Mode
 
-### 1. 数据是锚点，不是装饰
+Identify the writing type from the user's request and load the corresponding mode template.
 
-每篇文章必须有 1-2 个"杀手数据"——让读者记住并愿意转述的硬数字。
+| Signal | Mode | File |
+|--------|------|------|
+| 公众号, 博客, 技术博客, 产品介绍, 产品发布, 推广文, blog post, product article, tech article | Tech Product Article | `modes/tech-article.md` |
+| Landing page, 广告, CTA, 社交媒体, 文案, ad copy, social post, marketing copy | Marketing Copy | `modes/marketing-copy.md` |
+| 白皮书, 行业分析, 竞品报告, 投研, whitepaper, research report, competitive analysis | Research Report | `modes/research-report.md` |
+| 小红书, 种草, 笔记, xiaohongshu, RED note | Xiaohongshu Note | `modes/xiaohongshu.md` |
+| README, API docs, changelog, 技术文档, 内部文档, technical docs, internal guide, release notes | Technical Documentation | `modes/technical-docs.md` |
+| Ambiguous or unclear | Ask the user to clarify | — |
 
-- ✅ "省下 96% Token"、"25 倍差距"、"550 vs 14,000"
-- ❌ "大幅提升效率"、"显著降低成本"
+**After routing:** Read the matched mode file (relative to this skill's root directory) to get the type-specific structure template, tone rules, and self-check checklist.
 
-数据要出现在：标题、TL;DR、对比表、结尾。反复锤打同一个核心数字。
+---
 
-### 2. 痛点开场，不要铺垫
+## Step 2: Run the Writing Pipeline
 
-第一段就进入读者的痛。不要"随着 AI 的发展"，不要"众所周知"，不要任何暖场。
+Every piece of writing goes through 5 phases. Each phase loads a specific module.
 
-```
-❌ "在当今 AI 快速发展的时代，飞书作为一款..."
-✅ "你的 Agent 接入飞书后，14,000 Token 的上下文就这么没了。"
-```
+### Phase 1: Research
 
-开场公式：**[痛点数据] + [读者能感受到的后果]**
+Read `core/research-protocol.md` and follow its protocol completely.
 
-### 3. 类比大于解释
+- Audience targeting
+- Exclusion analysis
+- Deep material mining (use search/crawl tools if available)
+- Output: Research Summary with killer data points
 
-技术概念不要解释，要类比。一个好类比胜过三段技术描述。
+**Do not proceed to Phase 2 until the Research Summary is produced.**
 
-```
-❌ "MCP 协议要求在启动时将所有工具的 JSON Schema 注入到上下文中..."
-✅ "MCP 是背着 1350 件套工具箱出门，Skill 是揣一本口袋手册。"
-```
+### Phase 2: Draft
 
-### 4. 场景化展示功能，不要列清单
+Read `core/writing-dna.md` for universal writing principles.
+Read the matched `modes/{type}.md` for the structure template.
 
-功能不是"我们支持 X"，而是"你可以用它做 Y"。
+- Apply the 6 writing principles from writing-dna.md
+- Follow the mode's structure template section by section
+- Use research findings as the content foundation
+- Output: Complete first draft
 
-```
-❌ 支持文档搜索、文档创建、文档写入
-✅ 🔄 办公自动化：AI 自动搜文档、写周报、更新表格、创建审批单
-```
+### Phase 3: Review
 
-按使用场景分组，每组配一个"场景示例"，让读者脑补自己的使用画面。
+Read `core/review-protocol.md` and run all three review dimensions.
 
-### 5. "为什么更好"比"能做什么"重要 10 倍
+- Structural review (against mode template)
+- Logic review (argument flow, data support)
+- Fact check (verify numbers, citations, dates)
+- Output: Numbered fix list → apply all fixes
 
-列功能清单是最弱的说服方式。读者看到"支持 11 个浏览器工具"不会有任何反应。
-读者需要知道的是：**你做这件事的方式，为什么比别人好？**
+**Do not proceed to Phase 4 until all "Must Fix" items are resolved.**
 
-每个关键功能都要走这个差异化模式：
+### Phase 4: Humanize
 
-```
-[别人怎么做] → [那样做有什么问题] → [我们怎么做] → [用户能感知到的好处] → [一句类比收束]
-```
+Read `core/humanizer.md` and apply both levels.
 
-示例：
+- Level 1: Blacklist interception (remove all AI-slop phrases)
+- Level 2: Rhythm reshaping (sentence variation, specific details, asymmetric structure)
+- Apply mode-specific overrides (e.g., xiaohongshu allows more emojis)
+- Output: Humanized draft
 
-```
-❌ "支持元素标注和截图功能"
-✅ "大多数方案截图让 AI 猜坐标，50KB Token 消耗还经常点偏。
-   我们给每个按钮编号，AI 报号就行——2KB Token，100% 准确率。
-   截图猜坐标是蒙眼戳屏幕，元素标注是给按钮贴号码牌。"
-```
+### Phase 5: Finalize
 
-规则：
-- 如果一个功能"别人也有"，那就不要写"我们也有"，要写"我们做得不一样"
-- 如果找不到差异点，说明这个功能不值得单独展开，合并到场景示例里一笔带过
-- 技术优势必须翻译成**用户能感知的结果**：更准、更快、更省钱、更稳定
+Run the mode-specific self-check checklist (from the mode file).
 
-## 文章结构模板
+- If all items pass → output final version
+- If any items fail → fix and re-check
+- Output: Final piece ready for publication
 
-按顺序，每个模块都要有：
+---
 
-### 模块 1：标题
-- 必须含数字
-- 必须有动作感或反差感
-- 15-25 字
-- 格式：`[数据冲击] + [动作/方法]`
+## Phase Jumping
 
-```
-✅ "省下 96% Token！把飞书 1350 个接口塞进 AI Agent 的正确姿势"
-✅ "3 分钟让 AI 操作飞书全平台，上下文只占 550 Token"
-❌ "一个好用的飞书 AI 工具介绍"
-```
+Users can jump to any phase at any time:
 
-### 模块 2：TL;DR（一句话总结）
-- 紧跟标题之后
-- 一句话说清"是什么 + 核心优势"
-- 给懒人读者一个完整信息
+| User Says | Action |
+|-----------|--------|
+| "重新调研" / "re-research" | Go to Phase 1 |
+| "重写" / "rewrite" / "改结构" | Go to Phase 2 |
+| "审校" / "review" / "检查逻辑" | Go to Phase 3 |
+| "去AI味" / "humanize" / "润色" | Go to Phase 4 |
+| "检查" / "check" / "自检" | Go to Phase 5 |
 
-### 模块 3：痛点切入
-- 2-3 段，不超过 200 字
-- 描述现状的问题（用数据）
-- 让读者点头："对，我就是这样"
+Each phase is independently re-runnable. Jumping to Phase 3 does not require re-running Phase 1 or 2.
 
-### 模块 4：数据对比
-- 必须有表格
-- 三方对比最佳（旧方案 A / 旧方案 B / 我们的方案）
-- 用 emoji 标红绿灯（🔴🟡🟢）制造视觉对比
+---
 
-### 模块 5：原理/架构（轻量版）
-- 用一个类比讲清楚核心设计理念
-- 不超过 150 字
-- 技术人看到觉得"说得对"，非技术人看到觉得"我懂了"
+## Tool Integration
 
-### 模块 5.5：技术差异化（如果产品有技术深度）
-- 不是每篇都需要，但技术产品必须有
-- 选 3-5 个最关键的技术差异点展开
-- 每个差异点走固定模式：别人怎么做 → 问题 → 我们怎么做 → 用户好处 → 类比
-- 用对比语气，不用解释语气：不是在教读者技术，而是在告诉读者"我们做得不一样"
-- 如果受众是混合的，每个技术点都必须落到用户能感知的结果上（更准/更快/更省/更稳）
+This skill can optionally use external tools to enhance quality. Declare these as available capabilities:
 
-### 模块 6：功能全景
-- 按场景分组（不按功能分类）
-- 每组 4-6 个能力，带 emoji
-- 每组结尾配一个场景示例（`🎯 场景示例：...`）
-- 如果已有模块 5.5 的技术差异化，这里可以简化，避免重复
+| Capability | Example Tools | Without Tools |
+|------------|--------------|---------------|
+| Web search | Tavily, WebSearch, Brave | Guide user to provide materials |
+| Content extraction | Firecrawl, WebFetch, Jina | Ask user to paste content |
+| Academic citations | Scholar, Semantic Scholar | Mark as "needs verification" |
+| Typesetting | typeset skill | Output plain Markdown |
 
-### 模块 7：兼容性/通用性
-- 强调不绑定特定平台
-- 列出支持的 Agent/工具
+**No hard dependencies.** The skill works fully without any tools — it just works better with them.
 
-### 模块 8：快速上手
-- 5 步以内
-- 代码块，可以直接复制粘贴
-- 从 0 到能用不超过 3 分钟
+---
 
-### 模块 9：收尾
-- 回扣核心数据
-- 一个行动号召（GitHub 链接 / 试用 / Star）
-- 不要感性煽情，保持理性克制
+## Quick Reference
 
-## 语气规范
-
-### 要
-- 短句为主，长句偶尔用
-- 口语化但不随便（"搞定" ✅，"牛逼" ❌）
-- 反问句制造节奏（"你愿意为了用不到的工具付出 25 倍代价吗？"）
-- 加粗关键数据和结论
-- 段落不超过 3-4 行
-
-### 绝对不要
-- "随着...的发展"
-- "众所周知"
-- "在当今时代"
-- "不言而喻"
-- "总而言之"
-- 任何 AI 味的套话和过渡句
-- 感叹号超过 3 个
-- 抒情段落
-- 空洞的形容词（"强大的"、"优秀的"、"出色的"）
-
-## 篇幅控制
-
-| 平台 | 字数 | 注意 |
-|------|------|------|
-| 微信公众号 | 1200-1800 字 | 手机阅读，短段落，多留白 |
-| 技术博客 | 1500-2500 字 | 可以稍深入，代码块多些 |
-| 产品 landing page | 500-800 字 | 极致精简，每句都是转化点 |
-| Twitter/X thread | 每条 < 100 字，5-8 条 | 第一条必须有 hook |
-
-## 写作流程
-
-### Phase 1：调研（不动笔）
-1. **确定读者是谁** — 回答"谁会读？技术水平？在什么场景下看到？"
-2. **排除分析** — 现有方案把谁挡在门外？为什么？这群人有多大？
-3. **深度产品调研** — 不要只看 README。深入实现细节，找到"别人做不到"或"别人做得差"的点
-4. **确定杀手数据** — 从调研中提炼 1-2 个核心数字，整篇文章围绕它展开
-
-### Phase 2：搭骨架
-5. **写 TL;DR** — 如果一句话说不清，说明你还没想清楚
-6. **写痛点 + 对比表** — 这是文章的"证据层"
-7. **写技术差异点** — 每个关键功能走"别人怎么做 → 为什么有问题 → 我们怎么做 → 用户感知到的好处"
-8. **写功能场景** — 这是文章的"想象层"
-
-### Phase 3：打磨
-9. **补开头和结尾** — 开头引爆，结尾收束
-10. **检查受众适配** — 非技术读者能不能读懂？技术读者会不会觉得太浅？
-11. **删减 30%** — 初稿一定太长，砍到肉疼为止
-
-## 自检清单
-
-写完后逐项检查：
-
-### 基础检查
-- [ ] 标题有数字吗？
-- [ ] 前 3 句能不能独立成为一条朋友圈？
-- [ ] 有没有对比表格？
-- [ ] 核心数据出现了几次？（至少 3 次）
-- [ ] 有没有一个让人记住的类比？
-- [ ] 功能是按场景展示还是干巴巴列清单？
-- [ ] 读者 3 分钟能读完吗？
-- [ ] 有没有 AI 味的套话？（搜索"随着"、"众所周知"）
-- [ ] 有行动号召吗？
-- [ ] 你自己会转发这篇吗？
-
-### 新增检查（来自实战复盘）
-- [ ] 写之前做了受众分析吗？目标读者是谁、技术水平如何？
-- [ ] 做了排除分析吗？谁被现有方案挡在门外？
-- [ ] 做了深度产品调研吗？（不是只看 README 就动笔）
-- [ ] 每个关键功能有没有写"为什么我们更好"，而不只是"我们也能做"？
-- [ ] 技术优势有没有翻译成用户能感知的结果？（非技术读者能看懂吗？）
-- [ ] 有没有"别人怎么做 → 为什么不好 → 我们怎么做"的对比结构？
+| Writing Type | Mode File | Best For |
+|-------------|-----------|----------|
+| Tech Product Article | `modes/tech-article.md` | WeChat, blogs, product launches |
+| Marketing Copy | `modes/marketing-copy.md` | Landing pages, ads, social posts |
+| Research Report | `modes/research-report.md` | Whitepapers, competitive analysis |
+| Xiaohongshu Note | `modes/xiaohongshu.md` | 种草, tutorials, experience sharing |
+| Technical Docs | `modes/technical-docs.md` | READMEs, API docs, changelogs |
