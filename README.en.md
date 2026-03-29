@@ -1,230 +1,156 @@
-<p align="center">
-  <h1 align="center">Great Writer</h1>
-  <p align="center">AI writing that people actually want to read</p>
-  <p align="center">
-    <a href="#three-core-capabilities">Core</a> · <a href="#8-writing-modes">Modes</a> · <a href="#enhanced-capabilities">Enhanced</a> · <a href="#installation">Install</a> · <a href="./README.md">中文</a>
-  </p>
-</p>
+# Great Writer
+
+A writing skill for AI agents. 8 writing modes, 9 core modules, bilingual (EN/ZH).
+
+<a href="./README.md">中文</a>
 
 ---
 
-## TL;DR
+## What Problem It Solves
 
-A universal AI writing skill with **8 writing modes** (tech articles, marketing copy, research reports, Xiaohongshu notes, technical docs, rewrite/polish, editorial review, creative writing) and **5 enhanced capabilities** (style learning, platform adaptation, writing memory, SEO/GEO, data visualization). Research-driven, full-pipeline, anti-AI-slop. Bilingual (EN/ZH).
+You ask AI to write something. First sentence back:
 
-## What Problem Does It Solve
+> "In today's rapidly evolving technological landscape, our product leverages cutting-edge AI capabilities..."
 
-Ask AI to write something and you'll probably get this:
+The model isn't the problem. The missing writing system is.
 
-> "In today's rapidly evolving technological landscape, our product leverages cutting-edge AI capabilities to deliver an unprecedented experience..."
+| Task | Without Great Writer | With Great Writer |
+|------|---------------------|-------------------|
+| Tech article | "With the rapid development of cloud computing..." | "Your server bill tripled last month. Not because traffic grew." |
+| Marketing copy | "Our robust, comprehensive solution empowers..." | "Deploy in 3 minutes. Zero ops. Save $2,400/mo." |
+| Research report | "The industry shows tremendous growth potential..." | "Q4 funding hit $4.7B, up 340% YoY. Three signals to watch." |
+| Documentation | "This document aims to provide a comprehensive guide..." | "Install. Configure. First request. Handle errors. Ship." |
+| Rewrite | "Here is the revised version: [barely changed]" | "Diagnosis: 3 structural issues, 5 AI cliches, 2 logic gaps. Fixed each, changes shown." |
 
-> "随着人工智能技术的快速发展，XX 产品凭借其强大的功能和出色的性能..."
+Great Writer loads a writing system into your AI agent: mandatory research before writing, automatic AI-slop removal after, dedicated templates for each format.
 
-**Nobody reads that.** No data, no pain point, no imagery — just AI filler. And it doesn't matter whether you're writing a blog post, a landing page, a research brief, or a product review. Without guardrails, AI output tastes the same everywhere: hollow, formulaic, obviously machine-generated.
+---
 
-**After loading Great Writer:**
-
-| What you're writing | Without Great Writer | With Great Writer |
-|---------------------|---------------------|-------------------|
-| Tech article | "With the rapid development of cloud computing, we're proud to introduce a powerful new product..." | "Your server bill tripled last month. Not because traffic grew — because you're paying for idle compute." |
-| Marketing copy | "Our product delivers powerful features and outstanding performance in a comprehensive solution..." | "3-minute deploy. Zero ops. $2,400/month saved." |
-| Research report | "Based on the above analysis, this industry shows broad prospects and immense market potential..." | "$4.7B raised in this space in Q4 2025 — up 340% YoY. Three signals worth watching." |
-| Xiaohongshu note | "This product is really amazing, highly recommend!" | "Used it for two weeks, here's the honest take. Bottom line: worth it, but there's one trap to avoid." |
-| Technical docs | "This document aims to provide developers with a comprehensive API usage guide..." | "5 minutes to first request. Install, configure, call, handle errors, deploy to prod." |
-| Rewrite/Polish | "Here is the revised version: [barely changed]" | "Diagnosis: 3 structural issues, 5 AI-slop phrases, 2 logic gaps. Fixed each with change notes." |
-| Editorial Review | "The article is well-written. Consider adding more data." | "Structure 7/10, argument 5/10, rhythm 6/10, anti-AI-slop 4/10. Four-layer review + priority fix list." |
-| Creative Writing | "The moonlight spilled across the lake like silver silk, breathtakingly beautiful." | "No moonlight on the lake. Just the half-dead bulb at the end of the dock, turning the water the color of rust." |
-
-## Three Core Capabilities
-
-### 1. Research-Driven: No Research, No Writing
-
-Most AI writing fails not because of bad prose but because of **thin content**. The AI writes from training data or a one-line prompt, producing generic text that could describe any product.
-
-Great Writer enforces a three-step research protocol before any writing begins:
-- **Audience targeting** — Who reads this? What's their technical level? Where will they encounter it?
-- **Exclusion analysis** — Who's locked out by existing solutions? Those people are your strongest angle.
-- **Deep material mining** — If search tools are available, actively find competitor data and benchmarks. No tools? Ask the user for materials. Never fabricate.
-
-Research must be completed before drafting starts. No exceptions.
-
-### 2. Full Pipeline: 5 Phases, Each Independently Re-runnable
-
-```
-Research → Draft → Review → Humanize → Final Check
-```
-
-| Phase | What happens | Module loaded |
-|-------|-------------|---------------|
-| Research | Audience analysis, exclusion analysis, material mining | `core/research-protocol.md` |
-| Draft | Write first draft using mode template + writing DNA | `core/writing-dna.md` + `modes/*.md` |
-| Review | Structural review + logic review + fact check | `core/review-protocol.md` |
-| Humanize | Blacklist interception + rhythm reshaping | `core/humanizer.md` |
-| Final Check | Run mode-specific self-check checklist; fail = fix and re-check | Checklist in each mode file |
-
-Users can jump to any phase at any time. Say "re-research" to go back to step 1. Say "humanize" to jump straight to step 4. Each phase runs independently — no need to restart from scratch.
-
-### 3. Anti-AI-Slop: Bilingual Blacklist + Rhythm Reshaping
-
-**Level 1 — Hard rules: Blacklist interception**
-
-Chinese bans: "随着...的发展", "众所周知", "在当今时代", "不言而喻", "值得一提的是", "毋庸置疑"...
-English bans: "In today's rapidly evolving...", "It's worth noting...", "Game-changing", "Delve into", "Robust", "Seamless"...
-
-Adjectives without data support are banned outright: "powerful", "outstanding", "innovative", "leading", "revolutionary"...
-
-**Level 2 — Soft rules: Rhythm reshaping**
-
-- Sentence length variation: short sentences carry the backbone, long ones provide breathing room — no three consecutive sentences of similar length
-- Asymmetric structure: AI loves perfectly parallel three-item lists; humans don't write that way
-- Concrete details replace abstractions: "many users reported" becomes "2,847 users in the first week"
-- Rhetorical questions for rhythm: 1-2 per piece, no more
-- Mode-specific overrides: Xiaohongshu allows more emojis and internet slang; technical docs forbid rhetorical questions and conversational asides
-
-## 8 Writing Modes
-
-| Mode | Description | Typical platforms |
-|------|-------------|-------------------|
-| **Tech Product Article** | Data-driven product introduction, 9-module structure, pain-first opening | WeChat, tech blogs, product launches |
-| **Marketing Copy** | Conversion-focused, CTA-driven, supports landing pages / social / ads | Landing pages, social media, ad campaigns |
-| **Research Report** | Deep analysis, rigorous data, actionable conclusions for decision-makers | Whitepapers, competitive analysis, industry research |
-| **Xiaohongshu Note** | Useful + authentic + visually appealing, personal voice, visual formatting | Xiaohongshu / RED, review communities |
-| **Technical Docs** | Clarity > completeness > elegance, 5-minute onboarding, developer-facing | READMEs, API docs, changelogs, internal guides |
-| **Rewrite / Polish** | Diagnose and fix existing drafts; preserves original intent, never writes from zero | Emails, memos, existing drafts, any text |
-| **Editorial Review** | Four-layer review framework (structure / argument / rhythm / anti-AI-slop); gives feedback, not ghostwriting | Editing, content QA, writing coaching |
-| **Creative Writing** | Fiction, essays, speeches, scripts; imagery-first, show don't tell | Personal blogs, literary writing, speeches, screenplays |
-
-## Architecture
-
-```
-great-writer/
-├── SKILL.md                    # Entry point: routing + pipeline definition
-├── core/                       # Shared core modules (used by all modes)
-│   ├── writing-dna.md          #   6 universal writing principles
-│   ├── research-protocol.md    #   Research protocol (3 steps)
-│   ├── review-protocol.md      #   Review protocol (3 dimensions)
-│   ├── humanizer.md            #   Anti-AI-slop protocol (2 levels)
-│   ├── style-learner.md        #   Style learning: extract style fingerprint from reference text
-│   ├── adapt-protocol.md       #   Platform adaptation: one draft → 9 platforms
-│   ├── writing-memory.md       #   Writing memory: cross-session persistence
-│   ├── seo-layer.md            #   SEO/GEO optimization layer (optional)
-│   └── visualization.md        #   Data visualization suggestions
-├── modes/                      # Mode-specific templates
-│   ├── tech-article.md         #   Tech product article
-│   ├── marketing-copy.md       #   Marketing copy
-│   ├── research-report.md      #   Research report
-│   ├── xiaohongshu.md          #   Xiaohongshu note
-│   ├── technical-docs.md       #   Technical documentation
-│   ├── rewrite.md              #   Rewrite / Polish
-│   ├── editorial-review.md     #   Editorial review
-│   └── creative-writing.md     #   Creative writing
-└── README.md / README.en.md    # What you're reading
-```
-
-Layered design: `SKILL.md` handles routing and pipeline orchestration. `core/` contains the writing DNA and enhanced capability modules shared across all modes. `modes/` holds structure templates and self-check checklists for each writing type. Every file is self-contained and loaded on demand.
-
-## Enhanced Capabilities
-
-These modules activate on demand — not loaded unless triggered:
-
-| Capability | Trigger | Module |
-|-----------|---------|--------|
-| **Style Learning** | "learn this style" / "match this style" / provide reference text | `core/style-learner.md` |
-| **Platform Adaptation** | "adapt for Twitter" / "turn this into a Xiaohongshu post" / "publish everywhere" | `core/adapt-protocol.md` |
-| **Writing Memory** | "remember this style" / "save writing memory" / auto-offered after tasks | `core/writing-memory.md` |
-| **SEO/GEO Optimization** | "SEO" / "keywords" / web-published content | `core/seo-layer.md` |
-| **Data Visualization** | Auto for data-rich content, or "add chart suggestions" / "visualize this" | `core/visualization.md` |
-
-These extend the pipeline — they don't replace it. Style learning affects Phase 2+4, SEO adds to Phase 5, visualization enhances Phase 2, etc.
-
-## Installation
-
-### Claude Code
+## Quick Start
 
 ```bash
-# Clone the repo
 git clone https://github.com/d-wwei/great-writer.git
-
-# Create symlink (macOS / Linux)
 ln -sf "$(pwd)/great-writer" ~/.claude/skills/great-writer
 ```
 
-Once installed, Claude Code auto-loads the skill when it detects trigger words in conversation.
+Say "write article", "小红书种草", or "write a README" in conversation to trigger.
 
-### Codex / agentskills.io
+---
 
-Great Writer uses the standard Skill directory structure (`SKILL.md` entry point + module files), compatible with the agentskills.io format. Import the repo directly.
+## What It Does
 
-### Other Agents
+**Write 8 types of content:**
 
-Inject the content of `SKILL.md` as a system prompt or context. Include the core module files (`core/` and `modes/`) alongside it, following the file references in `SKILL.md`.
+| Mode | Triggers | Use For |
+|------|----------|---------|
+| Tech Product Article | write article, blog post, 公众号 | WeChat, tech blogs, product launches |
+| Marketing Copy | marketing copy, landing page, ad copy | Landing pages, social media, ads |
+| Research Report | whitepaper, competitive analysis, 投研 | Whitepapers, competitive reports |
+| Xiaohongshu Note | 小红书, 种草, xiaohongshu | Product recommendations, tutorials |
+| Technical Docs | README, API docs, changelog | READMEs, API docs, internal guides |
+| Rewrite / Polish | rewrite, polish, improve this | Existing drafts, emails, memos |
+| Editorial Review | critique this, editorial review, 审稿 | Feedback on others' writing |
+| Creative Writing | fiction, essay, speech, screenplay | Stories, essays, speeches, scripts |
 
-If your agent doesn't support multi-file loading, concatenate `SKILL.md` + all `core/*.md` + the relevant `modes/*.md` into a single file.
-
-## Usage
-
-### Trigger Words
-
-The skill auto-activates when these keywords appear in conversation:
-
-| Mode | Chinese triggers | English triggers |
-|------|-----------------|-----------------|
-| Tech Article | 写文章, 公众号, 博客, 产品介绍 | write article, blog post, product article |
-| Marketing Copy | 文案, 推广文, 产品文案 | marketing copy, ad copy, landing page |
-| Research Report | 白皮书, 研究报告, 竞品分析, 投研 | whitepaper, research report, competitive analysis |
-| Xiaohongshu | 小红书, 种草, 笔记 | xiaohongshu |
-| Technical Docs | 技术文档, 内部文档 | README, API docs, changelog, technical docs |
-| Rewrite / Polish | 改写, 润色, 帮我改 | rewrite, polish, improve this, edit this |
-| Editorial Review | 审稿, 帮我看看 | editorial review, critique this |
-| Creative Writing | 写小说, 写故事, 写散文, 写演讲稿 | creative writing, fiction, short story, essay, speech |
-
-### Example Dialogue
+**Every piece goes through a 5-phase pipeline:**
 
 ```
-You: Write a blog post about our new product. Key selling points: 10x faster, 80% cheaper.
-AI:  [Routes to "Tech Product Article" mode]
-
-     Got it. Before writing, a few research questions:
-     1. Who's the target reader? Developers, PMs, or executives?
-     2. Main competitors?
-     3. What's the "10x faster" benchmark? Any specific numbers?
-
-You: Targeting developers. Competitors are XX and YY. Benchmark here: ...
-AI:  [Completes research → drafts using 9-module structure → reviews → humanizes → final check → outputs]
+Research → Draft → Review → Humanize → Finalize
 ```
 
-### Phase Jumping
+Each phase runs independently. Say "humanize" to jump straight to phase 4 without restarting.
 
-Want to re-run a specific phase after the first draft:
+**5 enhanced capabilities (activated on demand):**
 
-| You say | What happens |
-|---------|-------------|
-| "re-research" / "重新调研" | Back to research phase |
-| "rewrite" / "重写" | Back to drafting phase |
-| "review" / "审校" | Run review protocol |
-| "humanize" / "去AI味" | Run humanizer protocol |
-| "check" / "自检" | Run final check checklist |
+| Capability | Trigger |
+|-----------|---------|
+| Style Learning | Provide reference text, say "match this style" |
+| Platform Adaptation | "adapt for Twitter" or "转成小红书版" |
+| Writing Memory | Persists brand names, terms, data, style across sessions |
+| SEO/GEO Optimization | "SEO", suggests optimization for web-published content |
+| Data Visualization | Auto-triggers for data-rich content, suggests charts |
+
+---
+
+## How It Works
+
+Layered architecture. SKILL.md routes requests, core/ holds shared capabilities, modes/ holds format templates. Each invocation loads only what it needs.
+
+```
+great-writer/
+├── SKILL.md                    # Router + pipeline definition
+├── core/                       # Shared core (9 modules)
+│   ├── writing-dna.md          # 6 writing principles
+│   ├── research-protocol.md    # Pre-writing research
+│   ├── review-protocol.md      # Post-draft review
+│   ├── humanizer.md            # Anti-AI-slop protocol
+│   ├── style-learner.md        # Style fingerprint extraction
+│   ├── adapt-protocol.md       # Multi-platform adaptation
+│   ├── writing-memory.md       # Cross-session persistence
+│   ├── seo-layer.md            # SEO/GEO optimization
+│   └── visualization.md        # Data visualization suggestions
+├── modes/                      # Format templates (8 modes)
+│   ├── tech-article.md         # Tech product articles
+│   ├── marketing-copy.md       # Marketing copy
+│   ├── research-report.md      # Research reports
+│   ├── xiaohongshu.md          # Xiaohongshu notes
+│   ├── technical-docs.md       # Technical documentation
+│   ├── rewrite.md              # Rewrite / polish
+│   ├── editorial-review.md     # Editorial review
+│   └── creative-writing.md     # Creative writing
+├── scripts/bundle.sh           # Single-file bundler
+├── great-writer-bundled.md     # Bundled version for single-file agents
+└── README.en.md
+```
+
+---
+
+## Installation
+
+**Claude Code:**
+
+```bash
+git clone https://github.com/d-wwei/great-writer.git
+ln -sf "$(pwd)/great-writer" ~/.claude/skills/great-writer
+```
+
+**Codex / agentskills.io:** Standard Skill directory structure. Import the repo directly.
+
+**Other agents:** Use `great-writer-bundled.md` as your system prompt.
+
+---
 
 ## Compatibility
 
-| Platform | Support level | Notes |
-|----------|--------------|-------|
-| Claude Code | Full support | Native Skill format, auto-trigger, multi-file on-demand loading |
-| Claude (chat) | Manual load | Paste SKILL.md content at the start of conversation |
-| Cursor / Windsurf | Full support | Load as rules or context files |
-| ChatGPT | Manual load | Use as Custom Instructions or conversation context |
-| Codex / agentskills.io | Compatible | Standard Skill directory structure |
-| Other LLM agents | Manual load | Inject SKILL.md as system prompt |
+| Platform | Method |
+|----------|--------|
+| Claude Code | Native Skill, auto-triggers |
+| Cursor / Windsurf | Load as rules file |
+| Codex | agentskills.io format compatible |
+| ChatGPT | Paste SKILL.md into Custom Instructions |
+| Other LLMs | Inject bundled version as system prompt |
+
+---
+
+## Anti-AI-Slop
+
+30+ bilingual blacklist rules built in. Chinese bans: "随着", "赋能", "一站式". English bans: "leverage", "delve into", "game-changing", "robust", "seamless".
+
+The blacklist is layer one. Layer two reshapes rhythm: breaks AI's perfect parallel structures, varies sentence length, replaces "significant number of users" with "2,847 users in the first week."
+
+---
 
 ## Tool Integration
 
-Great Writer has zero hard dependencies on external tools, but works better with them:
+No hard dependencies. Auto-enhances when tools are available:
 
-| Capability | Available tools | Without tools |
-|------------|----------------|---------------|
-| Web search | Tavily, WebSearch, Brave | Guide user to provide materials |
-| Content extraction | Firecrawl, WebFetch, Jina | Ask user to paste content |
-| Academic citations | Scholar, Semantic Scholar | Mark as "needs verification" |
+| Capability | Tools | Without |
+|-----------|-------|---------|
+| Search | Tavily, WebSearch, Brave | Guides user to provide materials |
+| Extraction | Firecrawl, WebFetch | Asks user to paste content |
+| Typesetting | typeset skill | Outputs plain Markdown |
+
+---
 
 ## License
 
