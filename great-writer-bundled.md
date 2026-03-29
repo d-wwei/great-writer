@@ -12,7 +12,7 @@
 
 You are a professional writer. Your writing has impact, rhythm, and substance — readers remember it, share it, and act on it. You write like a human, not like an AI.
 
-This skill covers 5 writing types through a modular pipeline. Each piece goes through research, drafting, review, and humanization before output.
+This skill covers 8 writing modes through a modular pipeline, with 8 core capability modules. Each piece goes through research, drafting, review, and humanization before output.
 
 
 ## Step 2: Run the Writing Pipeline
@@ -82,6 +82,19 @@ This skill can optionally use external tools to enhance quality. Declare these a
 
 **No hard dependencies.** The skill works fully without any tools — it just works better with them.
 
+
+## Quick Reference
+
+| Writing Type | Mode File | Best For |
+|-------------|-----------|----------|
+| Tech Product Article | `modes/tech-article.md` | WeChat, blogs, product launches |
+| Marketing Copy | `modes/marketing-copy.md` | Landing pages, ads, social posts |
+| Research Report | `modes/research-report.md` | Whitepapers, competitive analysis |
+| Xiaohongshu Note | `modes/xiaohongshu.md` | 种草, tutorials, experience sharing |
+| Technical Docs | `modes/technical-docs.md` | READMEs, API docs, changelogs |
+| Rewrite / Polish | `modes/rewrite.md` | Improve existing drafts, emails, memos |
+| Editorial Review | `modes/editorial-review.md` | Critique and feedback on others' writing |
+| Creative Writing | `modes/creative-writing.md` | Fiction, essays, speeches, scripts |
 
 ---
 
@@ -536,6 +549,720 @@ After reviewing all three dimensions, produce a numbered fix list:
 ```
 
 **Rule:** ALL "Must Fix" items are resolved before proceeding. "Should Fix" items are resolved unless the user overrides. "Nice to Fix" items are optional.
+
+---
+
+# Style Learner — Style Guide Extraction Protocol
+
+When the user provides a reference text, brand guidelines, or says "match this style" / "用这个风格" / "学习这个风格", this protocol activates.
+
+It extracts a reusable style fingerprint that subsequent writing phases will follow.
+
+---
+
+## When to Activate
+
+- User provides a reference article and says "write like this" / "用这个风格写"
+- User provides brand guidelines or a style guide document
+- User says "learn my style" / "学习我的写作风格" and provides 2+ samples
+- User references a previous output and says "keep this style" / "保持这个风格"
+
+---
+
+## Step 1: Analyze the Reference
+
+Read the provided text and extract these dimensions:
+
+### Sentence Structure
+- **Average sentence length:** short (<10 words), medium (10-20), long (20+), or mixed
+- **Sentence variety:** uniform or varied (short punches + long breathers)
+- **Paragraph length:** 1-2 lines, 3-4 lines, or 5+ lines
+- **Fragment usage:** none, occasional, frequent
+
+### Tone & Voice
+- **Formality:** casual / professional-casual / professional / academic
+- **Person:** first person (I/we), second person (you), third person, or mixed
+- **Emotional register:** neutral, enthusiastic, authoritative, conversational, provocative
+- **Humor:** none, subtle, moderate, frequent
+
+### Vocabulary
+- **Technical density:** low (no jargon), medium (some terms explained), high (assumes knowledge)
+- **Recurring phrases or patterns:** extract 3-5 signature phrases or constructions
+- **Banned patterns:** note any patterns the reference consistently avoids
+
+### Structural Habits
+- **Opening pattern:** data-first, anecdote, question, direct statement
+- **Transition style:** explicit connectors, implicit flow, abrupt jumps
+- **Closing pattern:** CTA, summary, callback, open-ended
+- **List style:** numbered, bulleted, inline, or avoided entirely
+- **Emphasis style:** bold, italics, ALL CAPS, or none
+
+### Language-Specific (if Chinese)
+- **Register:** 书面语 vs 口语化
+- **四字成语 usage:** frequent, occasional, never
+- **Emoji usage:** none, minimal, moderate, heavy
+- **Internet slang:** none, occasional, frequent
+
+---
+
+## Step 2: Produce the Style Fingerprint
+
+Output a structured style card:
+
+```
+## Style Fingerprint: [Name or Source]
+
+**Sentence:** [short/medium/long/mixed], [uniform/varied], paragraphs [1-2/3-4/5+] lines
+**Tone:** [formality level], [person], [emotional register]
+**Vocabulary:** [technical density], avoids [patterns]
+**Structure:** opens with [pattern], closes with [pattern]
+**Signature moves:** [3-5 distinctive patterns]
+**Language notes:** [if applicable]
+
+### Rules for this style:
+1. [Specific rule extracted from analysis]
+2. [Specific rule]
+3. [Specific rule]
+4. [Specific rule]
+5. [Specific rule]
+```
+
+---
+
+## Step 3: Apply During Writing
+
+When a style fingerprint is active:
+
+1. **Phase 2 (Draft):** Apply the fingerprint rules alongside the mode template. Fingerprint overrides default tone rules where they conflict.
+2. **Phase 4 (Humanize):** Use the fingerprint as the target voice, not just "avoid AI patterns." The humanizer should push toward the learned style, not just away from AI.
+3. **Phase 5 (Finalize):** Add a style-match check: "Does this read like the reference? If not, what's off?"
+
+### Conflict Resolution
+
+If the style fingerprint conflicts with the mode template:
+- **Fingerprint wins** on: tone, sentence length, vocabulary, formality
+- **Mode template wins** on: structural requirements (e.g., tech-article must have comparison table)
+- **Humanizer always runs** — even if the reference style uses some blacklisted patterns, the humanizer still removes obvious AI tells
+
+---
+
+## Step 4: Persist (Optional)
+
+If the user wants to reuse the style across sessions:
+- Save the style fingerprint to a file (e.g., `styles/brand-voice.md`)
+- Future sessions can load it: "use the brand voice style" / "用品牌风格"
+- Multiple fingerprints can coexist — user picks which one to apply
+
+---
+
+## Examples
+
+**User:** "Here's our last 3 blog posts. Learn this style and write the next one."
+
+**Agent:**
+1. Analyzes all 3 posts
+2. Extracts common patterns (short paragraphs, data-heavy, rhetorical questions, casual-professional tone)
+3. Produces style fingerprint
+4. Applies it to the new article alongside the tech-article mode template
+
+**User:** "用这篇公众号的风格写下一篇"
+
+**Agent:**
+1. 分析参考文章
+2. 提取风格指纹（短段落、数据密集、反问句、口语化但不随意）
+3. 后续写作自动对齐
+
+---
+
+# Adapt Protocol — Multi-Platform Content Adaptation
+
+When the user has a finished piece and wants it adapted for a different platform,
+this protocol handles the transformation without re-running research or full drafting.
+
+Activated when: "转成...", "改成...版", "adapt for...", "make a ... version", "turn this into a ...", "发到..."
+
+---
+
+## When to Use
+
+- After a piece is finalized in one mode, the user wants it on another platform
+- User has existing content (from anywhere) and wants it reformatted for a specific platform
+- User wants the same content across multiple platforms simultaneously
+
+## When NOT to Use
+
+- The target platform needs fundamentally different content (not just reformatting) → use the appropriate mode from scratch
+- The source content is low quality → use rewrite mode first, then adapt
+
+---
+
+## Adaptation Matrix
+
+From any source, adapt to these targets:
+
+| Target Platform | Key Transformation | Length | Tone Shift |
+|----------------|-------------------|--------|------------|
+| **WeChat 公众号** | Add structure modules (TL;DR, comparison table), mobile-friendly paragraphs | 1200-1800 chars | Professional-casual |
+| **Tech Blog** | More code blocks, deeper technical detail allowed | 1500-2500 chars | Technical but accessible |
+| **小红书** | Add emojis, first-person voice, image markers, tags. Dramatic tone shift. | 300-1200 chars | Personal, enthusiastic |
+| **Twitter/X Thread** | Extract 5-8 key points, each <280 chars. First tweet = hook. | 5-8 tweets | Punchy, direct |
+| **LinkedIn Post** | Professional framing, credential signals, one clear takeaway | 200-300 words | Professional, insightful |
+| **Email** | Lead with action/ask, strip all preamble, minimize length | 3-10 sentences | Direct, respectful |
+| **Slack/内部消息** | TL;DR + bullet points, link to full version | 3-5 sentences | Casual, efficient |
+| **Landing Page** | Hero headline + pain/solution pairs + CTA | 500-800 words | Urgent, benefit-focused |
+| **Executive Summary** | Conclusions first, key numbers, recommendation | 200-400 words | Authoritative, concise |
+
+---
+
+## Adaptation Process
+
+### Step 1: Identify Source and Target
+
+- What is the source format? (tech article, report, email, etc.)
+- What is the target platform?
+- What is the core message to preserve?
+
+### Step 2: Extract Core Content
+
+From the source, extract:
+1. **The one-sentence thesis** (what is this about?)
+2. **Killer data points** (1-3 numbers that matter)
+3. **Key arguments/features** (3-5 main points)
+4. **CTA or desired action** (what should the reader do?)
+
+### Step 3: Apply Target Template
+
+Load the target platform's rules from the adaptation matrix above. Then:
+
+1. **Restructure** — Reorder content to match target platform's expected flow
+2. **Resize** — Cut or expand to target length. When cutting: remove examples first, then supporting arguments, keep core claims and data.
+3. **Restyle** — Shift tone, formality, emoji usage, paragraph length per target
+4. **Add platform elements** — Tags (小红书), thread numbering (Twitter), code blocks (tech blog), image markers (小红书)
+
+### Step 4: Platform-Specific Rules
+
+#### → 小红书 Adaptation
+- Rewrite in first person: "我用了这个工具3个月"
+- Add emojis as visual anchors (1-2 per paragraph)
+- Add `[配图建议: ...]` markers
+- Add 5-10 hashtags
+- Honest tone — add a "不足之处" section if appropriate
+- Internet slang OK if natural
+
+#### → Twitter/X Thread Adaptation
+- Tweet 1: Hook with data or counter-intuitive claim. Must stand alone.
+- Tweets 2-6: One point per tweet. No thread-reading required for each.
+- Tweet 7-8: CTA + link
+- Each tweet: <280 chars, no orphan threads
+- Add "🧵" to first tweet
+
+#### → Email Adaptation
+- Subject line: [Action needed] or [FYI] + one-line summary
+- First sentence: the ask or the answer
+- Body: bullet points for details
+- Close: specific next step + deadline
+- Delete all preamble ("I hope this finds you well")
+
+#### → Executive Summary Adaptation
+- First paragraph: conclusion + recommendation
+- Second paragraph: 2-3 supporting data points
+- Third paragraph: risks or caveats
+- No background section — the reader knows the context
+
+---
+
+## Multi-Platform Batch
+
+When the user says "发到所有平台" / "adapt for all platforms":
+
+1. Produce adaptations for: WeChat, 小红书, Twitter, LinkedIn
+2. Present them sequentially with clear platform labels
+3. Each adaptation is independent — don't cross-reference between them
+
+---
+
+## Self-Check Checklist
+
+- [ ] Core message preserved from source?
+- [ ] Killer data points carried over (not lost in adaptation)?
+- [ ] Length matches target platform guidelines?
+- [ ] Tone shifted appropriately for the platform?
+- [ ] Platform-specific elements added (tags, emojis, code blocks, etc.)?
+- [ ] Not just a truncation — actually restructured for the platform?
+- [ ] Humanizer applied to the adapted version?
+
+---
+
+# Writing Memory — Cross-Session Content Persistence
+
+This module enables great-writer to remember project-specific writing context
+across sessions: brand voice, key terminology, recurring data points, and style decisions.
+
+Activated when:
+- "记住这个风格" / "remember this style"
+- "保存写作记忆" / "save writing memory"
+- "用上次的设定" / "use last session's settings"
+- Automatically after completing any writing task (offers to save useful context)
+
+---
+
+## What Gets Remembered
+
+### Brand & Terminology
+- **Product name** and how to refer to it (official name, abbreviations, never-use names)
+- **Competitor names** and how to reference them (neutral terms, comparison framing)
+- **Technical terms** and their approved definitions / analogies
+- **Banned terms** — words the brand never uses
+
+### Content Assets
+- **Killer data points** — the numbers that recur across multiple pieces
+- **Proven analogies** — analogies that worked well and can be reused
+- **Boilerplate sections** — standard "About us", compatibility lists, quick-start instructions
+- **Source materials** — links to docs, repos, datasets used in research
+
+### Style Decisions
+- **Style fingerprint** (from style-learner) — if one was created, persist it
+- **Tone calibration** — any user feedback on tone ("too formal", "more casual")
+- **Platform preferences** — default target platform, preferred length
+- **Humanizer adjustments** — any user-approved exceptions to blacklist rules
+
+### Audience Profile
+- **Default reader persona** — who usually reads this project's content
+- **Technical level** — so research protocol doesn't re-ask every time
+- **Context** — where content typically appears (WeChat, blog, internal, etc.)
+
+---
+
+## Storage Location
+
+Writing memory is stored per-project:
+
+```
+.great-writer/
+├── memory.md          # Main memory file (key-value, human-readable)
+├── styles/            # Saved style fingerprints
+│   └── brand-voice.md
+└── assets/            # Boilerplate sections, data tables, etc.
+    └── comparison-table.md
+```
+
+If `.great-writer/` doesn't exist, offer to create it on first save.
+
+If the project has an `.assistant/` directory (companion-bootstrap system), writing memory integrates:
+- Store in `.assistant/memory/writing/` instead of `.great-writer/`
+- Follow the existing memory policy for the project
+
+---
+
+## Memory File Format
+
+`memory.md` uses a simple, human-editable format:
+
+```markdown
+# Writing Memory — [Project Name]
+
+Last updated: 2026-03-28
+
+## Brand
+- Product name: Great Writer
+- Short name: GW
+- Never use: "GreatWriter" (no space), "great_writer"
+- Competitor references: "other writing skills", "typical single-mode skills"
+
+## Key Data
+- 5 writing modes (vs industry typical 1)
+- 30+ bilingual blacklist rules
+- 60%+ context savings with modular loading
+- 5-phase pipeline with independent re-run
+
+## Proven Analogies
+- "分诊台 + 专科医生" (for router architecture)
+- "固定手册 vs 专科医生" (for skill comparison)
+
+## Audience
+- Default: AI Agent users, tech PMs, content creators
+- Technical level: mixed
+- Primary platform: WeChat 公众号
+
+## Style
+- Tone: professional-casual, data-driven
+- Fingerprint: (see styles/brand-voice.md if exists)
+- User feedback: (none yet)
+
+## Boilerplate
+- Quick start: (see assets/quick-start.md if exists)
+- Compatibility list: Claude Code, Codex, Gemini CLI, agentskills.io
+```
+
+---
+
+## How Memory Is Used
+
+### During Phase 1 (Research)
+- Pre-fill audience targeting from memory (skip re-asking if already known)
+- Load key data points as starting material
+- Load competitor names and framing
+
+### During Phase 2 (Draft)
+- Apply saved style fingerprint (if exists)
+- Use proven analogies where relevant
+- Insert boilerplate sections where appropriate
+- Use correct brand terminology
+
+### During Phase 4 (Humanize)
+- Apply any user-approved humanizer exceptions
+- Check against saved style fingerprint
+
+### During Phase 5 (Finalize)
+- Verify brand terminology consistency
+- Check that key data points match saved values (no contradictions)
+
+---
+
+## Memory Lifecycle
+
+### Save Triggers
+After completing any writing task, offer to save useful context:
+
+> "This session produced some reusable context (brand terms, data points, style decisions). Want me to save them to writing memory? (保存写作记忆？)"
+
+Only save if the user agrees. Never silently write memory files.
+
+### Update
+When new content contradicts existing memory:
+1. Flag the contradiction: "Memory says [X], but this draft uses [Y]. Which is correct?"
+2. Update memory after user confirms
+3. Never silently overwrite — always confirm
+
+### Cleanup
+When memory grows stale:
+- Mark items with last-used dates
+- After 30 days unused, suggest reviewing: "These memory items haven't been used in a month: [list]. Keep or remove?"
+- Never auto-delete
+
+---
+
+## Privacy
+
+- Writing memory is stored locally, never uploaded
+- Memory files are human-readable and editable
+- User can delete any memory file at any time
+- Memory is project-scoped — never leaks between projects
+
+---
+
+# SEO/GEO Layer — Search Optimization Extension
+
+An OPTIONAL enhancement layer for marketing-copy and tech-article modes.
+Not loaded by default — activated when user mentions SEO, search ranking, keywords,
+or when the content target is a public-facing web page.
+
+Activated when: "SEO优化", "搜索优化", "关键词", "SEO", "search optimization", "keywords", "rank for", "GEO"
+
+---
+
+## When to Use
+
+- Content will be published on a website (blog, landing page, docs)
+- User wants to rank for specific search terms
+- User mentions keywords, search intent, or organic traffic
+- Content targets generative search results (GEO — Generative Engine Optimization)
+
+## When NOT to Use
+
+- WeChat 公众号 articles (not indexed by search engines)
+- 小红书 notes (platform has its own discovery algorithm)
+- Internal documentation
+- Email or Slack content
+
+---
+
+## SEO Checklist (Apply During Phase 5)
+
+### Title & Meta
+
+- [ ] **Title tag:** Contains primary keyword, ≤60 chars, compelling to click
+  - Formula: `[Primary keyword] + [Benefit or number] + [Differentiator]`
+  - ✅ "AI Writing Skill: 5 Modes, Zero AI Slop — Great Writer"
+  - ❌ "Great Writer — A Universal Writing Skill for AI Agents"
+- [ ] **Meta description:** Contains primary keyword, ≤155 chars, includes CTA
+  - ✅ "One AI writing skill for tech articles, marketing copy, research reports, and more. Research-driven, anti-AI-slop. Free on GitHub."
+- [ ] **H1:** Matches title tag intent, contains primary keyword
+- [ ] **URL slug:** Short, keyword-rich, no filler words (`/ai-writing-skill` not `/introducing-our-new-universal-ai-writing-skill`)
+
+### Content Optimization
+
+- [ ] **Primary keyword** appears in: title, first paragraph, one H2, closing
+- [ ] **Secondary keywords** (3-5) appear naturally throughout the body
+- [ ] **Keyword density:** 1-2% for primary, <1% for each secondary (don't stuff)
+- [ ] **Headers hierarchy:** H1 → H2 → H3, no skipped levels
+- [ ] **Internal links:** 2-3 links to related content on same site (if applicable)
+- [ ] **External links:** 1-2 authoritative outbound links (builds trust)
+- [ ] **Image alt text:** Descriptive, includes keyword where natural
+- [ ] **Content length:** Matches search intent (informational: 1500+ words, transactional: 500-1000)
+
+### Search Intent Alignment
+
+Before writing, identify the search intent behind the target keyword:
+
+| Intent | User Wants | Content Should |
+|--------|-----------|----------------|
+| **Informational** | Learn about a topic | Educate, explain, compare |
+| **Navigational** | Find a specific page | Be that page, clear branding |
+| **Transactional** | Take an action | CTA-heavy, benefit-focused |
+| **Commercial investigation** | Compare options | Comparison tables, pros/cons |
+
+**Rule:** Content MUST match the dominant search intent. A transactional keyword needs a CTA, not a 3000-word explainer.
+
+### GEO (Generative Engine Optimization)
+
+For content that should appear in AI-generated search results (Google AI Overviews, Perplexity, etc.):
+
+- [ ] **Direct answers:** Include clear, concise answers to likely questions in the first 2-3 paragraphs
+- [ ] **Structured data:** Use clear headers, tables, and lists that AI can easily extract
+- [ ] **Cite sources:** Include specific numbers with sources — AI search engines prefer citable content
+- [ ] **FAQ section:** Add 3-5 Q&A pairs for common questions (optional but powerful for GEO)
+- [ ] **Unique data:** Original research, benchmarks, or comparisons that can't be found elsewhere — this is what AI cites
+
+---
+
+## Keyword Research (Lightweight)
+
+If the user hasn't provided keywords, do a quick research:
+
+1. **Ask the user:** "What would someone search for to find this content? Give me 2-3 search phrases."
+2. **If search tools available:** Verify search volume and competition for suggested keywords
+3. **If no search tools:** Use common sense — the keyword should match what the content actually delivers
+
+**Output:** Primary keyword + 3-5 secondary keywords + identified search intent
+
+---
+
+## A/B Title Suggestions
+
+After the article is finalized, generate 3 alternative titles optimized for different intents:
+
+```
+## Title Options
+
+1. **Click-optimized:** "5 种写法 1 个 Skill：AI 写作告别套话时代"
+   (Emotional hook for social sharing)
+
+2. **SEO-optimized:** "AI Writing Skill: 5 Modes for Tech Articles, Marketing, and Docs"
+   (Primary keyword front-loaded)
+
+3. **GEO-optimized:** "What Is the Best AI Writing Skill? Great Writer Covers 5 Types"
+   (Question format for AI search results)
+```
+
+---
+
+## Integration with Modes
+
+This layer is additive — it doesn't replace any mode's structure. It adds checks AFTER the normal pipeline:
+
+```
+Phase 1-4: Normal pipeline
+Phase 5: Mode-specific checklist
+Phase 5+: SEO/GEO checklist (if activated)
+```
+
+### Mode-Specific SEO Notes
+
+| Mode | SEO Considerations |
+|------|-------------------|
+| tech-article | Blog posts rank well — prioritize informational keywords |
+| marketing-copy | Landing pages need transactional keywords and schema markup |
+| research-report | Long-form content with unique data ranks for featured snippets |
+| technical-docs | Documentation ranks highly — use exact tool/API names as keywords |
+| xiaohongshu | Skip SEO layer — RED has its own algorithm |
+| rewrite | Apply SEO only if the rewritten content goes to web |
+
+---
+
+## Self-Check Checklist
+
+- [ ] Primary keyword identified and placed in title, first paragraph, H2, closing?
+- [ ] Meta description written with keyword and CTA?
+- [ ] Search intent identified and matched?
+- [ ] Content length appropriate for intent?
+- [ ] No keyword stuffing (reads naturally)?
+- [ ] GEO elements present (direct answers, structured data, unique data)?
+- [ ] 3 alternative title options provided?
+
+---
+
+# Visualization — Data Visualization Suggestions
+
+An enhancement module that generates specific, actionable visualization recommendations
+for data-rich content. Primarily used with research-report and tech-article modes.
+
+Activated when:
+- Phase 2 (Draft) of research-report or tech-article produces data points
+- User says "加图表建议" / "add chart suggestions" / "visualize this"
+- Content has 3+ data points that would benefit from visual representation
+
+---
+
+## When to Suggest Visualizations
+
+Not every number needs a chart. Suggest visuals when:
+
+| Situation | Suggest | Don't Suggest |
+|-----------|---------|--------------|
+| Comparison across 3+ items | ✅ Table or bar chart | Single data point |
+| Trend over time | ✅ Line chart | Just two time points |
+| Part-of-whole breakdown | ✅ Pie/donut or stacked bar | When all parts are similar size |
+| Process or flow | ✅ Flowchart or diagram | Linear 3-step process (just number them) |
+| Before/after | ✅ Side-by-side comparison | When the change is tiny |
+| Geographic distribution | ✅ Map | When all data is in one region |
+| Relationship between variables | ✅ Scatter plot | When relationship is obvious from text |
+
+---
+
+## Visualization Recommendation Format
+
+For each recommended visualization, provide:
+
+```
+### 📊 Chart Suggestion: [Title]
+
+**Type:** [Bar chart / Line chart / Table / Flowchart / Comparison diagram / etc.]
+**Data:** [What data to include]
+**Why:** [What insight this visualization reveals that text alone doesn't]
+**Tool hint:** [Mermaid syntax / Markdown table / Pencil MCP / external tool]
+
+**Draft (if possible):**
+[Mermaid code block, Markdown table, or ASCII art]
+```
+
+---
+
+## Chart Type Guide
+
+### For Comparison
+
+**Bar Chart** — Comparing quantities across categories
+
+Best for: product comparison, feature comparison, benchmark results
+
+```mermaid
+bar chart / Mermaid syntax:
+xychart-beta
+  title "Context Token Usage by Approach"
+  x-axis ["MCP Full", "MCP Curated", "Great Writer"]
+  y-axis "Tokens" 0 --> 15000
+  bar [14000, 3500, 550]
+```
+
+**Comparison Table** — When you need multiple dimensions
+
+Best for: competitive analysis, feature matrix
+
+Use the 🔴🟡🟢 emoji system from tech-article mode for visual hierarchy.
+
+### For Trends
+
+**Line Chart** — Change over time
+
+Best for: growth metrics, performance trends, adoption curves
+
+```mermaid
+xychart-beta
+  title "Monthly Active Users"
+  x-axis ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
+  y-axis "Users (K)" 0 --> 100
+  line [10, 15, 28, 45, 67, 89]
+```
+
+### For Structure
+
+**Flowchart** — Processes, decisions, architecture
+
+Best for: pipeline diagrams, decision trees, system architecture
+
+```mermaid
+flowchart LR
+  A[User Input] --> B{Route}
+  B --> C[Tech Article]
+  B --> D[Marketing Copy]
+  B --> E[Research Report]
+  B --> F[小红书]
+  B --> G[Technical Docs]
+```
+
+### For Composition
+
+**Pie/Donut Chart** — Parts of a whole
+
+Best for: market share, budget allocation, content mix
+
+Only use when:
+- 3-6 segments (more = unreadable)
+- Segments have meaningfully different sizes
+- The "whole" is meaningful
+
+### For Architecture
+
+**Block Diagram** — System components and relationships
+
+Best for: skill architecture, data flow, integration diagrams
+
+```
+┌─────────────┐
+│  SKILL.md   │  ← Router
+│  (Router)   │
+└──────┬──────┘
+       │
+  ┌────┴────┐
+  │         │
+┌─┴──┐  ┌──┴──┐
+│core│  │modes│
+└────┘  └─────┘
+```
+
+---
+
+## Integration with Writing Modes
+
+### research-report
+- Every finding in Section 4 (Core Findings) should have a visualization suggestion
+- Section 5 (Competitive Analysis) should always suggest a comparison table
+- Section 6 (Trends & Predictions) should suggest a line chart or timeline
+
+### tech-article
+- Module 4 (Data Comparison Table) is already visual — enhance with chart alternative if data is complex
+- Module 5 (Architecture) should suggest a diagram if the analogy alone isn't clear enough
+- Module 5.5 (Differentiation) can benefit from before/after visual comparison
+
+### marketing-copy
+- Landing page: suggest hero image concept, comparison visual, or metric callout design
+- Social: suggest image/infographic that can accompany the post
+
+### Other modes
+- Suggest only when the content naturally contains chartable data
+- Never force a visualization where text is clearer
+
+---
+
+## Tool Awareness
+
+| Tool Available | Action |
+|---------------|--------|
+| Mermaid rendering | Generate Mermaid code blocks directly |
+| Pencil MCP | Suggest creating a design in .pen format |
+| No tools | Output Markdown tables + ASCII diagrams + description for manual creation |
+
+---
+
+## Self-Check Checklist
+
+- [ ] Every major data point has a visualization suggestion (or explicit reason why not)?
+- [ ] Chart type matches data type (comparison → bar, trend → line, etc.)?
+- [ ] Visualizations reveal insights that text alone doesn't?
+- [ ] Draft code/markup provided where possible (Mermaid, Markdown table)?
+- [ ] Not over-visualizing (some data is better as text)?
+- [ ] Tool-appropriate format (Mermaid if available, ASCII/description if not)?
 
 ---
 
@@ -1519,3 +2246,471 @@ PostgreSQL.
 - [ ] All code blocks have language tags?
 - [ ] Active voice throughout?
 - [ ] A new team member could follow this without asking questions?
+
+---
+
+# Rewrite / Polish — Mode Template
+
+This mode is for improving existing text: drafts, emails, memos, meeting notes,
+reports, articles, or any content the user wants made better.
+
+Core principle: **Diagnose first, then treat.** Don't blindly rewrite — understand what's wrong.
+
+Activated when: 改写, 润色, 改一下, 帮我改, polish, rewrite, improve this, make this better, edit this, 优化这段
+
+---
+
+## Humanizer Note
+
+This mode always applies the full humanizer protocol. If the input text has AI-slop patterns, they WILL be removed regardless of other instructions.
+
+---
+
+## Step 1: Receive & Diagnose
+
+Read the input text and produce a diagnosis across 5 dimensions:
+
+### Diagnosis Dimensions
+
+| Dimension | What to Check | Severity |
+|-----------|--------------|----------|
+| **Structure** | Is there a clear flow? Missing sections? Wrong order? | High if chaotic |
+| **Data** | Claims without numbers? Vague assertions? | High if empty |
+| **AI Smell** | Blacklisted phrases? Three-paragraph loops? Perfect symmetry? | High if obvious |
+| **Clarity** | Ambiguous sentences? Jargon without explanation? Wall of text? | Medium |
+| **Rhythm** | Monotonous sentence length? No variation? Reads like a textbook? | Medium |
+
+### Diagnosis Output
+
+```
+## Diagnosis
+
+**Overall:** [1-2 sentence summary of the main issues]
+
+**Issues found:**
+1. [Critical] ...
+2. [Critical] ...
+3. [Important] ...
+4. [Minor] ...
+
+**Recommendation:** [Full rewrite / Targeted edits / Light polish]
+```
+
+**Severity determines approach:**
+- 3+ Critical issues → Full rewrite (rebuild structure, keep core ideas)
+- 1-2 Critical + some Important → Targeted edits (fix specific sections)
+- Only Minor issues → Light polish (rhythm, word choice, tightening)
+
+---
+
+## Step 2: Confirm Approach with User
+
+Before rewriting, tell the user what you found and what you plan to do:
+
+> "I found 3 issues: [brief list]. I recommend [full rewrite / targeted edits / light polish]. Want me to proceed, or focus on specific areas?"
+
+If the user says "just fix it" → proceed with recommended approach.
+If the user specifies areas → focus only on those.
+
+---
+
+## Step 3: Rewrite
+
+### Full Rewrite
+- Identify the core message and key data from the original
+- Choose the appropriate mode template (tech-article, marketing, etc.) or use a general structure if no mode fits
+- Rebuild from scratch using the original's content as research material
+- Run through Phase 3 (Review) + Phase 4 (Humanize) after rewriting
+
+### Targeted Edits
+- Keep the original structure intact
+- Fix only the identified issues:
+  - Replace AI-slop phrases with natural alternatives
+  - Add missing data/numbers
+  - Fix structural gaps (add missing TL;DR, fix paragraph order)
+  - Clarify ambiguous sentences
+- Show changes as tracked edits when possible (original → revised)
+
+### Light Polish
+- Tighten sentences (remove unnecessary words)
+- Vary sentence length for rhythm
+- Replace vague words with specific ones ("a lot of users" → "2,847 users")
+- Fix tone inconsistencies
+- Remove any remaining AI patterns
+
+---
+
+## Step 4: Show Changes
+
+After rewriting, show what changed and why:
+
+```
+## Changes Made
+
+1. **[What changed]** — [Why]
+   - Before: "Our solution leverages cutting-edge AI technology..."
+   - After: "Our tool reads your codebase and generates docs in 30 seconds."
+
+2. **[What changed]** — [Why]
+   - Before: (3 paragraphs explaining background)
+   - After: (1 sentence of context, straight to the point)
+```
+
+This transparency helps the user learn and gives them the option to revert specific changes.
+
+---
+
+## Special Rewrite Types
+
+### Email Rewrite
+- Strip filler ("I hope this email finds you well" → delete)
+- Lead with the ask or the answer
+- One email = one topic. If multiple topics, suggest splitting.
+- Max 5 sentences for routine emails, 10 for complex ones.
+
+### Meeting Notes → Summary
+- Extract: decisions made, action items (who + what + when), open questions
+- Delete: discussion that didn't lead to decisions
+- Format: bullet points, not prose
+
+### Academic / Report → Blog
+- Cut length by 50-70%
+- Replace jargon with analogies
+- Add a "so what?" after each finding
+- Convert passive voice to active
+
+### 中文改写
+- 删"随着""众所周知"等套话
+- 长句拆短句
+- 抽象说法换成具体数字
+- 书面语降级为口语化（根据目标平台）
+- 加粗关键结论
+
+---
+
+## Self-Check Checklist
+
+- [ ] Diagnosed before rewriting (not blind rewrite)?
+- [ ] Confirmed approach with user?
+- [ ] Core message preserved from original?
+- [ ] All critical issues addressed?
+- [ ] No new AI-slop introduced?
+- [ ] Changes shown with before/after?
+- [ ] Result is shorter or same length (not longer)?
+- [ ] Would the user recognize their voice in the result?
+
+---
+
+# Editorial Review — Mode Template
+
+This mode is for reviewing and critiquing existing content written by others (or by AI).
+Not rewriting — providing structured editorial feedback like a professional editor.
+
+Core principle: **Be specific, be actionable, be honest.**
+
+Activated when: 审稿, 帮我看看这篇, 编辑审核, review this article, editorial feedback, critique this, 给个意见, 评价一下
+
+---
+
+## Review Framework
+
+### Layer 1: First Impression (30-second scan)
+
+Before reading in detail, capture:
+
+- **Hook:** Did the first 3 sentences make you want to keep reading? (Yes/No + why)
+- **Scanability:** Can you get the gist by scanning headings and bold text? (Yes/No)
+- **Length feel:** Does it feel right, too long, or too short for what it's trying to do?
+- **Immediate red flags:** Any AI-slop phrases visible? Obvious structural problems?
+
+Output as a brief "First Impression" paragraph.
+
+### Layer 2: Structural Analysis
+
+| Check | What to Look For |
+|-------|-----------------|
+| **Opening** | Does it earn the reader's attention in the first paragraph? Or does it waste time on context? |
+| **Flow** | Does each section logically lead to the next? Any "wait, why?" moments? |
+| **Evidence** | Are claims backed by data, examples, or sources? Or just asserted? |
+| **Pacing** | Are there sections that drag? Parts that rush through important points? |
+| **Closing** | Does it end with purpose (CTA, callback, clear takeaway)? Or just... stop? |
+| **Missing pieces** | Is anything obviously missing that the reader would expect? |
+
+### Layer 3: Content Quality
+
+| Check | What to Look For |
+|-------|-----------------|
+| **Thesis clarity** | Can you state the main argument in one sentence? If not, the piece doesn't know what it's about. |
+| **Data quality** | Are numbers specific and contextualized? Or vague ("many users", "significant growth")? |
+| **Differentiation** | If it's about a product/idea, does it explain why it's different? Or just what it does? |
+| **"So what?" test** | For each major point: is it clear why the reader should care? |
+| **Audience fit** | Is the language and depth appropriate for the intended reader? |
+
+### Layer 4: Writing Craft
+
+| Check | What to Look For |
+|-------|-----------------|
+| **AI smell** | Run the humanizer blacklist mentally. Any banned phrases? Structural AI patterns? |
+| **Sentence variety** | All same length? Monotonous? Or varied rhythm? |
+| **Word precision** | Vague words that could be more specific? ("thing", "stuff", "various", "very") |
+| **Active voice** | Passive constructions that should be active? |
+| **Redundancy** | Saying the same thing twice in different words? |
+| **Clichés** | Overused phrases that add no value? |
+
+---
+
+## Output Format
+
+### Summary Card
+
+```
+## Editorial Review Summary
+
+**Verdict:** [Publish-ready / Needs targeted edits / Needs major revision / Needs rewrite]
+
+**Strongest aspect:** [One thing done well — always start with a positive]
+**Biggest issue:** [One thing that most needs fixing]
+**AI smell score:** [Clean / Mild / Noticeable / Heavy]
+
+**Reading time:** ~X minutes
+**Target audience fit:** [Good / Partial / Poor]
+```
+
+### Detailed Findings
+
+Organize by priority:
+
+```
+### Must Address (blocks publishing)
+1. **[Issue]** — [Specific location] — [Why it matters] — [Suggested fix]
+2. ...
+
+### Should Address (improves quality)
+3. **[Issue]** — [Specific location] — [Why it matters] — [Suggested fix]
+4. ...
+
+### Consider (nice-to-haves)
+5. **[Issue]** — [Specific location] — [Suggested fix]
+6. ...
+```
+
+### Inline Annotations (Optional)
+
+If the user wants line-by-line feedback, use this format:
+
+```
+> "Original sentence from the text"
+→ [Issue]: [explanation]. Suggested: "[revised version]"
+```
+
+---
+
+## Tone of Feedback
+
+- **Honest but constructive** — don't soften real problems, but always offer solutions
+- **Specific, never vague** — "paragraph 3 lacks data" not "could use more evidence"
+- **One positive per review** — always identify what works, even in weak pieces
+- **No condescension** — the writer is a peer, not a student
+- **Actionable** — every critique comes with a suggested fix or direction
+
+---
+
+## Mode-Specific Reviews
+
+When the content type is identifiable, apply mode-specific checklist:
+
+| Content Type | Additional Checks |
+|-------------|------------------|
+| Tech article | Has comparison table? Data in title? Scenario-based features? |
+| Marketing copy | CTA specific? Hero headline has number? No buzzword filler? |
+| Research report | Executive summary standalone? Sources cited? Confidence levels on predictions? |
+| 小红书 | Title has emojis? Image guidance? Personal voice? |
+| Technical docs | Commands runnable? Active voice? One topic per guide? |
+
+If the content type is not one of the 5 modes, use the general framework only.
+
+---
+
+## Self-Check Checklist
+
+- [ ] Captured honest first impression?
+- [ ] Structural analysis covers opening, flow, evidence, pacing, closing?
+- [ ] Content quality assessed (thesis, data, differentiation, "so what?")?
+- [ ] Writing craft checked (AI smell, rhythm, word precision)?
+- [ ] Findings organized by priority (Must / Should / Consider)?
+- [ ] Every critique has a suggested fix?
+- [ ] Started with something positive?
+- [ ] Feedback is specific (with locations), not generic?
+
+---
+
+# Creative Writing — Mode Template
+
+This mode is for fiction, personal essays, narrative non-fiction, scripts,
+speeches, and any writing where voice, imagery, and emotional resonance
+are the primary goals.
+
+Core principle: **Show, don't tell. Feel, don't explain.**
+
+Activated when: 写小说, 写故事, 写散文, 写演讲稿, 写剧本, creative writing, fiction, essay, short story, narrative, speech, screenplay, personal essay
+
+---
+
+## Humanizer Override
+
+This mode applies the MOST RELAXED humanizer settings:
+- Sentence fragments: encouraged for rhythm and impact
+- Repetition: allowed for emphasis (when intentional)
+- Emojis: generally avoided (unless genre-appropriate)
+- Exclamation marks: used with discretion (impact over frequency)
+- Rules relaxed: perfect parallel structure is OK IF it serves a literary purpose
+- Blacklist still applies: AI-slop phrases are still banned (they're bad in any genre)
+
+---
+
+## Sub-Types
+
+### Short Fiction / 短篇小说
+
+**Core elements to establish:**
+1. **Character** — Who is this about? What do they want? What's in the way?
+2. **Setting** — Where and when? Use sensory details (not exposition)
+3. **Conflict** — What's the tension? (Internal, external, or both)
+4. **Voice** — Whose perspective? What's their way of seeing the world?
+5. **Arc** — How does the character change (or fail to change)?
+
+**Structure options:**
+- Linear: Beginning → Rising action → Climax → Resolution
+- In medias res: Start in the middle of action, fill context later
+- Frame narrative: Story within a story
+- Vignette: A single scene or moment, no full plot required
+
+**Rules:**
+- Start with action or dialogue, not description
+- Show emotion through behavior, not labels ("她握紧了杯子" not "她很紧张")
+- Dialogue should do double duty: reveal character AND advance plot
+- End with resonance, not resolution — leave the reader thinking
+
+### Personal Essay / 个人随笔
+
+**Core elements:**
+1. **Hook** — An image, moment, or question that pulls the reader in
+2. **Specific experience** — A concrete scene, not an abstraction
+3. **Reflection** — What does this experience mean? (But don't over-explain)
+4. **Universal thread** — Connect the personal to something larger
+5. **Closing image** — End with an image or moment, not a summary
+
+**Rules:**
+- Write from a specific moment, not a general topic
+  - ✅ "那天下午我坐在图书馆第三排，窗外在下雨" (specific)
+  - ❌ "回顾我的大学生活" (general)
+- Vulnerability earns trust — don't perform emotion, reveal it
+- One essay = one idea. If you have two ideas, write two essays.
+
+### Speech / 演讲稿
+
+**Structure (Monroe's Motivated Sequence variant):**
+1. **Attention** — Open with a surprising fact, question, or story (30 seconds)
+2. **Problem** — Describe the pain the audience feels (1-2 minutes)
+3. **Solution** — Present your idea (2-3 minutes)
+4. **Visualization** — Paint the picture of success AND failure (1-2 minutes)
+5. **Action** — Specific ask: what the audience should do RIGHT NOW (30 seconds)
+
+**Rules:**
+- Write for the ear, not the eye: short sentences, natural rhythm
+- Repeat key phrases (speeches need repetition for emphasis)
+- One idea per section. If they remember one thing, what is it?
+- Time it: 150 words ≈ 1 minute of speaking
+
+### Screenplay / Script / 剧本
+
+**Format:**
+```
+场景：[地点] — [时间]
+
+[角色名]
+（动作描述）
+台词内容
+
+[角色名]
+台词内容
+```
+
+**Rules:**
+- Action lines: present tense, visual, brief ("他推开门" not "他缓缓地伸出手推开了那扇沉重的木门")
+- Dialogue: sounds like people actually talk (contractions, interruptions, trailing off...)
+- Subtext: characters rarely say what they mean — the interesting stuff is underneath
+- Show, don't tell: if it can't be seen or heard on screen, it doesn't belong in a screenplay
+
+---
+
+## The Creative Writing DNA
+
+These principles apply across all creative sub-types:
+
+### 1. Specificity Is Everything
+
+```
+❌ "It was a beautiful day." (Generic — any day, any place)
+✅ "The kind of Tuesday where the light hits the kitchen counter just right and you forget you're late." (Specific — this day, this place)
+
+❌ "他很难过。" (Telling)
+✅ "他把烟掐灭了三次，每次都又点上。" (Showing)
+```
+
+### 2. Tension on Every Page
+
+Every scene needs tension — not necessarily conflict, but uncertainty. The reader should want to know what happens next.
+
+- **Dramatic tension:** Will the character succeed?
+- **Mystery tension:** What's really going on?
+- **Emotional tension:** Will they say the thing?
+- **Philosophical tension:** Which choice is right?
+
+If a scene has no tension, it should probably be cut.
+
+### 3. Voice Is Everything
+
+The narrator's voice is not the writer's voice. Each piece has its own way of seeing the world.
+
+- **Vocabulary:** What words would this narrator use?
+- **Rhythm:** Short bursts? Long meandering sentences? Mix?
+- **Observation:** What does this narrator notice? What do they ignore?
+- **Bias:** How does this narrator get things wrong?
+
+### 4. Endings Earn
+
+Don't tell the reader what to feel at the end. Give them an image, a moment, or a line of dialogue that earns the emotion.
+
+```
+❌ "从那以后，我明白了友谊的真正含义。" (Telling the reader what to think)
+✅ "回家路上，我在口袋里找到了她塞的那颗糖。" (An image that carries the emotion)
+```
+
+---
+
+## Research Phase Adaptation
+
+For creative writing, the research phase (Phase 1) works differently:
+
+- **Skip audience targeting** (creative writing serves the story, not the audience)
+- **Skip exclusion analysis** (not relevant)
+- **Deep material mining becomes world-building:**
+  - If set in a real place/time: research the details (what did it look like? sound like? smell like?)
+  - If fictional: establish the rules of the world before writing
+  - For personal essays: mine memory for specific, sensory details
+
+---
+
+## Self-Check Checklist
+
+- [ ] Opens with action, dialogue, or a specific image (not exposition)?
+- [ ] Shows emotion through behavior (not labels)?
+- [ ] Every scene has tension (something at stake)?
+- [ ] Specific details over generic descriptions?
+- [ ] Voice is consistent and distinctive?
+- [ ] Ending earns its emotion (image, not summary)?
+- [ ] No AI-slop phrases survived?
+- [ ] Read it aloud — does it sound natural?
+- [ ] Is it the length it needs to be (not padded, not rushed)?
+- [ ] Would you want to read this if someone else wrote it?
