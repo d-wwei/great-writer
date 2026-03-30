@@ -6,7 +6,7 @@ description: >
   editorial review) + 8 core modules (research, humanizer, review, style learning,
   adaptation, SEO/GEO, writing memory, visualization). Bilingual (EN/ZH).
 triggers:
-  - /write
+  - /great-writer
   # Chinese
   - 写文章
   - 公众号
