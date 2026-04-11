@@ -33,7 +33,7 @@ for f in writing-dna research-protocol humanizer review-protocol style-learner a
 done
 
 # Append mode modules
-for f in tech-article marketing-copy research-report xiaohongshu technical-docs rewrite editorial-review creative-writing; do
+for f in tech-article github-readme marketing-copy research-report xiaohongshu technical-docs rewrite editorial-review creative-writing; do
   echo "" >> "$OUTPUT"
   echo "---" >> "$OUTPUT"
   echo "" >> "$OUTPUT"

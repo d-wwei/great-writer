@@ -1,10 +1,10 @@
 ---
 name: great-writer
 description: >
-  Universal writing skill for AI agents. 8 writing modes (tech articles, marketing copy,
-  research reports, Xiaohongshu notes, technical docs, creative writing, rewrite/polish,
-  editorial review) + 8 core modules (research, humanizer, review, style learning,
-  adaptation, SEO/GEO, writing memory, visualization). Bilingual (EN/ZH).
+  Universal writing skill for AI agents. 9 writing modes (tech articles, marketing copy,
+  research reports, Xiaohongshu notes, technical docs, GitHub READMEs, creative writing,
+  rewrite/polish, editorial review) + 8 core modules (research, humanizer, review, style
+  learning, adaptation, SEO/GEO, writing memory, visualization). Bilingual (EN/ZH).
 triggers:
   - /great-writer
   # Chinese
@@ -39,6 +39,10 @@ triggers:
   - 转成
   - 发到
   - SEO优化
+  - 写 README
+  - 仓库介绍
+  - 仓库 README
+  - GitHub 仓库介绍
   # English
   - write article
   - blog post
@@ -51,7 +55,6 @@ triggers:
   - research report
   - competitive analysis
   - industry report
-  - README
   - API docs
   - changelog
   - technical docs
@@ -76,13 +79,17 @@ triggers:
   - turn this into
   - SEO
   - keywords
+  - GitHub README
+  - repo README
+  - project README
+  - write a README for
 ---
 
 # Great Writer — Universal Writing Skill
 
 You are a professional writer. Your writing has impact, rhythm, and substance — readers remember it, share it, and act on it. You write like a human, not like an AI.
 
-This skill covers 8 writing modes through a modular pipeline, with 8 core capability modules. Each piece goes through research, drafting, review, and humanization before output.
+This skill covers 9 writing modes through a modular pipeline, with 8 core capability modules. Each piece goes through research, drafting, review, and humanization before output.
 
 ---
 
@@ -96,7 +103,8 @@ Identify the writing type from the user's request and load the corresponding mod
 | Landing page, 广告, CTA, 社交媒体, 文案, ad copy, social post, marketing copy | Marketing Copy | `modes/marketing-copy.md` |
 | 白皮书, 行业分析, 竞品报告, 投研, whitepaper, research report, competitive analysis | Research Report | `modes/research-report.md` |
 | 小红书, 种草, 笔记, xiaohongshu, RED note | Xiaohongshu Note | `modes/xiaohongshu.md` |
-| README, API docs, changelog, 技术文档, 内部文档, technical docs, internal guide, release notes | Technical Documentation | `modes/technical-docs.md` |
+| GitHub README, repo README, project README, 写 README, 仓库介绍, 仓库 README, write a README for | GitHub README | `modes/github-readme.md` |
+| API docs, changelog, 技术文档, 内部文档, technical docs, internal guide, release notes | Technical Documentation | `modes/technical-docs.md` |
 | 改写, 润色, 帮我改, polish, rewrite, improve this, edit this, make this better | Rewrite / Polish | `modes/rewrite.md` |
 | 审稿, 帮我看看, 编辑审核, editorial review, critique this, review this article | Editorial Review | `modes/editorial-review.md` |
 | 写小说, 写故事, 写散文, 写演讲稿, 写剧本, creative writing, fiction, essay, short story, speech | Creative Writing | `modes/creative-writing.md` |
@@ -227,7 +235,8 @@ These extend the pipeline — they don't replace it. Style learning affects Phas
 | Marketing Copy | `modes/marketing-copy.md` | Landing pages, ads, social posts |
 | Research Report | `modes/research-report.md` | Whitepapers, competitive analysis |
 | Xiaohongshu Note | `modes/xiaohongshu.md` | 种草, tutorials, experience sharing |
-| Technical Docs | `modes/technical-docs.md` | READMEs, API docs, changelogs |
+| GitHub README | `modes/github-readme.md` | Story-driven bilingual repo READMEs |
+| Technical Docs | `modes/technical-docs.md` | API docs, changelogs, internal guides |
 | Rewrite / Polish | `modes/rewrite.md` | Improve existing drafts, emails, memos |
 | Editorial Review | `modes/editorial-review.md` | Critique and feedback on others' writing |
 | Creative Writing | `modes/creative-writing.md` | Fiction, essays, speeches, scripts |

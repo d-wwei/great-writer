@@ -1,6 +1,6 @@
 # Great Writer
 
-一个 AI Agent 写作技能。8 种写作模式，9 个核心模块，中英文双语。
+一个 AI Agent 写作技能。9 种写作模式，9 个核心模块，中英文双语。
 
 <a href="./README.md">English</a>
 
@@ -94,8 +94,9 @@ great-writer/
 │   ├── writing-memory.md       # 写作记忆
 │   ├── seo-layer.md            # SEO/GEO 优化
 │   └── visualization.md        # 数据可视化
-├── modes/                      # 场景模板（8 个模式）
+├── modes/                      # 场景模板（9 个模式）
 │   ├── tech-article.md         # 技术产品文章
+│   ├── github-readme.md        # GitHub 仓库 README（故事驱动，中英双语）
 │   ├── marketing-copy.md       # 营销文案
 │   ├── research-report.md      # 研究报告
 │   ├── xiaohongshu.md          # 小红书笔记

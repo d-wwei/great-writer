@@ -1,6 +1,6 @@
 # Great Writer
 
-A writing skill for AI agents. 8 writing modes, 9 core modules, bilingual (EN/ZH).
+A writing skill for AI agents. 9 writing modes, 9 core modules, bilingual (EN/ZH).
 
 <a href="./README.zh.md">中文</a>
 
@@ -94,8 +94,9 @@ great-writer/
 │   ├── writing-memory.md       # Cross-session persistence
 │   ├── seo-layer.md            # SEO/GEO optimization
 │   └── visualization.md        # Data visualization suggestions
-├── modes/                      # Format templates (8 modes)
+├── modes/                      # Format templates (9 modes)
 │   ├── tech-article.md         # Tech product articles
+│   ├── github-readme.md        # Story-driven bilingual GitHub READMEs
 │   ├── marketing-copy.md       # Marketing copy
 │   ├── research-report.md      # Research reports
 │   ├── xiaohongshu.md          # Xiaohongshu notes
