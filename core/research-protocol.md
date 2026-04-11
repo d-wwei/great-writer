@@ -24,6 +24,15 @@ Before anything else, answer these questions explicitly. Do not assume.
 
 **Output:** 2-3 sentences defining the target reader persona.
 
+### Content Strategy Check
+
+If the article covers a product series or multiple components/modules, **do NOT assume "complete = better."** Ask the user before writing:
+
+- "All components in one article, or select representative ones?"
+- "Is this a one-time comprehensive introduction, or the first in a series?"
+
+N components released one-by-one = N content events with sustained attention. N components dumped in one article = one event with diluted impact. Content strategy comes before writing execution.
+
 ---
 
 ## Step 2: Exclusion Analysis
@@ -47,6 +56,24 @@ Existing solutions always leave someone out. Find those people — they are your
 ```
 
 **Output:** 2-3 sentences describing the excluded group and the opportunity angle.
+
+---
+
+## Step 2.5: Pain Point Depth Check
+
+Pain points have three layers. Most AI writing stops at Layer 1. Tech articles MUST reach Layer 3.
+
+| Layer | Description | Example | Strength |
+|-------|-------------|---------|----------|
+| 1 | Problem exists | "Agent 安全是个问题" / "Agent security is a problem" | Weakest — anyone can write this |
+| 2 | Consequences | "你可能泄露 API key / 损失 X 小时" / "You'll waste X hours or leak credentials" | Medium |
+| 3 | Absurd/painful behaviors people adopt | "所以大家只好单独买一台 mac mini 来装 Agent" / "So everyone buys a separate mac mini just to run the Agent" | Strongest — this is real pain |
+
+**Rules:**
+- Layer 3 is what makes readers nod: "Yeah, that's exactly my situation."
+- Layer 3 describes a **specific, concrete behavior** — something people actually do to cope with the problem.
+- If the source material doesn't contain a Layer 3 example, **ask the user**: "What's the most absurd thing people do to work around this problem?"
+- Do NOT fabricate Layer 3 examples. They must be real.
 
 ---
 

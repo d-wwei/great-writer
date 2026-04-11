@@ -35,18 +35,29 @@ Read `core/research-protocol.md` and follow its protocol completely.
 Read `core/writing-dna.md` for universal writing principles.
 Read the matched `modes/{type}.md` for the structure template.
 
-- Apply the 6 writing principles from writing-dna.md
+**Pre-draft step: Identify the Core Value Carrier**
+
+Before writing, answer: "What would make readers share this article?" That thing is the **core value carrier**.
+
+- It could be: a mapping table, an analogy, a data comparison, an architecture diagram, a causal chain, a key insight.
+- The core value carrier is **protected** — it is never compressed to meet length targets.
+- When length must be cut, cut periphery (preamble, transitions, summaries, context-setting), NOT the core.
+
+**Then draft:**
+
+- Apply the 7 writing principles from writing-dna.md
 - Follow the mode's structure template section by section
 - Use research findings as the content foundation
 - Output: Complete first draft
 
 ### Phase 3: Review
 
-Read `core/review-protocol.md` and run all three review dimensions.
+Read `core/review-protocol.md` and run all four review dimensions.
 
 - Structural review (against mode template)
 - Logic review (argument flow, data support)
 - Fact check (verify numbers, citations, dates)
+- Perspective audit (developer vs product vs user perspective)
 - Output: Numbered fix list → apply all fixes
 
 **Do not proceed to Phase 4 until all "Must Fix" items are resolved.**
@@ -100,7 +111,7 @@ This skill can optionally use external tools to enhance quality. Declare these a
 
 # Writing DNA — Universal Principles
 
-These six principles apply to ALL writing types. Every mode inherits them.
+These seven principles apply to ALL writing types. Every mode inherits them.
 The agent MUST internalize these before drafting.
 
 ---
@@ -131,6 +142,23 @@ The first paragraph enters the reader's pain. No warmup. No preamble. No context
 
 **Opening formula:** [Pain data] + [Consequence the reader feels]
 
+**Hook example rule:** If the hook uses multiple examples, they MUST be **progressive** (each reveals a new dimension or deepens the argument), NOT **parallel** (all proving the same point).
+
+- 1 strong example > 3 parallel examples. Parallel examples consume the reader's most precious attention budget — the opening — without adding new information.
+- If you have 3 examples that all argue "X is broken," keep the strongest one and compress the others into one sentence of supplementary evidence.
+- Test: cover the 2nd and 3rd examples. Does the reader lose any understanding they didn't already have from the 1st? If no, they're parallel — cut them.
+
+```
+❌ 3 parallel examples all showing "Agent defaults are bad":
+   Example 1: MBA decision lacks risk assessment
+   Example 2: Project plan skips risk assessment  ← same point
+   Example 3: Investigation doesn't verify         ← same point
+
+✅ 1 strong example + compressed supplement:
+   "你让 Agent 做一个 MBA 级别的决策…… [full example]
+    类似的问题在项目规划和调查分析中同样出现。" ← one sentence, done
+```
+
 | Do | Don't |
 |----|-------|
 | "Your server bill tripled last month. Not because traffic grew — because you're paying for idle compute." | "With the rapid development of cloud computing, costs have become an important consideration for businesses..." |
@@ -145,6 +173,20 @@ The first paragraph enters the reader's pain. No warmup. No preamble. No context
 One good analogy beats three paragraphs of technical description. Analogies compress complexity into something the reader already understands.
 
 **Rule:** Before writing a technical explanation, try to find an analogy first. If the analogy works, delete the explanation.
+
+**Analogy quality self-check (MUST pass before using any analogy):**
+- Can the target reader understand this analogy WITHOUT extra explanation?
+- If the analogy comes from an internal doc or professional context, does it still work for the article's audience?
+- If you need parentheses to explain the analogy, it has failed. Replace it or state the idea directly.
+- When the analogy is harder to understand than the thing it explains, delete it.
+
+```
+❌ "四种方案，同一个假设：Agent 是近视的" — 读者：啥？什么近视？
+✅ "四种方案，同一个假设：Agent 就是不安全的、就是危险的" — 直接说，不绕弯
+
+❌ "Four approaches, same assumption: the Agent is nearsighted" — Reader: what?
+✅ "Four approaches, same assumption: the Agent is inherently unsafe" — just say it
+```
 
 | Do | Don't |
 |----|-------|
@@ -165,6 +207,20 @@ Features are not "we support X" — they are "you can do Y with it." Group capab
 
 **Rule:** Each feature group gets a scenario label and ends with a concrete example:
 `🎯 Scenario: "Monday morning — you open Slack and your weekly report is already drafted, with data pulled from the last 5 days of JIRA tickets."`
+
+**Before/after scenario comparisons must focus on OUTCOME, not mechanism.**
+
+- The summary of each scenario should describe the **user-perceivable behavior change** — what the user *sees* differently.
+- Do NOT summarize scenarios by describing the product's internal mechanism ("auto-triggers without calling," "always-on without invocation").
+- Test: extract the summary sentence from each scenario. If it describes how the product works internally → rewrite to describe what the user observes.
+
+```
+❌ Mechanism-focused: "三个场景，没有人调用任何 Skill，认知底座自动生效了"
+✅ Outcome-focused: "三个完全不同的领域，Agent 都在做同一件事：先审计假设"
+
+❌ "Auto-triggers across all scenarios without manual invocation"
+✅ "In every scenario — career, business, content — the Agent audits assumptions first"
+```
 
 ---
 
@@ -192,10 +248,35 @@ Listing features is the weakest form of persuasion. Readers don't care that you 
 - If a feature "others also have" → don't write "we also have it"; write "we do it differently"
 - If you can't find a differentiator → the feature isn't worth a standalone section; fold it into a scenario example
 - Technical advantages MUST translate to user-perceivable results: faster, cheaper, more accurate, more reliable
+- **Flip their selling points.** When arguing "X's limitations," don't only list what X can't do. Also inspect what X *claims* to do — a selling point often hides a deeper flaw. "Auto-triggers intelligently" sounds good until you realize "you can never tell if it's actually active right now." The strongest limitation argument turns the opponent's strength into a weakness.
+
+```
+❌ Weak limitation: "Skill 不能覆盖所有场景" (only listing what it can't do)
+✅ Strong limitation: "Skill 能自动触发——但你无法确认此刻它有没有在生效。
+    Agent 的表现变成了黑盒：时好时坏。" (flipping the selling point)
+```
 
 ---
 
-## Principle 6: Audience Adaptation
+## Principle 6: Describe From the Underlying Change
+
+When describing a product's core value, distinguish the **underlying change** (what it actually transforms) from the **surface manifestation** (what users observe as a side effect). Start from the underlying change; let the surface follow as natural evidence.
+
+- If a product claims to change "how you think," don't describe it as changing "how you talk." Expression is a surface manifestation of judgment; judgment is the underlying change.
+- Test: Is your description of the product's value operating at the same depth level as the product's claim? If the product claims to change *thinking* but you're describing changes in *output format*, you've downgraded it.
+
+```
+❌ "Tacit Knowledge 改变了 Agent 怎么组织和表达它的思考" (surface: expression style)
+✅ "Tacit Knowledge 改变了 Agent 的判断力本身——它注意什么、跳过什么、
+    浮现什么隐性信号" (underlying: judgment quality)
+
+❌ "Changes how the Agent organizes and presents its thinking" (surface)
+✅ "Changes what the Agent notices, skips, and surfaces — judgment itself" (underlying)
+```
+
+---
+
+## Principle 7: Audience Adaptation
 
 Technical readers should think "that's accurate." Non-technical readers should think "I get it."
 
@@ -236,6 +317,15 @@ Before anything else, answer these questions explicitly. Do not assume.
 
 **Output:** 2-3 sentences defining the target reader persona.
 
+### Content Strategy Check
+
+If the article covers a product series or multiple components/modules, **do NOT assume "complete = better."** Ask the user before writing:
+
+- "All components in one article, or select representative ones?"
+- "Is this a one-time comprehensive introduction, or the first in a series?"
+
+N components released one-by-one = N content events with sustained attention. N components dumped in one article = one event with diluted impact. Content strategy comes before writing execution.
+
 ---
 
 ## Step 2: Exclusion Analysis
@@ -259,6 +349,24 @@ Existing solutions always leave someone out. Find those people — they are your
 ```
 
 **Output:** 2-3 sentences describing the excluded group and the opportunity angle.
+
+---
+
+## Step 2.5: Pain Point Depth Check
+
+Pain points have three layers. Most AI writing stops at Layer 1. Tech articles MUST reach Layer 3.
+
+| Layer | Description | Example | Strength |
+|-------|-------------|---------|----------|
+| 1 | Problem exists | "Agent 安全是个问题" / "Agent security is a problem" | Weakest — anyone can write this |
+| 2 | Consequences | "你可能泄露 API key / 损失 X 小时" / "You'll waste X hours or leak credentials" | Medium |
+| 3 | Absurd/painful behaviors people adopt | "所以大家只好单独买一台 mac mini 来装 Agent" / "So everyone buys a separate mac mini just to run the Agent" | Strongest — this is real pain |
+
+**Rules:**
+- Layer 3 is what makes readers nod: "Yeah, that's exactly my situation."
+- Layer 3 describes a **specific, concrete behavior** — something people actually do to cope with the problem.
+- If the source material doesn't contain a Layer 3 example, **ask the user**: "What's the most absurd thing people do to work around this problem?"
+- Do NOT fabricate Layer 3 examples. They must be real.
 
 ---
 
@@ -463,7 +571,7 @@ After humanizing, verify:
 # Review Protocol — Post-Draft Review
 
 This protocol is MANDATORY after drafting and before humanizing.
-The agent runs all three review dimensions and produces a numbered fix list.
+The agent runs all four review dimensions and produces a numbered fix list.
 ALL fixes must be applied before proceeding to the Humanize phase.
 
 ---
@@ -478,12 +586,17 @@ Check the draft against the mode's template structure.
 3. Does it meet the length guidelines? If too long, cut. If too short, expand.
 4. Does it follow the format requirements? (e.g., comparison table must exist for tech-article)
 
+5. **No example repetition** — Track every example/anecdote by its first appearance. If the same example is fully expanded in two different sections (e.g., as hook AND as scenario), collapse the second occurrence to a one-sentence callback: "回到开头那个 MBA 的例子" / "Returning to the MBA example from the opening." Structure serves reading experience — don't repeat content for structural completeness.
+6. **No designer-perspective sections** — Remove sections that describe internal design decisions, constraints, or principles that don't affect user understanding or usage. Test: if you delete this section, can the reader still understand and use the product? If yes, delete it. Keep the reader on the path: problem → solution → mechanism → evidence → get started.
+
 **Common structural issues:**
 - Missing TL;DR or executive summary
 - Pain point section buried after a context-setting intro (move it up)
 - Feature list instead of scenario-grouped capabilities
 - Missing CTA in closing
 - No data comparison table when one is required
+- Same example fully expanded in two different sections (dedup it)
+- Internal design notes masquerading as user-facing content (remove them)
 
 ---
 
@@ -498,11 +611,18 @@ Check the argument flow for coherence and persuasion.
 4. **"So what?" test** — For each finding or feature, is it clear why the reader should care? If not, add the implication.
 5. **Differentiation holds** — If the piece claims "we're better because X," verify X is actually different from competitors, not just described differently.
 
+6. **Claim → Mechanism within 2-3 paragraphs** — When the article claims an unusual capability (e.g., "always-on across conversations," "zero-latency sync"), verify that the mechanism explaining HOW is present within 2-3 paragraphs of the claim. Pattern: claim → mechanism → therefore. Without mechanism, technical readers classify the claim as marketing, not fact.
+7. **Self-contradiction scan** — After completing each section, check: does this section contradict any other section? Pay special attention to "constraint" and "principle" statements — if the article says "we never use X," verify the article itself doesn't use X. Also verify the article doesn't present internal design principles as user-facing constraints.
+8. **"A vs B" needs structured comparison** — When the article's core argument is the difference between two concepts (e.g., "Skill vs Cognitive Base"), prose description alone is insufficient. Provide at least one structured comparison (table, side-by-side diagram, or dimension-by-dimension breakdown). The reader should be able to answer "what's different" in 10 seconds without reading full paragraphs.
+
 **Common logic issues:**
 - Claiming "faster" without benchmark data
 - Pain point doesn't connect to the solution presented
 - Features listed without explaining WHY they matter
 - Competitor comparison that's not actually fair (comparing free tier to paid tier)
+- Capability claim with no mechanism explanation (readers think it's marketing)
+- Section contradicts another section (especially constraint/principle statements)
+- A-vs-B argument explained only in prose without any structured comparison
 
 ---
 
@@ -514,8 +634,13 @@ Verify accuracy of all data and claims.
 1. **Numbers are accurate** — Do the math. "96% reduction" means going from X to 0.04X. Is that what the data shows?
 2. **Citations are real** — If a source is cited, it should exist. If search tools are available, verify URLs and claims.
 3. **Dates are current** — No "as of 2024" in a 2026 article unless discussing historical context.
-4. **Names and terms are correct** — Product names, company names, technical terms spelled correctly.
+4. **Names and terms are correct** — Product names, company names, technical terms spelled correctly. **Critical:** Verify product/repo names are the current *public* names, not internal development names. If the user provided a repo link, check the README for the current display name. Dev names ≠ release names (e.g., "what is good job" was renamed to "results-driven").
 5. **Comparisons are fair** — Same tier, same use case, same conditions.
+6. **Disciplinary classifications are accurate** — When the article involves multiple academic disciplines or fields:
+   - Is each discipline label correct? ("社会学" vs "认知科学" vs "行为经济学" — these are not interchangeable)
+   - Are cross-discipline mappings structurally rigorous (genuine structural isomorphism) or just surface-level similarity?
+   - If unsure about a classification, flag it: `[⚠️ Needs verification: discipline classification of X]`
+   - Wrong discipline labels are caught immediately by expert readers and undermine the entire article's credibility.
 
 **If search tools are available:**
 - Actively verify key claims against live sources
@@ -528,9 +653,30 @@ Verify accuracy of all data and claims.
 
 ---
 
+## Dimension 4: Perspective Audit
+
+The single most common failure mode in AI writing: **sliding into developer perspective** when the reader needs product or user perspective.
+
+Three perspectives exist. They must not be mixed carelessly:
+
+| Perspective | Content | Belongs in article? |
+|-------------|---------|-------------------|
+| **Developer** | Internal design decisions, technical constraints, implementation details, architecture trade-offs | Only when the mechanism directly explains a user-facing capability |
+| **Product** | What it does, how it achieves it, how it differs from alternatives | Main body of the article |
+| **User** | What changes after I install it, how to install, how to verify it works | Most important — reader must be able to extract concrete actions |
+
+**Required check:** For each section, identify which perspective it's written from. Flag any section that is pure developer-perspective with no user/product value. Common offenders:
+- Design principles that don't affect usage ("axis independence," "zero-jargon rule")
+- Internal architecture details without user-perceivable implications
+- Technical constraints that readers don't need to know to use the product
+
+**The reader's path must be unbroken:** Problem → Solution → Mechanism → Evidence → Get Started. Every section should advance this path. Sections that don't (developer-perspective detours) break the reader's momentum.
+
+---
+
 ## Output Format
 
-After reviewing all three dimensions, produce a numbered fix list:
+After reviewing all four dimensions, produce a numbered fix list:
 
 ```
 ## Review Findings
@@ -546,6 +692,7 @@ After reviewing all three dimensions, produce a numbered fix list:
 
 ### Nice to Fix
 6. [Structural] Feature group 3 only has 2 items — consider merging with group 2.
+7. [Perspective] Section 3 ("Design Principles") is pure developer-perspective — delete or fold into mechanism explanation.
 ```
 
 **Rule:** ALL "Must Fix" items are resolved before proceeding. "Should Fix" items are resolved unless the user overrides. "Nice to Fix" items are optional.
@@ -1275,7 +1422,31 @@ Activated when: 公众号, 博客, 技术博客, 产品介绍, 产品发布, 推
 
 ---
 
-## 9-Module Structure Template
+## Step 0: Detect Article Subtype
+
+Before applying the structure template, determine which subtype this article is:
+
+| Signal | Subtype | Structure |
+|--------|---------|-----------|
+| Core is "what it does / why it's good" — subject is "it" or "this product" | **Product Introduction** | Use 9-Module Template below |
+| Core is "how we thought of it / why we designed it this way" — subject is "we" | **Design Story** | Use Causal-Chain Narrative below |
+
+### If Design Story → Use Causal-Chain Narrative
+
+When the article's core value is the thinking process — how the team arrived at the design, what questions they asked, what breakthroughs they had — the 9-module template is the wrong tool. Use this instead:
+
+**Structure:** `Starting point → Predicament → Questioning → Breakthrough → Validation`
+
+**Rules:**
+- Use **Builder voice** (see Tone Rules → Voice Selection below). NOT analyst voice.
+- **Core value carriers** (e.g., mapping tables, architecture diagrams, key insights) are protected from length-driven compression. Cut periphery (preamble, transitions, summaries), not core.
+- For detailed fidelity and compression rules, see **Narrative Fidelity Rules** section below.
+
+**Length guidelines still apply** but are subordinate to causal completeness. A 2500-word design story with intact causal chain beats a 1500-word version with gaps.
+
+---
+
+## 9-Module Structure Template (Product Introduction Subtype)
 
 Every tech product article follows these 9 modules in order. Skipping a module weakens the piece.
 
@@ -1292,6 +1463,22 @@ Must contain a number AND convey action or contrast.
 ✅ "Cut 96% of Token Cost: The Right Way to Fit 1,350 APIs Into Your AI Agent"
 ❌ "一个好用的飞书 AI 工具介绍"
 ❌ "Introducing a Useful Feishu AI Tool"
+```
+
+**Title causality self-check:**
+- Is there a direct causal relationship between the number and the conclusion?
+- Remove connecting words ("after," "因此," "so," "后") — do the number and conclusion still hold independently?
+- If the number is background context (e.g., "researched X lines of code") rather than the cause of the outcome, do NOT connect them with causal phrasing.
+- A number that measures effort is not a reason for the result. Find what actually caused the result.
+
+```
+❌ "分析了 60 万行代码后，我们找到了 Agent 安全的另一个答案"
+   （60 万行是调研深度，不是找到答案的原因 — 假因果）
+❌ "After analyzing 600K lines of code, we found the answer to Agent security"
+   (600K lines is research depth, not the cause of finding the answer — fake causality)
+
+✅ "对 Agent 安全问题的另一个解答尝试"
+✅ "Another Approach to Agent Security"
 ```
 
 The title is the article's first filter. If the number doesn't shock and the action doesn't intrigue, readers scroll past.
@@ -1351,6 +1538,12 @@ The bar: "技术人看到觉得'说得对'，非技术人看到觉得'我懂了'
 ```
 
 Do NOT write a technical explainer here. One analogy, maybe two sentences of context. That's it.
+
+**Multi-level architecture rule:** If the project has two distinct architecture levels (e.g., conceptual/theoretical + implementation), keep BOTH:
+- Show the conceptual architecture first (why it's designed this way, what inspired it)
+- Bridge with one sentence: "把这个理论架构落到代码里，变成了……" / "Translating this theoretical architecture into code, it becomes…"
+- Then show the implementation architecture (concrete layers, components, data flow)
+- Do NOT pick "the best one" — they serve different functions. One shows thinking, the other shows building.
 
 ### Module 5.5: Technical Differentiation
 
@@ -1465,6 +1658,26 @@ Rules:
 
 ---
 
+## Narrative Fidelity Rules (for Design Story subtype)
+
+When writing narrative/design-story articles from source material:
+
+1. **Preserve causal chains.** If the source says A → B → C, output must contain A → B → C. Never compress to A → C or rearrange to B → A → C.
+2. **Never fabricate transition triggers.** If you don't know why the author moved from step X to step Y, ask the user. Do NOT invent a plausible reason — fabricated reasons that sound reasonable but aren't true are worse than gaps.
+3. **"Fabricated stories never move people like true ones do."** This is a hard rule, not a suggestion.
+4. **Compress descriptions freely.** You can shorten, rephrase, and tighten descriptive content. But causal relationships and trigger logic must remain faithful to source material.
+5. **Preserve the author's emotional register.** If the source says "终于忍不了了问为什么" (we finally couldn't take it and asked why), do NOT neutralize it to "这套思路的底层假设是什么" (what's the underlying assumption). Frustration, surprise, dead ends — these are the story's texture.
+
+```
+❌ "当一个领域的解法全部收敛到同一个模式，最有效的做法是去别的学科找"
+   （编造的方法论触发 — 实际过程不是这样）
+
+✅ "在人类行为中找到'后果理解'这个答案后，一个自然的问题浮现了：还有哪些领域面对过类似问题？"
+   （忠实于真实的发现驱动过程）
+```
+
+---
+
 ## Length Guidelines
 
 | Platform | Length | Notes |
@@ -1477,6 +1690,18 @@ Rules:
 ---
 
 ## Tone Rules
+
+### Voice Selection (pick before writing)
+
+| Signal | Voice | Character |
+|--------|-------|-----------|
+| Article subject is "it" / "this product" / "this tool" — introducing someone else's work | **Analyst voice** | Objective, evaluative, "here's what it does and whether it delivers" |
+| Article subject is "we" / "our team" — telling own project's design story | **Builder voice** | Has frustration, dead ends, breakthroughs, "we couldn't take it anymore" |
+
+- Analyst voice: rational, third-person perspective, balanced assessment
+- Builder voice: first-person, emotionally honest, shows the messy reality of building something
+- **Do NOT use analyst voice for your own design story.** "We" articles need builder energy.
+- **Do NOT use builder voice for product reviews.** "It" articles need analytical distance.
 
 ### Do
 
@@ -1527,9 +1752,24 @@ Build the 9 modules in this order:
 
 ## Self-Check Checklist
 
-Run through every item after the draft is complete.
+Run through every item after the draft is complete. Use the checklist matching your article subtype (see Step 0).
 
-### Basic Checks
+### Design Story Checklist (if Design Story subtype)
+
+- [ ] Causal chain is complete? No nodes skipped between cause and effect?
+- [ ] Every transition trigger is faithful to the source material? (nothing fabricated?)
+- [ ] Builder voice throughout? (has "we" energy, frustration, breakthroughs — not analyst distance?)
+- [ ] Core value carriers (mapping tables, architecture diagrams, key insights) are fully intact, not compressed?
+- [ ] If multi-level architecture exists, both levels are shown with a bridging sentence?
+- [ ] Analogies pass the quality check? (no parenthetical explanations needed?)
+- [ ] Pain point reaches Layer 3? (specific absurd/painful behavior, not just "this is a problem"?)
+- [ ] No AI-slop phrases? (search for "随着", "众所周知", "In today's rapidly")
+- [ ] Discipline labels are accurate? (if cross-disciplinary content)
+- [ ] Would YOU share this article?
+
+### Product Introduction Checklist (if Product Introduction subtype)
+
+#### Basic Checks
 
 - [ ] Title has a number?
 - [ ] First 3 sentences can stand alone as a WeChat Moments post?

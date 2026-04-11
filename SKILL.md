@@ -126,18 +126,29 @@ Read `core/research-protocol.md` and follow its protocol completely.
 Read `core/writing-dna.md` for universal writing principles.
 Read the matched `modes/{type}.md` for the structure template.
 
-- Apply the 6 writing principles from writing-dna.md
+**Pre-draft step: Identify the Core Value Carrier**
+
+Before writing, answer: "What would make readers share this article?" That thing is the **core value carrier**.
+
+- It could be: a mapping table, an analogy, a data comparison, an architecture diagram, a causal chain, a key insight.
+- The core value carrier is **protected** — it is never compressed to meet length targets.
+- When length must be cut, cut periphery (preamble, transitions, summaries, context-setting), NOT the core.
+
+**Then draft:**
+
+- Apply the 7 writing principles from writing-dna.md
 - Follow the mode's structure template section by section
 - Use research findings as the content foundation
 - Output: Complete first draft
 
 ### Phase 3: Review
 
-Read `core/review-protocol.md` and run all three review dimensions.
+Read `core/review-protocol.md` and run all four review dimensions.
 
 - Structural review (against mode template)
 - Logic review (argument flow, data support)
 - Fact check (verify numbers, citations, dates)
+- Perspective audit (developer vs product vs user perspective)
 - Output: Numbered fix list → apply all fixes
 
 **Do not proceed to Phase 4 until all "Must Fix" items are resolved.**

@@ -7,7 +7,31 @@ Activated when: 公众号, 博客, 技术博客, 产品介绍, 产品发布, 推
 
 ---
 
-## 9-Module Structure Template
+## Step 0: Detect Article Subtype
+
+Before applying the structure template, determine which subtype this article is:
+
+| Signal | Subtype | Structure |
+|--------|---------|-----------|
+| Core is "what it does / why it's good" — subject is "it" or "this product" | **Product Introduction** | Use 9-Module Template below |
+| Core is "how we thought of it / why we designed it this way" — subject is "we" | **Design Story** | Use Causal-Chain Narrative below |
+
+### If Design Story → Use Causal-Chain Narrative
+
+When the article's core value is the thinking process — how the team arrived at the design, what questions they asked, what breakthroughs they had — the 9-module template is the wrong tool. Use this instead:
+
+**Structure:** `Starting point → Predicament → Questioning → Breakthrough → Validation`
+
+**Rules:**
+- Use **Builder voice** (see Tone Rules → Voice Selection below). NOT analyst voice.
+- **Core value carriers** (e.g., mapping tables, architecture diagrams, key insights) are protected from length-driven compression. Cut periphery (preamble, transitions, summaries), not core.
+- For detailed fidelity and compression rules, see **Narrative Fidelity Rules** section below.
+
+**Length guidelines still apply** but are subordinate to causal completeness. A 2500-word design story with intact causal chain beats a 1500-word version with gaps.
+
+---
+
+## 9-Module Structure Template (Product Introduction Subtype)
 
 Every tech product article follows these 9 modules in order. Skipping a module weakens the piece.
 
@@ -24,6 +48,22 @@ Must contain a number AND convey action or contrast.
 ✅ "Cut 96% of Token Cost: The Right Way to Fit 1,350 APIs Into Your AI Agent"
 ❌ "一个好用的飞书 AI 工具介绍"
 ❌ "Introducing a Useful Feishu AI Tool"
+```
+
+**Title causality self-check:**
+- Is there a direct causal relationship between the number and the conclusion?
+- Remove connecting words ("after," "因此," "so," "后") — do the number and conclusion still hold independently?
+- If the number is background context (e.g., "researched X lines of code") rather than the cause of the outcome, do NOT connect them with causal phrasing.
+- A number that measures effort is not a reason for the result. Find what actually caused the result.
+
+```
+❌ "分析了 60 万行代码后，我们找到了 Agent 安全的另一个答案"
+   （60 万行是调研深度，不是找到答案的原因 — 假因果）
+❌ "After analyzing 600K lines of code, we found the answer to Agent security"
+   (600K lines is research depth, not the cause of finding the answer — fake causality)
+
+✅ "对 Agent 安全问题的另一个解答尝试"
+✅ "Another Approach to Agent Security"
 ```
 
 The title is the article's first filter. If the number doesn't shock and the action doesn't intrigue, readers scroll past.
@@ -83,6 +123,12 @@ The bar: "技术人看到觉得'说得对'，非技术人看到觉得'我懂了'
 ```
 
 Do NOT write a technical explainer here. One analogy, maybe two sentences of context. That's it.
+
+**Multi-level architecture rule:** If the project has two distinct architecture levels (e.g., conceptual/theoretical + implementation), keep BOTH:
+- Show the conceptual architecture first (why it's designed this way, what inspired it)
+- Bridge with one sentence: "把这个理论架构落到代码里，变成了……" / "Translating this theoretical architecture into code, it becomes…"
+- Then show the implementation architecture (concrete layers, components, data flow)
+- Do NOT pick "the best one" — they serve different functions. One shows thinking, the other shows building.
 
 ### Module 5.5: Technical Differentiation
 
@@ -197,6 +243,26 @@ Rules:
 
 ---
 
+## Narrative Fidelity Rules (for Design Story subtype)
+
+When writing narrative/design-story articles from source material:
+
+1. **Preserve causal chains.** If the source says A → B → C, output must contain A → B → C. Never compress to A → C or rearrange to B → A → C.
+2. **Never fabricate transition triggers.** If you don't know why the author moved from step X to step Y, ask the user. Do NOT invent a plausible reason — fabricated reasons that sound reasonable but aren't true are worse than gaps.
+3. **"Fabricated stories never move people like true ones do."** This is a hard rule, not a suggestion.
+4. **Compress descriptions freely.** You can shorten, rephrase, and tighten descriptive content. But causal relationships and trigger logic must remain faithful to source material.
+5. **Preserve the author's emotional register.** If the source says "终于忍不了了问为什么" (we finally couldn't take it and asked why), do NOT neutralize it to "这套思路的底层假设是什么" (what's the underlying assumption). Frustration, surprise, dead ends — these are the story's texture.
+
+```
+❌ "当一个领域的解法全部收敛到同一个模式，最有效的做法是去别的学科找"
+   （编造的方法论触发 — 实际过程不是这样）
+
+✅ "在人类行为中找到'后果理解'这个答案后，一个自然的问题浮现了：还有哪些领域面对过类似问题？"
+   （忠实于真实的发现驱动过程）
+```
+
+---
+
 ## Length Guidelines
 
 | Platform | Length | Notes |
@@ -209,6 +275,18 @@ Rules:
 ---
 
 ## Tone Rules
+
+### Voice Selection (pick before writing)
+
+| Signal | Voice | Character |
+|--------|-------|-----------|
+| Article subject is "it" / "this product" / "this tool" — introducing someone else's work | **Analyst voice** | Objective, evaluative, "here's what it does and whether it delivers" |
+| Article subject is "we" / "our team" — telling own project's design story | **Builder voice** | Has frustration, dead ends, breakthroughs, "we couldn't take it anymore" |
+
+- Analyst voice: rational, third-person perspective, balanced assessment
+- Builder voice: first-person, emotionally honest, shows the messy reality of building something
+- **Do NOT use analyst voice for your own design story.** "We" articles need builder energy.
+- **Do NOT use builder voice for product reviews.** "It" articles need analytical distance.
 
 ### Do
 
@@ -259,9 +337,24 @@ Build the 9 modules in this order:
 
 ## Self-Check Checklist
 
-Run through every item after the draft is complete.
+Run through every item after the draft is complete. Use the checklist matching your article subtype (see Step 0).
 
-### Basic Checks
+### Design Story Checklist (if Design Story subtype)
+
+- [ ] Causal chain is complete? No nodes skipped between cause and effect?
+- [ ] Every transition trigger is faithful to the source material? (nothing fabricated?)
+- [ ] Builder voice throughout? (has "we" energy, frustration, breakthroughs — not analyst distance?)
+- [ ] Core value carriers (mapping tables, architecture diagrams, key insights) are fully intact, not compressed?
+- [ ] If multi-level architecture exists, both levels are shown with a bridging sentence?
+- [ ] Analogies pass the quality check? (no parenthetical explanations needed?)
+- [ ] Pain point reaches Layer 3? (specific absurd/painful behavior, not just "this is a problem"?)
+- [ ] No AI-slop phrases? (search for "随着", "众所周知", "In today's rapidly")
+- [ ] Discipline labels are accurate? (if cross-disciplinary content)
+- [ ] Would YOU share this article?
+
+### Product Introduction Checklist (if Product Introduction subtype)
+
+#### Basic Checks
 
 - [ ] Title has a number?
 - [ ] First 3 sentences can stand alone as a WeChat Moments post?

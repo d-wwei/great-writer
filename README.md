@@ -85,7 +85,7 @@ Layered architecture. SKILL.md routes requests, core/ holds shared capabilities,
 great-writer/
 ├── SKILL.md                    # Router + pipeline definition
 ├── core/                       # Shared core (9 modules)
-│   ├── writing-dna.md          # 6 writing principles
+│   ├── writing-dna.md          # 7 writing principles
 │   ├── research-protocol.md    # Pre-writing research
 │   ├── review-protocol.md      # Post-draft review
 │   ├── humanizer.md            # Anti-AI-slop protocol

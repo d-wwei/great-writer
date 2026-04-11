@@ -1,6 +1,6 @@
 # Writing DNA — Universal Principles
 
-These six principles apply to ALL writing types. Every mode inherits them.
+These seven principles apply to ALL writing types. Every mode inherits them.
 The agent MUST internalize these before drafting.
 
 ---
@@ -31,6 +31,23 @@ The first paragraph enters the reader's pain. No warmup. No preamble. No context
 
 **Opening formula:** [Pain data] + [Consequence the reader feels]
 
+**Hook example rule:** If the hook uses multiple examples, they MUST be **progressive** (each reveals a new dimension or deepens the argument), NOT **parallel** (all proving the same point).
+
+- 1 strong example > 3 parallel examples. Parallel examples consume the reader's most precious attention budget — the opening — without adding new information.
+- If you have 3 examples that all argue "X is broken," keep the strongest one and compress the others into one sentence of supplementary evidence.
+- Test: cover the 2nd and 3rd examples. Does the reader lose any understanding they didn't already have from the 1st? If no, they're parallel — cut them.
+
+```
+❌ 3 parallel examples all showing "Agent defaults are bad":
+   Example 1: MBA decision lacks risk assessment
+   Example 2: Project plan skips risk assessment  ← same point
+   Example 3: Investigation doesn't verify         ← same point
+
+✅ 1 strong example + compressed supplement:
+   "你让 Agent 做一个 MBA 级别的决策…… [full example]
+    类似的问题在项目规划和调查分析中同样出现。" ← one sentence, done
+```
+
 | Do | Don't |
 |----|-------|
 | "Your server bill tripled last month. Not because traffic grew — because you're paying for idle compute." | "With the rapid development of cloud computing, costs have become an important consideration for businesses..." |
@@ -45,6 +62,20 @@ The first paragraph enters the reader's pain. No warmup. No preamble. No context
 One good analogy beats three paragraphs of technical description. Analogies compress complexity into something the reader already understands.
 
 **Rule:** Before writing a technical explanation, try to find an analogy first. If the analogy works, delete the explanation.
+
+**Analogy quality self-check (MUST pass before using any analogy):**
+- Can the target reader understand this analogy WITHOUT extra explanation?
+- If the analogy comes from an internal doc or professional context, does it still work for the article's audience?
+- If you need parentheses to explain the analogy, it has failed. Replace it or state the idea directly.
+- When the analogy is harder to understand than the thing it explains, delete it.
+
+```
+❌ "四种方案，同一个假设：Agent 是近视的" — 读者：啥？什么近视？
+✅ "四种方案，同一个假设：Agent 就是不安全的、就是危险的" — 直接说，不绕弯
+
+❌ "Four approaches, same assumption: the Agent is nearsighted" — Reader: what?
+✅ "Four approaches, same assumption: the Agent is inherently unsafe" — just say it
+```
 
 | Do | Don't |
 |----|-------|
@@ -65,6 +96,20 @@ Features are not "we support X" — they are "you can do Y with it." Group capab
 
 **Rule:** Each feature group gets a scenario label and ends with a concrete example:
 `🎯 Scenario: "Monday morning — you open Slack and your weekly report is already drafted, with data pulled from the last 5 days of JIRA tickets."`
+
+**Before/after scenario comparisons must focus on OUTCOME, not mechanism.**
+
+- The summary of each scenario should describe the **user-perceivable behavior change** — what the user *sees* differently.
+- Do NOT summarize scenarios by describing the product's internal mechanism ("auto-triggers without calling," "always-on without invocation").
+- Test: extract the summary sentence from each scenario. If it describes how the product works internally → rewrite to describe what the user observes.
+
+```
+❌ Mechanism-focused: "三个场景，没有人调用任何 Skill，认知底座自动生效了"
+✅ Outcome-focused: "三个完全不同的领域，Agent 都在做同一件事：先审计假设"
+
+❌ "Auto-triggers across all scenarios without manual invocation"
+✅ "In every scenario — career, business, content — the Agent audits assumptions first"
+```
 
 ---
 
@@ -92,10 +137,35 @@ Listing features is the weakest form of persuasion. Readers don't care that you 
 - If a feature "others also have" → don't write "we also have it"; write "we do it differently"
 - If you can't find a differentiator → the feature isn't worth a standalone section; fold it into a scenario example
 - Technical advantages MUST translate to user-perceivable results: faster, cheaper, more accurate, more reliable
+- **Flip their selling points.** When arguing "X's limitations," don't only list what X can't do. Also inspect what X *claims* to do — a selling point often hides a deeper flaw. "Auto-triggers intelligently" sounds good until you realize "you can never tell if it's actually active right now." The strongest limitation argument turns the opponent's strength into a weakness.
+
+```
+❌ Weak limitation: "Skill 不能覆盖所有场景" (only listing what it can't do)
+✅ Strong limitation: "Skill 能自动触发——但你无法确认此刻它有没有在生效。
+    Agent 的表现变成了黑盒：时好时坏。" (flipping the selling point)
+```
 
 ---
 
-## Principle 6: Audience Adaptation
+## Principle 6: Describe From the Underlying Change
+
+When describing a product's core value, distinguish the **underlying change** (what it actually transforms) from the **surface manifestation** (what users observe as a side effect). Start from the underlying change; let the surface follow as natural evidence.
+
+- If a product claims to change "how you think," don't describe it as changing "how you talk." Expression is a surface manifestation of judgment; judgment is the underlying change.
+- Test: Is your description of the product's value operating at the same depth level as the product's claim? If the product claims to change *thinking* but you're describing changes in *output format*, you've downgraded it.
+
+```
+❌ "Tacit Knowledge 改变了 Agent 怎么组织和表达它的思考" (surface: expression style)
+✅ "Tacit Knowledge 改变了 Agent 的判断力本身——它注意什么、跳过什么、
+    浮现什么隐性信号" (underlying: judgment quality)
+
+❌ "Changes how the Agent organizes and presents its thinking" (surface)
+✅ "Changes what the Agent notices, skips, and surfaces — judgment itself" (underlying)
+```
+
+---
+
+## Principle 7: Audience Adaptation
 
 Technical readers should think "that's accurate." Non-technical readers should think "I get it."
 

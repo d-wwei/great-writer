@@ -85,7 +85,7 @@ git clone https://github.com/d-wwei/great-writer.git
 great-writer/
 ├── SKILL.md                    # 路由 + 管道定义
 ├── core/                       # 共享核心（9 个模块）
-│   ├── writing-dna.md          # 6 条写作原则
+│   ├── writing-dna.md          # 7 条写作原则
 │   ├── research-protocol.md    # 写前调研协议
 │   ├── review-protocol.md      # 审校协议
 │   ├── humanizer.md            # 去 AI 味协议
