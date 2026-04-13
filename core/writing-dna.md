@@ -177,3 +177,29 @@ Technical readers should think "that's accurate." Non-technical readers should t
 - Link to the deep dive: "See Architecture section for implementation details"
 
 This applies to all writing types. A research report still needs accessible executive summaries. A README still needs to tell users WHY before HOW.
+
+---
+
+## Principle 8: Reader Value First
+
+Writing exists to create value for the reader, not to document what the writer knows.
+
+**McEnerney's test:** "Would someone who isn't already interested in this topic want to read this?" If no, the piece serves the writer's need to process, not the reader's need for information.
+
+**The tension rule:** Every piece must create instability in the reader's current understanding — comfort confirms, tension compels. The reader should finish thinking "I was wrong about something" or "I didn't know that" or "I need to change what I'm doing."
+
+- Writer's journey ≠ reader's article. Your research path (chronological discovery) is rarely the right reading path
+- Start from what the reader lacks, not from what you know
+- If the piece could be summarized as "here are some facts about X" without any tension or surprise, it has no reason to exist yet — find the angle that matters
+
+---
+
+## Principle 9: Asymmetry as Design
+
+Expert writing has rhythmic irregularity within a coherent arc — like rubato in music. AI writing is metronomic: uniform paragraphs, uniform sections, uniform emphasis.
+
+**The asymmetry principle:** Deliberately vary section weight, paragraph length, and structural density. The section that matters most gets 40% of the piece. Background context might get 5%. If everything is equally emphasized, nothing is.
+
+- If all sections are the same length with the same internal structure → restructure until the emphasis is visible
+- Compress ruthlessly what the reader already knows or can infer. Expand generously what is surprising, counterintuitive, or load-bearing
+- One section should be disproportionately detailed — that's where the real value lives. The reader will forgive brief treatment of context if the core insight gets the space it deserves

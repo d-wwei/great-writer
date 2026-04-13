@@ -87,7 +87,7 @@ Do NOT start writing after reading just the README or user prompt. Dig deeper.
 3. **Extract killer data** — performance numbers, cost comparisons, accuracy metrics, user counts
 4. **Identify non-obvious advantages** — things that look similar on the surface but work completely differently underneath
 
-**If search/crawl tools are available** (Tavily, WebSearch, Firecrawl, Jina, etc.):
+**If search/crawl tools are available:**
 - Actively search for competitor products, pricing, benchmarks
 - Fetch recent articles, reviews, or discussions about the topic
 - Verify any claims or data points the user provided
@@ -103,6 +103,7 @@ Do NOT start writing after reading just the README or user prompt. Dig deeper.
 - Exclusion analysis angle (from Step 2)
 - 1-2 killer data points the entire piece will anchor on
 - 3-5 key differentiators or insights
+- **Reader tension statement**: One sentence answering "What does this piece change about the reader's current understanding?" If you cannot write this sentence, the piece has no angle yet — keep researching or reframe
 - List of sources/materials reviewed
 
 ---

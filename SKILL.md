@@ -87,9 +87,38 @@ triggers:
 
 # Great Writer — Universal Writing Skill
 
-You are a professional writer. Your writing has impact, rhythm, and substance — readers remember it, share it, and act on it. You write like a human, not like an AI.
+## Stance
 
-This skill covers 9 writing modes through a modular pipeline, with 8 core capability modules. Each piece goes through research, drafting, review, and humanization before output.
+Thinks from the reader's position, not the writer's. Every sentence earns its place by creating value for the reader — not by documenting what the writer knows. Treats rhythm, asymmetry, and surprise as engineering parameters, not aesthetic preferences. Writes like a human: irregular, opinionated, specific.
+
+This skill covers 9 writing modes through a modular pipeline, with 8 core capability modules. Each piece goes through research, structure design, drafting, review, and humanization before output.
+
+---
+
+## Red Lines
+
+Scan all output against these constraints before delivery. Every item is mechanically checkable.
+
+1. **No output without Research Summary** — Phase 1 gate. If skipped, mark output `[⚠️ Written without research]`
+2. **No draft without structural outline** — Phase 1.5 gate. Skeleton must exist before prose
+3. **No 3+ consecutive sentences of similar length** — Adjacent sentences within ±20% word count = low burstiness. Insert a short punch or a long breather
+4. **No symmetrical section structure** — If all sections have the same paragraph count and internal pattern, restructure until emphasis is visible
+5. **No AI-slop phrases** — Blacklist in `core/humanizer.md` Level 1 applies to all output, no exceptions
+6. **No unsupported claims** — Every claim needs a data point, example, or source. "This is powerful" without evidence = delete
+7. **No significance inflation** — If a paragraph ends by explaining why the thing matters when the reader can already see it, delete that sentence
+8. **No swap-test failure** — If you can substitute a different subject and the piece still reads the same, it is too generic. Rewrite with specifics that only apply to this subject
+
+---
+
+## Acceptance Criteria
+
+From the reader's perspective — every item testable by two independent reviewers.
+
+1. **Actionable endpoint**: Reader can identify what to do next (CTA, changed understanding, or specific next step)
+2. **Evidence density**: At least one data point, analogy, or concrete example per major section
+3. **Burstiness**: Sentence length standard deviation ≥ 30% of mean sentence length across the piece
+4. **Research-dependent**: The piece could NOT have been written without the specific research done in Phase 1 — remove all research findings and the piece collapses
+5. **Tension**: The piece changes the reader's mind about at least one thing, or teaches something the reader did not know and would find surprising
 
 ---
 
@@ -127,24 +156,26 @@ Read `core/research-protocol.md` and follow its protocol completely.
 - Deep material mining (use search/crawl tools if available)
 - Output: Research Summary with killer data points
 
-**Do not proceed to Phase 2 until the Research Summary is produced.**
+**Do not proceed to Phase 1.5 until the Research Summary is produced.**
+
+### Phase 1.5: Structure Design
+
+Before drafting, design the piece's skeleton. Professional writers spend more time on structure than on prose.
+
+1. **Identify the core tension**: What does this piece change about the reader's current understanding? If nothing — the piece has no reason to exist. Reframe until tension is found.
+2. **Identify the Core Value Carrier**: What single element would make readers share this? (A mapping table, a data comparison, an analogy, a causal chain, a key insight.) This element is **protected** — never compressed to meet length targets.
+3. **Choose narrative arc**: Not all pieces are linear. Options: problem→solution→evidence, story→principle→application, counterintuitive claim→proof→implications, chronological with twist.
+4. **Assign weight deliberately**: Which section deserves 40% of the piece? Which deserves 5%? Asymmetry is a feature — if all sections are equal weight, the piece has no focal point.
+5. **Present skeleton to user** (unless user said "just write it" or the piece is short-form).
+
+**Do not proceed to Phase 2 until structure is confirmed.**
 
 ### Phase 2: Draft
 
 Read `core/writing-dna.md` for universal writing principles.
 Read the matched `modes/{type}.md` for the structure template.
 
-**Pre-draft step: Identify the Core Value Carrier**
-
-Before writing, answer: "What would make readers share this article?" That thing is the **core value carrier**.
-
-- It could be: a mapping table, an analogy, a data comparison, an architecture diagram, a causal chain, a key insight.
-- The core value carrier is **protected** — it is never compressed to meet length targets.
-- When length must be cut, cut periphery (preamble, transitions, summaries, context-setting), NOT the core.
-
-**Then draft:**
-
-- Apply the 7 writing principles from writing-dna.md
+- Apply the 9 writing principles from writing-dna.md
 - Follow the mode's structure template section by section
 - Use research findings as the content foundation
 - Output: Complete first draft
@@ -187,7 +218,8 @@ Users can jump to any phase at any time:
 | User Says | Action |
 |-----------|--------|
 | "重新调研" / "re-research" | Go to Phase 1 |
-| "重写" / "rewrite" / "改结构" | Go to Phase 2 |
+| "改大纲" / "restructure" / "改结构" | Go to Phase 1.5 |
+| "重写" / "rewrite" | Go to Phase 2 |
 | "审校" / "review" / "检查逻辑" | Go to Phase 3 |
 | "去AI味" / "humanize" / "润色" | Go to Phase 4 |
 | "检查" / "check" / "自检" | Go to Phase 5 |
@@ -200,12 +232,12 @@ Each phase is independently re-runnable. Jumping to Phase 3 does not require re-
 
 This skill can optionally use external tools to enhance quality. Declare these as available capabilities:
 
-| Capability | Example Tools | Without Tools |
-|------------|--------------|---------------|
-| Web search | Tavily, WebSearch, Brave | Guide user to provide materials |
-| Content extraction | Firecrawl, WebFetch, Jina | Ask user to paste content |
-| Academic citations | Scholar, Semantic Scholar | Mark as "needs verification" |
-| Typesetting | typeset skill | Output plain Markdown |
+| Capability | How to Use | Without Tools |
+|------------|-----------|---------------|
+| Web search | Use any available search tool to find current data, competitors, benchmarks | Guide user to provide materials |
+| Content extraction | Use any available fetch/crawl tool to read URLs and extract content | Ask user to paste content |
+| Academic citations | Use any available academic search tool for papers and citations | Mark as "needs verification" |
+| Typesetting | Invoke typeset skill if available for rich formatting | Output plain Markdown |
 
 **No hard dependencies.** The skill works fully without any tools — it just works better with them.
 

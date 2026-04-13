@@ -58,6 +58,23 @@ If ANY of these patterns appear in the draft, they MUST be rewritten. No excepti
 
 ---
 
+## Level 1.5: Structural Pattern Detection
+
+These structural patterns betray AI authorship more reliably than word choice. Each is acceptable in isolation — what betrays AI is their **simultaneous, uniform deployment** across an entire piece. If 3+ appear in one piece, the piece needs structural editing.
+
+| Pattern | Detection | Fix |
+|---------|-----------|-----|
+| **Low burstiness** | 3+ consecutive sentences within ±20% word count | Vary: insert a 4-word punch or a 30-word breather |
+| **Rule-of-three compulsion** | Every list has exactly 3 items, every grouping has 3 elements | Use 2, or 4, or 5. Reserve triplets for deliberate rhetorical effect only |
+| **Significance inflation** | Paragraph ends with "contributing to..." / "highlighting the importance of..." / "标志着...的重要性" | Delete the sentence. If the significance isn't obvious from the content, the content itself failed |
+| **Copula avoidance** | "Serves as" / "functions as" / "acts as" / "充当" replacing "is" / "是" | Use "is" / "是". Simpler is braver |
+| **Outline-as-prose** | Parallel section headers ("Challenges" / "Solutions" / "Future Prospects") with identical internal structure | Break the pattern: vary section length, nest subsections unevenly, let some sections be one paragraph and others five |
+| **Hedging uniformity** | Same hedge level regardless of certainty ("research suggests" for both proven and speculative claims) | Hedge selectively: confident where you know, uncertain where you don't. Match language to actual confidence |
+| **Negative parallelism** | "It's not X, it's Y" / "不是X，而是Y" pattern used more than once per piece | Use this move once for emphasis. A second time is a tic, not a technique |
+| **Symmetrical section weight** | Every section has same paragraph count and internal structure | Deliberately vary: the section that matters most gets 40% of the piece, some sections are one paragraph |
+
+---
+
 ## Level 2: Rhythm Reshaping (Soft Rules)
 
 These are guidelines, not hard bans. The goal is text that FEELS human-written.
@@ -145,10 +162,13 @@ Some modes override the default humanizer settings:
 
 After humanizing, verify:
 
-- [ ] Zero blacklisted phrases remain (search for them)
+- [ ] Zero blacklisted phrases remain (Level 1 scan)
+- [ ] Structural pattern count < 3 simultaneous (Level 1.5 scan)
 - [ ] No three consecutive sentences of similar length
+- [ ] Section weights are visibly asymmetric (not all sections same length/structure)
 - [ ] At least one rhetorical question (except technical-docs)
 - [ ] Specific numbers/details replace all vague references
 - [ ] Lists are not all perfectly parallel
 - [ ] Opening doesn't set context — it enters the topic directly
 - [ ] Closing doesn't summarize what was just said
+- [ ] Hedging matches actual confidence level (not uniform)
