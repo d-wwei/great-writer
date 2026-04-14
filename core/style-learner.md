@@ -79,9 +79,9 @@ Output a structured style card:
 
 When a style fingerprint is active:
 
-1. **Phase 2 (Draft):** Apply the fingerprint rules alongside the mode template. Fingerprint overrides default tone rules where they conflict.
-2. **Phase 4 (Humanize):** Use the fingerprint as the target voice, not just "avoid AI patterns." The humanizer should push toward the learned style, not just away from AI.
-3. **Phase 5 (Finalize):** Add a style-match check: "Does this read like the reference? If not, what's off?"
+1. **Phase 3 (Draft):** Apply the fingerprint rules alongside the mode template. Fingerprint overrides default tone rules where they conflict.
+2. **Phase 5 (Polish):** Use the fingerprint as the target voice, not just "avoid AI patterns." The polish passes should push toward the learned style, not just away from AI.
+3. **Phase 6 (Finalize):** Add a style-match check: "Does this read like the reference? If not, what's off?"
 
 ### Conflict Resolution
 

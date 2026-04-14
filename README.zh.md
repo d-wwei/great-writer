@@ -57,13 +57,13 @@ git clone https://github.com/d-wwei/great-writer.git
 | 编辑审稿 | 审稿、帮我看看 | 审稿、内容质检 |
 | 创意写作 | 写小说、写散文、写演讲稿 | 小说、散文、演讲稿、剧本 |
 
-**每篇内容走 5 步管道：**
+**每篇内容走 6 步管道：**
 
 ```
-调研 → 起稿 → 审校 → 去AI味 → 终检
+核心逻辑（调研 + 找核） → 结构设计 → 起稿 → 审校 → 打磨 → 终检
 ```
 
-每步可独立重跑。说"去 AI 味"直接跳到第 4 步，不用从头来。
+每步可独立重跑。说"打磨"直接跳到第 5 步，说"换个角度"重新找核。
 
 **5 个增强能力（按需激活）：**
 
@@ -84,11 +84,12 @@ git clone https://github.com/d-wwei/great-writer.git
 ```
 great-writer/
 ├── SKILL.md                    # 路由 + 管道定义
-├── core/                       # 共享核心（9 个模块）
-│   ├── writing-dna.md          # 7 条写作原则
+├── core/                       # 共享核心（10 个模块）
+│   ├── writing-dna.md          # 15 条写作原则 + 密度控制 + 声音系统
+│   ├── core-finding.md         # 找核 + 攻核方法论
 │   ├── research-protocol.md    # 写前调研协议
 │   ├── review-protocol.md      # 审校协议
-│   ├── humanizer.md            # 去 AI 味协议
+│   ├── humanizer.md            # 4-Pass 打磨协议
 │   ├── style-learner.md        # 风格学习
 │   ├── adapt-protocol.md       # 多平台适配
 │   ├── writing-memory.md       # 写作记忆

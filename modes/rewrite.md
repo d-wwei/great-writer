@@ -11,7 +11,23 @@ Activated when: 改写, 润色, 改一下, 帮我改, polish, rewrite, improve t
 
 ## Humanizer Note
 
-This mode always applies the full humanizer protocol. If the input text has AI-slop patterns, they WILL be removed regardless of other instructions.
+This mode always applies the full humanizer protocol (Pass 1 through Pass 4). If the input text has AI-slop patterns, they WILL be removed regardless of other instructions.
+
+---
+
+## DNA & Voice Settings
+
+**Voice:**
+- Temperature: Match original text
+- Posture: Match original — diagnose the original's voice before imposing anything
+- Inner Voice: Match original
+- Translation Immunity: Mandatory if original is Chinese
+
+**DNA Overrides:**
+- All principles: applied based on diagnosis of original text and target improvement
+- The rewrite mode doesn't impose a fixed DNA profile — it adapts to what the original needs
+
+**Core Finding:** Diagnose first — does the original have a core? If yes, verify it holds (run Attack Core). If no, run the full Find Core protocol before rewriting.
 
 ---
 
@@ -69,7 +85,7 @@ If the user specifies areas → focus only on those.
 - Identify the core message and key data from the original
 - Choose the appropriate mode template (tech-article, marketing, etc.) or use a general structure if no mode fits
 - Rebuild from scratch using the original's content as research material
-- Run through Phase 3 (Review) + Phase 4 (Humanize) after rewriting
+- Run through Phase 4 (Review) + Phase 5 (Polish) after rewriting
 
 ### Targeted Edits
 - Keep the original structure intact

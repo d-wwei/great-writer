@@ -9,6 +9,21 @@ Activated when: 审稿, 帮我看看这篇, 编辑审核, review this article, e
 
 ---
 
+## DNA & Voice Settings
+
+**Voice:**
+- Temperature: 20°C (cool, fair, analytical)
+- Posture: Senior editor — honest, constructive, specific, never condescending
+- Inner Voice: Off
+- Translation Immunity: N/A (reviewing, not writing)
+
+**DNA Overrides:**
+- N/A — editorial review evaluates writing, doesn't produce it. DNA principles are used as evaluation criteria, not writing guides.
+
+**Core Finding:** Evaluate whether the submitted piece has a clear, defensible core. Report findings without finding your own core.
+
+---
+
 ## Review Framework
 
 ### Layer 1: First Impression (30-second scan)
@@ -47,7 +62,7 @@ Output as a brief "First Impression" paragraph.
 
 | Check | What to Look For |
 |-------|-----------------|
-| **AI smell** | Run the humanizer blacklist mentally. Any banned phrases? Structural AI patterns? |
+| **AI smell** | Run the Pass 3a blacklist mentally. Any banned phrases? Structural AI patterns? |
 | **Sentence variety** | All same length? Monotonous? Or varied rhythm? |
 | **Word precision** | Vague words that could be more specific? ("thing", "stuff", "various", "very") |
 | **Active voice** | Passive constructions that should be active? |

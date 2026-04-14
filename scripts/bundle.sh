@@ -25,7 +25,7 @@ echo "" >> "$OUTPUT"
 sed -n '/^---$/,/^---$/!p' "$ROOT_DIR/SKILL.md" | tail -n +2 >> "$OUTPUT"
 
 # Append core modules
-for f in writing-dna research-protocol humanizer review-protocol style-learner adapt-protocol writing-memory seo-layer visualization; do
+for f in writing-dna core-finding research-protocol humanizer review-protocol style-learner adapt-protocol writing-memory seo-layer visualization; do
   echo "" >> "$OUTPUT"
   echo "---" >> "$OUTPUT"
   echo "" >> "$OUTPUT"

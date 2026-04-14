@@ -12,13 +12,34 @@ Activated when: 写小说, 写故事, 写散文, 写演讲稿, 写剧本, creati
 
 ## Humanizer Override
 
-This mode applies the MOST RELAXED humanizer settings:
+This mode applies the MOST RELAXED humanizer settings (Pass 3a adjusted):
 - Sentence fragments: encouraged for rhythm and impact
 - Repetition: allowed for emphasis (when intentional)
 - Emojis: generally avoided (unless genre-appropriate)
 - Exclamation marks: used with discretion (impact over frequency)
-- Rules relaxed: perfect parallel structure is OK IF it serves a literary purpose
-- Blacklist still applies: AI-slop phrases are still banned (they're bad in any genre)
+- Pass 3a relaxed: perfect parallel structure is OK IF it serves a literary purpose
+- Pass 3a blacklist still applies: AI-slop phrases are still banned (they're bad in any genre)
+
+---
+
+## DNA & Voice Settings
+
+**Voice:**
+- Temperature: By work — varies with each piece's needs
+- Posture: By narrator — each piece has its own way of seeing the world
+- Inner Voice: Full — one of creative writing's most powerful tools
+- Translation Immunity: Mandatory for Chinese creative writing
+
+**DNA Overrides:**
+- P10 (Scene-First): Full — always start with image or moment
+- P11 (Progressive Revelation): Full
+- P12 (Scene Over Argument): Full — show, don't tell
+- P13 (Concession Turns): Full
+- P14 (Analogy Crack): Full
+- P15 (Ending as Door): Full — endings earn, not summarize
+- All ljg-derived principles are fully active in creative writing mode
+
+**Core Finding:** Full four shovels. All four equally important. Creative writing lives and dies by the depth of its core.
 
 ---
 
@@ -145,7 +166,7 @@ Don't tell the reader what to feel at the end. Give them an image, a moment, or 
 
 ## Research Phase Adaptation
 
-For creative writing, the research phase (Phase 1) works differently:
+For creative writing, the research phase (Phase 2) works differently:
 
 - **Skip audience targeting** (creative writing serves the story, not the audience)
 - **Skip exclusion analysis** (not relevant)

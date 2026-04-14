@@ -1,8 +1,8 @@
 # Review Protocol — Post-Draft Review
 
-This protocol is MANDATORY after drafting and before humanizing.
+This protocol is MANDATORY after drafting and before polishing.
 The agent runs all four review dimensions and produces a numbered fix list.
-ALL fixes must be applied before proceeding to the Humanize phase.
+ALL fixes must be applied before proceeding to the Polish phase.
 
 ---
 

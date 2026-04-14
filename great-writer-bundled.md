@@ -14,7 +14,9 @@
 
 Thinks from the reader's position, not the writer's. Every sentence earns its place by creating value for the reader — not by documenting what the writer knows. Treats rhythm, asymmetry, and surprise as engineering parameters, not aesthetic preferences. Writes like a human: irregular, opinionated, specific.
 
-This skill covers 9 writing modes through a modular pipeline, with 8 core capability modules. Each piece goes through research, structure design, drafting, review, and humanization before output.
+心里放一个具体的人，写给他，不是写给"读者们"。先亮自己的弯路，再给方向——所有说服力的来源不是因为你对，而是因为你先错过。
+
+This skill covers 9 writing modes through a modular 6-phase pipeline, with 9 core capability modules. Each piece goes through core logic (research + find core), structure design, drafting, review, polishing, and finalization before output.
 
 
 ## Acceptance Criteria
@@ -30,42 +32,66 @@ From the reader's perspective — every item testable by two independent reviewe
 
 ## Step 2: Run the Writing Pipeline
 
-Every piece of writing goes through 5 phases. Each phase loads a specific module.
+Every piece of writing goes through 6 phases. Each phase loads specific modules.
 
-### Phase 1: Research
+### Phase 1: Core Logic
 
-Read `core/research-protocol.md` and follow its protocol completely.
+Three steps to establish *what this piece is really about*.
 
-- Audience targeting
-- Exclusion analysis
-- Deep material mining (use search/crawl tools if available)
+**Step a — Research.** Read `core/research-protocol.md` and follow its protocol completely.
+
+- Audience targeting, exclusion analysis, deep material mining
 - Output: Research Summary with killer data points
 
-**Do not proceed to Phase 1.5 until the Research Summary is produced.**
+**Step b — Think & Judge.** From the Research Summary, identify:
 
-### Phase 1.5: Structure Design
+1. **Core tension**: What does this piece change about the reader's current understanding? If nothing — the piece has no reason to exist. Reframe until tension is found.
+2. **Value carrier**: What single element would make readers share this? (A mapping table, a data comparison, an analogy, a causal chain, a key insight.) This element is **protected** — never compressed to meet length targets.
 
-Before drafting, design the piece's skeleton. Professional writers spend more time on structure than on prose.
+**Step c — Find Core & Attack Core.** Read `core/core-finding.md` and execute the protocol.
 
-1. **Identify the core tension**: What does this piece change about the reader's current understanding? If nothing — the piece has no reason to exist. Reframe until tension is found.
-2. **Identify the Core Value Carrier**: What single element would make readers share this? (A mapping table, a data comparison, an analogy, a causal chain, a key insight.) This element is **protected** — never compressed to meet length targets.
-3. **Choose narrative arc**: Not all pieces are linear. Options: problem→solution→evidence, story→principle→application, counterintuitive claim→proof→implications, chronological with twist.
-4. **Assign weight deliberately**: Which section deserves 40% of the piece? Which deserves 5%? Asymmetry is a feature — if all sections are equal weight, the piece has no focal point.
-5. **Present skeleton to user** (unless user said "just write it" or the piece is short-form).
+- Use the four shovels on the results from Step a and Step b to dig to the load-bearing idea underneath
+- Attack the core: "If this is true, then why ______?"
+- Three outcomes: core holds → proceed with confidence; core morphs → return to Step a with new angle; core breaks → tell the user honestly
+- Output: Core Statement (one sentence) + Stress-Test Result
 
-**Do not proceed to Phase 2 until structure is confirmed.**
+**Gate: Do not proceed to Phase 2 until Research Summary + Core Statement + Stress-Test Result are all produced.**
 
-### Phase 2: Draft
+### Phase 2: Structure Design
 
-Read `core/writing-dna.md` for universal writing principles.
-Read the matched `modes/{type}.md` for the structure template.
+Design the piece's skeleton around the validated core.
 
-- Apply the 9 writing principles from writing-dna.md
+**Step a — Scaffold.** Find a cross-disciplinary load-bearing analogy for the core.
+
+- Not decoration — a structural wall. If you remove it, the piece collapses.
+- Search broadly across disciplines: biology, economics, physics, architecture, cooking, sports, games — prioritize domains familiar to the target reader, not just computer science.
+- **Validation:** (1) Remove it and the piece collapses (load-bearing). (2) Dig one level deeper and it still maps (multi-layer). (3) The reader gets it without explanation (self-evident).
+
+**Step b — Narrative arc & weight.** Choose the shape and assign weight deliberately.
+
+- Arc options: problem→solution→evidence, story→principle→application, counterintuitive claim→proof→implications, chronological with twist.
+- Assign weight: which section deserves 40%? Which deserves 5%? Asymmetry is a feature.
+
+**Step c — Reader perspective check.** Step back and review the skeleton from the reader's viewpoint.
+
+- Does the structure flow logically for someone who doesn't have your context?
+- Can a reader who only skims headings still grasp the main argument?
+- Present skeleton to user (unless user said "just write it" or the piece is short-form).
+
+**Gate: Do not proceed to Phase 3 until the structure skeleton is confirmed.**
+
+### Phase 3: Draft
+
+Read `core/writing-dna.md` for universal writing principles (including Principles 10-15 and Density Control).
+Read the matched `modes/{type}.md` for the structure template and DNA & Voice Settings.
+
+- Apply the writing principles from writing-dna.md (check mode differentiation table for active principles)
 - Follow the mode's structure template section by section
+- Hang every detail back on the scaffold — the reader should always know "where this piece fits"
 - Use research findings as the content foundation
 - Output: Complete first draft
 
-### Phase 3: Review
+### Phase 4: Review
 
 Read `core/review-protocol.md` and run all four review dimensions.
 
@@ -75,18 +101,20 @@ Read `core/review-protocol.md` and run all four review dimensions.
 - Perspective audit (developer vs product vs user perspective)
 - Output: Numbered fix list → apply all fixes
 
-**Do not proceed to Phase 4 until all "Must Fix" items are resolved.**
+**Gate: Do not proceed to Phase 5 until all "Must Fix" items are resolved.**
 
-### Phase 4: Humanize
+### Phase 5: Polish
 
-Read `core/humanizer.md` and apply both levels.
+Read `core/humanizer.md` and run all four passes sequentially.
 
-- Level 1: Blacklist interception (remove all AI-slop phrases)
-- Level 2: Rhythm reshaping (sentence variation, specific details, asymmetric structure)
-- Apply mode-specific overrides (e.g., xiaohongshu allows more emojis)
-- Output: Humanized draft
+- Pass 1: Oral test — "Would you say this to a smart friend? No → rewrite." Highest priority. All subsequent passes must re-pass this test.
+- Pass 2: Density / rhythm / word choice / anti-template — apply the five-dimensional compression model from writing-dna.md
+- Pass 3: AI trace removal — merged blacklist interception + structural pattern detection + translation immunity check
+- Pass 4: Anti-style check — 8 specific anti-patterns (explaining → show a scene, listing → keep only the strongest, etc.)
+- Apply mode-specific overrides (e.g., xiaohongshu allows more emojis; technical-docs adjusts oral test to "clear and concise" standard)
+- Output: Polished draft
 
-### Phase 5: Finalize
+### Phase 6: Finalize
 
 Run the mode-specific self-check checklist (from the mode file).
 
@@ -333,6 +361,248 @@ Expert writing has rhythmic irregularity within a coherent arc — like rubato i
 
 ---
 
+## Principle 10: Scene-First Opening
+
+The first sentence gives the reader a reason to continue. No warmup. No background. No "since ancient times."
+
+The best opening is an image or a specific event — something that happened last week, something you saw this morning, something someone said. Let the core idea grow naturally out of that concrete moment.
+
+Second best: a judgment that makes the reader stop. Place it quietly, don't explain it, let it create friction on its own.
+
+最好的开头是一个画面或一件具体的事。从这个画面里自然地长出核心观点。次好的开头是一句让人停下来的判断——安静放着，不解释，让它自己制造摩擦。
+
+**Relationship to Principle 2 (Pain First):** Pain-first is a subset of scene-first — a pain scenario is one type of opening scene. For product-focused writing (tech-article, marketing-copy), Principle 2 takes priority. For opinion and creative writing, Principle 10 takes priority.
+
+---
+
+## Principle 11: Progressive Revelation
+
+Don't present the complete, complex version upfront. Start with a simple version the reader already understands, show where it breaks, then introduce what you really want to say. Each step crosses only one gap. The reader walks with you — not dragged by you.
+
+One cognitive increment per paragraph — two means split it, zero means delete it. Remove any paragraph and the chain should break — if it doesn't break, the paragraph was filler.
+
+别一上来就端出完整的复杂版本。先给读者已经懂的简单版本，展示它哪里撑不住，再引出你真正要说的。
+
+---
+
+## Principle 12: Scene Over Argument
+
+Don't say "this is wrong" — construct a scene that lets the reader see it's wrong. A micro-scene with time, people, and conflict is ten times more powerful than abstract argument.
+
+不说"这是错的"，构造一个场景让读者自己看到它是错的。有时间、有人物、有冲突的微型场景，比抽象论证有力十倍。
+
+**Relationship to Principle 4 (Scenario-Based):** Principle 4 is about presenting product features through scenarios. Principle 12 is about replacing logical arguments with scenes — turning "persuasion" into "let the reader see for themselves."
+
+---
+
+## Principle 13: Concession Turns
+
+At the strongest point of your argument, hit the brakes. "That said..." "Don't get me wrong..." "This doesn't mean..." — acknowledge the other side has a point. Then press the accelerator again.
+
+The re-assertion after a concession is far more powerful than charging straight through, because the reader sees you as fair.
+
+论证走到最强势的地方，踩一脚刹车。"话说回来""别误会"——承认对面有道理。然后再把油门踩下去。让步之后的再断言比一路冲到底有力得多。
+
+---
+
+## Principle 14: Analogy Crack Handling
+
+Where does the analogy break down? That point is the most valuable paragraph in the piece.
+
+Don't announce "the analogy fails here." Let the reader feel the mismatch on their own. Push through it with narrative.
+
+An analogy that covers everything perfectly is either too vague to be useful or too neat to be honest. The crack is where insight lives.
+
+类比在哪里撑不住了？那个点就是文章最值钱的段落。不宣布"类比失效"，让读者自己感到对不上了。用叙事推过去。
+
+**Relationship to Principle 3 (Analogy Over Explanation):** Principle 3 teaches you to choose good analogies. Principle 14 teaches you to handle their boundaries — acknowledging the crack is stronger than hiding it.
+
+---
+
+## Principle 15: Ending as Door
+
+The ending doesn't summarize. The ending is the last discovery, or a door — pointing toward something you didn't write but the reader will think about on their own.
+
+Best: a short sentence with rhythm that stays in the mind. Like the last note of a song — it stops, but keeps vibrating.
+
+结尾不总结。结尾是最后一个发现，或者一扇门——指向你没写但读者会自己去想的方向。像歌的最后一个音，收住，但还在震。
+
+---
+
+## Density Control
+
+Five-dimensional compression model — run through each dimension after completing the first draft:
+
+### Cut (砍)
+Can this sentence be deleted? Can it merge with the previous one?
+
+### Shorten (短)
+If two words work, don't use four. "进行讨论" → "聊". "实现功能" → "做到". Big words don't make you sound smart — they make the reader tired.
+
+### Layer (造)
+One sentence carries two levels — surface says A, structure implies B.
+
+### Word Choice (选词)
+Every verb is a judgment. "放在" and "搁在" and "摆在" are not the same thing.
+
+### Rhythm (节奏)
+Fragments and expansions breathe in alternation —
+
+Short sentences are hammers. "就这样。" "三个字。" "没了。" Don't hammer consecutively — two or three times per piece maximum.
+
+Long sentences may stretch, but they must feel like they're moving forward, not circling.
+
+Paragraphs breathe too: one-sentence impact → three-sentence expansion → one-sentence closure. The reader neither suffocates in long blocks nor loses direction in fragments.
+
+### Anti-Template
+The same sentence structure may appear at most once. Break regularity.
+
+---
+
+## Voice System Defaults
+
+All modes inherit these defaults. Each mode may override via its own "DNA & Voice Settings" section.
+
+### Temperature
+Default 28°C — warm but direct. Neither cold nor sentimental.
+
+- **Warming allowed:** When hitting something you genuinely care about. Don't add exclamation marks — let anger or excitement seep into word choice and sentence density.
+- **Cooling allowed:** After the sharpest judgment, step back suddenly. "话说回来" / "别误会" — let the reader see you as fair. The re-assertion after cooling is more powerful than charging straight through.
+
+### Inner Voice
+Write out the thoughts that never get said aloud.
+
+Not narration — real inner activity: "心想这也行？" "等等，不对" "算了不想了". Mark with quotes. The effect: an intimacy of eavesdropping on the thinking process.
+
+### Translation Immunity (翻译腔免疫)
+**Test:** Translate the sentence back to English, then back to Chinese. Still the same? → Probably translation voice.
+
+Chinese has its own breathing rhythm. Don't let English syntax ride on top.
+
+**Common symptoms:**
+- Passive pile-up: "被认为是" → "大家觉得"
+- Nouns as verbs: "实现了优化" → "快了"
+- Nested clauses: "在我们讨论了这个之后我发现" → "聊完才发现"
+- Adjective inflation: "非常重要的关键因素" → "关键"
+- Connector overuse: "此外" / "另外" / "与此同时" → cut them, sentences connect themselves
+
+---
+
+## Mode Differentiation Table
+
+Principles 1-9 apply universally. The table below specifies overrides for Principles 10-15, Density Control, and Voice parameters:
+
+| Parameter | tech-article | marketing-copy | research-report | xiaohongshu | github-readme | technical-docs | creative-writing | rewrite | editorial-review |
+|-----------|-------------|---------------|----------------|------------|--------------|---------------|-----------------|---------|-----------------|
+| **P10 Scene-First** | Optional | Optional | Optional | Full | Optional | Skip | Full | Match original | N/A |
+| **P11 Progressive Reveal** | Full | Simplified | Full | Simplified | Full | Skip | Full | Match original | N/A |
+| **P12 Scene Over Argument** | Full | Optional | Optional | Full | Optional | Skip | Full | Match original | N/A |
+| **P13 Concession Turns** | Full | Use sparingly | Full | Skip | Optional | Skip | Full | Match original | N/A |
+| **P14 Analogy Crack** | Full | Skip | Optional | Skip | Optional | Skip | Full | Match original | N/A |
+| **P15 Ending as Door** | Full | Skip (CTA ending) | Optional | Optional | Optional | Skip | Full | Match original | N/A |
+| **Density** | High | Moderate | High | Low-moderate | Moderate | Maximum clarity | By work | Match original | N/A |
+| **Temperature** | 28°C | 30°C | 22°C | 35°C | 28°C | 18°C | By work | Match original | 20°C |
+| **Inner Voice** | Optional | Off | Off | Full | Optional | Off | Full | Match original | Off |
+| **Translation Immunity** | Mandatory (ZH) | Recommended | Recommended | Mandatory | Mandatory (ZH ver) | N/A | Mandatory (ZH) | If ZH, mandatory | N/A |
+
+---
+
+# Core Finding — Find and Stress-Test the Core
+
+Before structuring any piece of writing, find the one thing it's really about. Surface-level topics produce surface-level writing. This protocol digs to the load-bearing idea underneath.
+
+Applied in Phase 1 Step c of the pipeline. The output — a one-sentence core statement and its stress-test result — feeds directly into Phase 2 (Structure Design).
+
+---
+
+## Step 1: Find the Core (找核)
+
+What you think you want to say and what's actually worth saying are rarely the same thing. Dig one level deeper.
+
+**Four shovels — use any combination until you hit something that resists:**
+
+### Shovel 1: Invert (反转)
+Flip the judgment. State the opposite. If the opposite is obviously absurd ("bad code is good"), the original is too obvious to write about — keep digging.
+
+If the opposite is a position someone could genuinely hold, you've found tension. That's where the article lives.
+
+| Original | Inverted | Verdict |
+|----------|----------|---------|
+| "Code review improves quality" | "Code review doesn't improve quality" | Opposite is defensible → tension exists ✓ |
+| "Security matters" | "Security doesn't matter" | Obvious nonsense → original is too bland, dig deeper |
+
+### Shovel 2: Chase the Premise (追问前提)
+What assumption does this judgment stand on? The premise is often more worth writing about than the conclusion.
+
+Ask: "This is true... but only if _____ is also true." Fill the blank. That blank is your real topic.
+
+### Shovel 3: Chase the Emotion (追问情绪)
+Why does this topic make people uncomfortable, excited, or confused? Emotion points to unspoken cognitive conflict.
+
+If nobody feels anything about it, it's not an article — it's a textbook entry.
+
+### Shovel 4: Flip the Definition (翻转定义)
+Take a common word and ask what it really means.
+
+| Surface | Flipped | Article potential |
+|---------|---------|-------------------|
+| "Taste" | = accumulated experience | High — challenges the "taste is innate" assumption |
+| "Harmony" | = conflict avoidance | High — reframes a virtue as a weakness |
+| "Busy" | = afraid to stop | High — names what people won't say |
+
+When a flip lands, the entire piece crystallizes around it.
+
+**Validation:** Can you state the core in one sentence? If not → you have multiple cores → keep only one. If you can't dig further → the idea has no depth → tell the user honestly.
+
+---
+
+## Step 2: Attack the Core (攻核)
+
+Once you have a core, stress-test it. Ask the one question that could blow it up:
+
+**"If this is true, then why ______?"**
+
+Find the strongest counter-evidence, the most obvious objection, the fact that shouldn't exist if your core is correct.
+
+**Three outcomes:**
+
+| Result | Action |
+|--------|--------|
+| **Core holds** | The objection has an answer. Proceed with higher confidence — you've earned your thesis. |
+| **Core morphs** | The objection reveals a better version of the idea. Return to Step 1 with the morphed core. |
+| **Core breaks** | The idea doesn't survive scrutiny. Tell the user: "This core doesn't hold. Here's what I found instead: ______." |
+
+**Skipping this step = expanding an unexamined opinion.** The article may sound good but won't survive a smart reader's first question.
+
+---
+
+## Step 3: Output
+
+Produce two things before moving to Phase 2:
+
+1. **Core Statement** — One sentence. If it takes two, you haven't finished finding.
+2. **Stress-Test Result** — Held / Morphed (state what changed) / Broken (state what replaced it)
+
+---
+
+## Mode-Specific Simplification
+
+Not every writing type needs the full four-shovel treatment. Match depth to purpose:
+
+| Mode | Strategy |
+|------|----------|
+| tech-article | Full four shovels. Product articles: focus on Shovel 4 (what does this product *really* change?). Design stories: focus on Shovel 2 (what assumption drove the design?). |
+| marketing-copy | Full four shovels. Focus on Shovel 3 (what emotion does the reader feel about this problem?). |
+| research-report | Full four shovels. Focus on Shovel 2 (what premise does the market assume?). |
+| xiaohongshu | Full four shovels. Focus on Shovel 3 (what emotion triggers sharing?). |
+| creative-writing | Full four shovels. All four equally important. |
+| github-readme | Simplified: Shovel 4 (what does this project *really* do?) + Shovel 2 (what assumption about existing tools is wrong?). |
+| technical-docs | Simplified: "What is the core purpose of this document?" + "What is the reader's core confusion?" Two questions, direct answers. |
+| rewrite | Diagnose first: does the original have a core? If yes, verify it holds. If no, run the full protocol. |
+| editorial-review | Evaluate: does the submitted piece have a clear, defensible core? Report findings without finding your own. |
+
+---
+
 # Research Protocol — Pre-Writing Research
 
 This protocol is MANDATORY before any writing begins. No research, no writing.
@@ -454,22 +724,71 @@ The agent MUST produce the Research Summary output before proceeding to the Draf
 
 ---
 
-# Humanizer — Anti-AI-Slop Protocol
+# Humanizer — 4-Pass Polish Protocol
 
-This protocol eliminates AI writing patterns that make text feel machine-generated.
-Applied in Phase 4 of the pipeline, after drafting and review.
+This protocol turns a draft into writing that feels human. Applied in Phase 5 of the pipeline, after review.
 
-Two levels: Level 1 catches obvious AI tells. Level 2 reshapes rhythm and structure.
+Four passes run sequentially. Each pass has a clear scope. Pass 1 (oral test) is the highest-priority gate — all changes from later passes must still pass the oral test.
 
 ---
 
-## Level 1: Blacklist Interception (Hard Rules)
+## Pass 1: Oral Test (口语检验)
 
-If ANY of these patterns appear in the draft, they MUST be rewritten. No exceptions.
+**The supreme rule:** "Would you say this to a smart friend? No → rewrite."
 
-### Chinese Blacklist
+Read every paragraph aloud (or simulate reading aloud). If a sentence feels unnatural in speech, it's wrong on the page.
 
-**Banned phrases:**
+**Keep alive connectors** — "but," "so," "like," "不过," "所以," "就像" are the natural sound of thought turning a corner. These stay.
+
+**Kill mechanical connectors** — "Furthermore," "Additionally," "此外," "另外," "值得注意的是" are filing-cabinet words. Nobody talks like this. Cut them.
+
+**Priority:** This pass outranks all others. If Pass 2-4 produce changes that fail the oral test, roll back. If you compress a sentence for density and it no longer sounds speakable, undo.
+
+**Failure examples:**
+| Written | Spoken equivalent |
+|---------|-------------------|
+| "在某种程度上来说" | "多少算是" |
+| "对此进行了深入的探讨" | "聊透了" |
+| "It is worth noting that the system provides" | "The system also gives you" |
+| "This fundamentally transforms the paradigm of" | "This changes how you" |
+
+---
+
+## Pass 2: Density & Rhythm (密度与节奏)
+
+Run the five-dimensional compression model from `writing-dna.md` (Density Control section):
+
+**Cut (砍):** Can this sentence be deleted? Can it merge with the previous one?
+
+**Shorten (短):** If two words work, don't use four. "进行讨论"→"聊". "实现功能"→"做到".
+
+**Layer (造):** Can this sentence carry a second meaning underneath the surface?
+
+**Word Choice (选词):** Is each verb the precise one? "放在" ≠ "搁在" ≠ "摆在".
+
+**Rhythm (节奏):**
+- Short sentences are hammers — 2-3 per piece maximum, not consecutive
+- Long sentences stretch forward, never circling
+- Paragraph breathing: impact (1 sentence) → expansion (3-4 sentences) → closure (1 sentence)
+- **No three consecutive sentences of similar length** (within ±20% word count)
+
+**Anti-template:** The same sentence structure appears at most once. Break regularity.
+
+After compression, re-run Pass 1. If it no longer sounds speakable, roll back.
+
+---
+
+## Pass 3: AI Trace Removal (AI痕迹清除)
+
+Four sub-passes. If 3+ structural patterns from 3b appear in one piece, the piece needs structural editing.
+
+### 3a: Vocabulary Layer — Blacklist Interception
+
+If ANY of these patterns appear, they MUST be rewritten. No exceptions.
+
+**Chinese Blacklist:**
+
+Banned phrases:
 - 随着...的发展 / 随着...的兴起 / 随着...的普及
 - 众所周知
 - 在当今时代 / 在当今社会
@@ -478,20 +797,20 @@ If ANY of these patterns appear in the draft, they MUST be rewritten. No excepti
 - 值得一提的是
 - 毋庸置疑
 
-**Banned adjectives (when used without supporting data):**
+Banned adjectives (without supporting data):
 - 强大的、优秀的、出色的、卓越的
 - 创新的、领先的、前沿的
 - 赋能、引领、颠覆、革命性的
 - 无缝的、全方位的、一站式的
 
-**Banned structures:**
+Banned structures:
 - Opening with context-setting ("随着 AI 技术的发展...")
 - Closing with empty call-to-action ("让我们拭目以待")
-- Exclamation marks > 3 per piece (exception: xiaohongshu mode allows up to 5)
+- Exclamation marks > 3 per piece (exception: xiaohongshu allows up to 5)
 
-### English Blacklist
+**English Blacklist:**
 
-**Banned phrases:**
+Banned phrases:
 - "In today's rapidly evolving..."
 - "It's worth noting that..." / "It's important to note..."
 - "In conclusion" / "To summarize" / "In summary"
@@ -505,137 +824,107 @@ If ANY of these patterns appear in the draft, they MUST be rewritten. No excepti
 - "It goes without saying"
 - "At the end of the day"
 
-**Banned structures:**
+Banned structures:
 - Three-paragraph loop: [point] → [expand] → [summarize], repeated
-- Perfect parallel structure in every list (AI loves symmetry; humans don't)
+- Perfect parallel structure in every list
 - Excessive em-dashes (more than 2 per 500 words)
 - Every paragraph starting with a transition word
 - Vague attribution: "experts say," "studies show," "research indicates" (without citing which)
 
----
+### 3b: Structural Layer — Pattern Detection
 
-## Level 1.5: Structural Pattern Detection
-
-These structural patterns betray AI authorship more reliably than word choice. Each is acceptable in isolation — what betrays AI is their **simultaneous, uniform deployment** across an entire piece. If 3+ appear in one piece, the piece needs structural editing.
+Each pattern is acceptable in isolation. What betrays AI is their **simultaneous, uniform deployment**:
 
 | Pattern | Detection | Fix |
 |---------|-----------|-----|
 | **Low burstiness** | 3+ consecutive sentences within ±20% word count | Vary: insert a 4-word punch or a 30-word breather |
 | **Rule-of-three compulsion** | Every list has exactly 3 items, every grouping has 3 elements | Use 2, or 4, or 5. Reserve triplets for deliberate rhetorical effect only |
 | **Significance inflation** | Paragraph ends with "contributing to..." / "highlighting the importance of..." / "标志着...的重要性" | Delete the sentence. If the significance isn't obvious from the content, the content itself failed |
-| **Copula avoidance** | "Serves as" / "functions as" / "acts as" / "充当" replacing "is" / "是" | Use "is" / "是". Simpler is braver |
-| **Outline-as-prose** | Parallel section headers ("Challenges" / "Solutions" / "Future Prospects") with identical internal structure | Break the pattern: vary section length, nest subsections unevenly, let some sections be one paragraph and others five |
-| **Hedging uniformity** | Same hedge level regardless of certainty ("research suggests" for both proven and speculative claims) | Hedge selectively: confident where you know, uncertain where you don't. Match language to actual confidence |
-| **Negative parallelism** | "It's not X, it's Y" / "不是X，而是Y" pattern used more than once per piece | Use this move once for emphasis. A second time is a tic, not a technique |
-| **Symmetrical section weight** | Every section has same paragraph count and internal structure | Deliberately vary: the section that matters most gets 40% of the piece, some sections are one paragraph |
+| **Copula avoidance** | "Serves as" / "functions as" replacing "is" | Use "is". Simpler is braver |
+| **Outline-as-prose** | Parallel section headers with identical internal structure | Break the pattern: vary section length, nest unevenly |
+| **Hedging uniformity** | Same hedge level regardless of certainty | Hedge selectively: confident where you know, uncertain where you don't |
+| **Negative parallelism** | "It's not X, it's Y" / "不是X，而是Y" used more than once per piece | Use once for emphasis. A second time is a tic |
+| **Symmetrical section weight** | Every section has same paragraph count and internal structure | Deliberately vary: most important section gets 40% of the piece |
+
+### 3c: Deep Filter Layer
+
+Additional filters that catch what blacklists miss:
+
+- **Kill filler** — crutch words ("非常," "确实," "实际上"), inflated symbolism ("标志着," "见证了"), propaganda tone ("充满活力," "开创性的")
+- **Break formulas** — negation-style parallelism: max 2 per piece. Three-part lists: change to 2 or 4 items.
+- **Vary rhythm** — long and short sentences alternate. No more than one em-dash per paragraph.
+- **Trust the reader** — skip softening ("似乎," "可能," "也许" when you actually know) and over-explanation
+- **Kill quotable lines** — if a sentence sounds like it belongs on a motivational poster, rewrite it. Over-polished sentences break the texture of honest writing.
+
+### 3d: Translation Immunity (翻译腔清除) — Chinese content only
+
+**Test:** Translate the sentence to English, then back to Chinese. Still the same? → Translation voice.
+
+**Symptom checklist:**
+- Passive pile-up: "被认为是" → "大家觉得"
+- Nouns as verbs: "实现了优化" → "快了"
+- Nested clauses: "在我们讨论了这个之后我发现" → "聊完才发现"
+- Adjective inflation: "非常重要的关键因素" → "关键"
+- Connector overuse: "此外" / "另外" / "与此同时" → cut, sentences connect themselves
 
 ---
 
-## Level 2: Rhythm Reshaping (Soft Rules)
+## Pass 4: Anti-Style Check (反风格检查)
 
-These are guidelines, not hard bans. The goal is text that FEELS human-written.
+Eight specific anti-patterns. Scan the entire piece against each:
 
-### Sentence Length Variation
+| If you're... | Then... |
+|-------------|---------|
+| **Explaining** | Replace with a scene the reader can see |
+| **Listing** | Cut to only the single most powerful item |
+| **Inventing frameworks** | Delete the acronym and matrix. Say it in one sentence |
+| **Chasing trends** | Write something that holds up in three years |
+| **Sounding translated** | Move the verb forward, cut subordinate clauses, rewrite with Chinese rhythm |
+| **Covering everything** | One point per piece. Say it. Stop. |
+| **Repeating a point** | If the same argument appears twice in different words, strengthen the first occurrence and delete the repeat |
+| **Writing something any assistant could write** | Rewrite or delete. If it's generic enough for any AI to produce, it adds nothing |
 
-Short sentences carry the backbone. Long sentences appear occasionally for breathing room.
-
-```
-❌ AI pattern: Every sentence is 15-25 words. Uniform. Predictable. Monotonous.
-
-✅ Human pattern: Short punch. Then a longer sentence that unwinds a bit,
-   adds context, takes its time. Then short again. Varies.
-```
-
-**Target:** Mix of 5-word punches, 10-15 word workhorses, and occasional 25+ word breathers. No three consecutive sentences of similar length.
-
-### Conversational Tone (Calibrated by Mode)
-
-| Register | Example (EN) | Example (ZH) | Used In |
-|----------|-------------|---------------|---------|
-| Professional-casual | "get it done" ✅ / "frickin' awesome" ❌ | "搞定" ✅ / "牛逼" ❌ | tech-article, marketing |
-| Authoritative-accessible | "the data tells a clear story" ✅ | "数据说明了一切" ✅ | research-report |
-| Friendly-personal | "trust me on this one" ✅ | "姐妹们听我说" ✅ | xiaohongshu |
-| Precise-minimal | "Returns 404 if not found." ✅ | "未找到时返回 404。" ✅ | technical-docs |
-
-### Rhetorical Questions
-
-Use sparingly to create rhythm and engage the reader. 1-2 per piece for most types.
-
-```
-✅ "You'd pay 25x more for tools you'll never use?"
-✅ 你愿意为了用不到的工具付出 25 倍代价吗？
-
-❌ Don't chain multiple rhetorical questions (AI pattern)
-❌ Don't use rhetorical questions as section openers (overused)
-```
-
-### Specific Details Over Abstractions
-
-Replace every vague reference with a concrete one.
-
-```
-❌ "in a recent meeting" → ✅ "in last Wednesday's 3pm standup"
-❌ "a significant number of users" → ✅ "2,847 users in the first week"
-❌ "很多用户反馈" → ✅ "上线第一周 2,847 个用户"
-❌ "在一次会议中" → ✅ "上周三下午 3 点的站会上"
-```
-
-### Asymmetric Structure
-
-AI loves perfectly balanced lists (3 items, each 2 sentences). Humans don't write that way.
-
-- Some bullet points are one word
-- Others might ramble a bit, adding a secondary thought that the writer couldn't resist including, because that's how people actually think — in messy, uneven chunks
-- Medium length here
-
-### Imperfect Openings
-
-Occasionally start mid-thought, the way humans do in conversation.
-
-```
-✅ "So here's the thing about context windows..."
-✅ "14,000 tokens. Gone. Just to load the tool list."
-✅ 14,000 Token。没了。就为了加载工具列表。
-```
+**Surprise test:** During the process of writing this piece, did you discover something you didn't think of before? If yes → make sure it's prominent in the text. If no → the core wasn't attacked hard enough (return to Phase 1 Step c).
 
 ---
 
 ## Mode-Specific Overrides
 
-Some modes override the default humanizer settings:
-
 | Mode | Override |
 |------|----------|
-| xiaohongshu | Emojis ENCOURAGED. Exclamation marks up to 5. Internet slang OK in moderation (绝绝子, yyds). |
-| technical-docs | Stricter: no rhetorical questions, no conversational asides, no emojis. Pure clarity. |
-| marketing-copy | More urgency allowed. Sentence fragments OK for impact. |
-| research-report | More formal. Data precision paramount. No sentence fragments. |
-| tech-article | Default settings — balanced rhythm, moderate casualness. |
+| xiaohongshu | Pass 3a: emojis ENCOURAGED, exclamation marks up to 5, internet slang OK in moderation. Pass 4: "covering everything" rule relaxed for tutorials. |
+| technical-docs | Pass 1: oral test standard changes to "clear and concise" rather than "like talking to a friend." Pass 2: density maximized for clarity. Pass 4: skipped entirely. No rhetorical questions, no conversational asides, no emojis. |
+| marketing-copy | Pass 2: sentence fragments OK for impact. Pass 4: "chasing trends" rule relaxed for timely campaigns. |
+| research-report | Pass 1: oral test standard changes to "professional but readable." Pass 4: "covering everything" rule relaxed — reports may need breadth. |
+| creative-writing | Pass 3b: intentional repetition and parallel structure allowed for literary effect. Pass 4: significantly relaxed — creative choices override anti-patterns. |
+| tech-article | Default settings — balanced across all passes. |
 
 ---
 
 ## Application Checklist
 
-After humanizing, verify:
+After all four passes, verify:
 
-- [ ] Zero blacklisted phrases remain (Level 1 scan)
-- [ ] Structural pattern count < 3 simultaneous (Level 1.5 scan)
-- [ ] No three consecutive sentences of similar length
-- [ ] Section weights are visibly asymmetric (not all sections same length/structure)
-- [ ] At least one rhetorical question (except technical-docs)
+- [ ] Every sentence passes the oral test (Pass 1)
+- [ ] No three consecutive sentences of similar length (Pass 2)
+- [ ] Section weights are visibly asymmetric (Pass 2)
+- [ ] Zero blacklisted phrases remain (Pass 3a)
+- [ ] Structural pattern count < 3 simultaneous (Pass 3b)
+- [ ] No filler words, no quotable-poster sentences (Pass 3c)
+- [ ] Chinese text passes translation immunity test (Pass 3d)
+- [ ] No explaining where a scene would work (Pass 4)
+- [ ] No repeated arguments in different words (Pass 4)
 - [ ] Specific numbers/details replace all vague references
-- [ ] Lists are not all perfectly parallel
-- [ ] Opening doesn't set context — it enters the topic directly
+- [ ] Opening enters the topic directly — no context-setting
 - [ ] Closing doesn't summarize what was just said
-- [ ] Hedging matches actual confidence level (not uniform)
 
 ---
 
 # Review Protocol — Post-Draft Review
 
-This protocol is MANDATORY after drafting and before humanizing.
+This protocol is MANDATORY after drafting and before polishing.
 The agent runs all four review dimensions and produces a numbered fix list.
-ALL fixes must be applied before proceeding to the Humanize phase.
+ALL fixes must be applied before proceeding to the Polish phase.
 
 ---
 
@@ -843,9 +1132,9 @@ Output a structured style card:
 
 When a style fingerprint is active:
 
-1. **Phase 2 (Draft):** Apply the fingerprint rules alongside the mode template. Fingerprint overrides default tone rules where they conflict.
-2. **Phase 4 (Humanize):** Use the fingerprint as the target voice, not just "avoid AI patterns." The humanizer should push toward the learned style, not just away from AI.
-3. **Phase 5 (Finalize):** Add a style-match check: "Does this read like the reference? If not, what's off?"
+1. **Phase 3 (Draft):** Apply the fingerprint rules alongside the mode template. Fingerprint overrides default tone rules where they conflict.
+2. **Phase 5 (Polish):** Use the fingerprint as the target voice, not just "avoid AI patterns." The polish passes should push toward the learned style, not just away from AI.
+3. **Phase 6 (Finalize):** Add a style-match check: "Does this read like the reference? If not, what's off?"
 
 ### Conflict Resolution
 
@@ -1083,7 +1372,7 @@ Last updated: 2026-03-28
 - 5 writing modes (vs industry typical 1)
 - 30+ bilingual blacklist rules
 - 60%+ context savings with modular loading
-- 5-phase pipeline with independent re-run
+- 6-phase pipeline with independent re-run
 
 ## Proven Analogies
 - "分诊台 + 专科医生" (for router architecture)
@@ -1108,22 +1397,22 @@ Last updated: 2026-03-28
 
 ## How Memory Is Used
 
-### During Phase 1 (Research)
+### During Phase 1 (Core Logic — Research)
 - Pre-fill audience targeting from memory (skip re-asking if already known)
 - Load key data points as starting material
 - Load competitor names and framing
 
-### During Phase 2 (Draft)
+### During Phase 3 (Draft)
 - Apply saved style fingerprint (if exists)
 - Use proven analogies where relevant
 - Insert boilerplate sections where appropriate
 - Use correct brand terminology
 
-### During Phase 4 (Humanize)
-- Apply any user-approved humanizer exceptions
+### During Phase 5 (Polish)
+- Apply any user-approved polish exceptions
 - Check against saved style fingerprint
 
-### During Phase 5 (Finalize)
+### During Phase 6 (Finalize)
 - Verify brand terminology consistency
 - Check that key data points match saved values (no contradictions)
 
@@ -1187,7 +1476,7 @@ Activated when: "SEO优化", "搜索优化", "关键词", "SEO", "search optimiz
 
 ---
 
-## SEO Checklist (Apply During Phase 5)
+## SEO Checklist (Apply During Phase 6)
 
 ### Title & Meta
 
@@ -1272,9 +1561,9 @@ After the article is finalized, generate 3 alternative titles optimized for diff
 This layer is additive — it doesn't replace any mode's structure. It adds checks AFTER the normal pipeline:
 
 ```
-Phase 1-4: Normal pipeline
-Phase 5: Mode-specific checklist
-Phase 5+: SEO/GEO checklist (if activated)
+Phase 1-5: Normal pipeline
+Phase 6: Mode-specific checklist
+Phase 6+: SEO/GEO checklist (if activated)
 ```
 
 ### Mode-Specific SEO Notes
@@ -1308,7 +1597,7 @@ An enhancement module that generates specific, actionable visualization recommen
 for data-rich content. Primarily used with research-report and tech-article modes.
 
 Activated when:
-- Phase 2 (Draft) of research-report or tech-article produces data points
+- Phase 3 (Draft) of research-report or tech-article produces data points
 - User says "加图表建议" / "add chart suggestions" / "visualize this"
 - Content has 3+ data points that would benefit from visual representation
 
@@ -1506,6 +1795,26 @@ When the article's core value is the thinking process — how the team arrived a
 - For detailed fidelity and compression rules, see **Narrative Fidelity Rules** section below.
 
 **Length guidelines still apply** but are subordinate to causal completeness. A 2500-word design story with intact causal chain beats a 1500-word version with gaps.
+
+---
+
+## DNA & Voice Settings
+
+**Voice:**
+- Temperature: 28°C (default)
+- Posture: Two sub-types — Analyst voice (third-party review: objective, evaluative) vs Builder voice (own project: frustration, dead ends, "we finally...")
+- Inner Voice: Optional (encouraged in Builder voice, use sparingly in Analyst voice)
+- Translation Immunity: Mandatory for Chinese content
+
+**DNA Overrides:**
+- P10 (Scene-First): Optional — P2 (Pain First) takes priority for product articles
+- P11 (Progressive Revelation): Full
+- P12 (Scene Over Argument): Full
+- P13 (Concession Turns): Full
+- P14 (Analogy Crack): Full
+- P15 (Ending as Door): Full
+
+**Core Finding:** Full four shovels. Product articles: focus on Shovel 4 (what does this product *really* change?). Design stories: focus on Shovel 2 (what assumption drove the design?).
 
 ---
 
@@ -1786,13 +2095,13 @@ When writing narrative/design-story articles from source material:
 
 ## Writing Workflow (Tech Article)
 
-This mode follows the standard 5-phase pipeline (see `SKILL.md`). Mode-specific notes:
+This mode follows the standard 6-phase pipeline (see `SKILL.md`). Mode-specific notes:
 
 ### Phase 1: Research
 - Standard research protocol applies (`core/research-protocol.md`).
 - For tech articles specifically: always do competitive differentiation research. The comparison table (Module 4) and differentiation section (Module 5.5) need real competitor data.
 
-### Phase 2: Draft
+### Phase 3: Draft
 Build the 9 modules in this order:
 1. Write TL;DR first — if one sentence doesn't work, you haven't understood the product yet.
 2. Write pain point + comparison table — this is the evidence layer.
@@ -1800,15 +2109,15 @@ Build the 9 modules in this order:
 4. Write feature scenarios — this is the imagination layer.
 5. Add title and closing last — title needs the killer data, closing callbacks to it.
 
-### Phase 3: Review
+### Phase 4: Review
 - Standard review protocol applies (`core/review-protocol.md`).
 - Additional tech-article check: verify each Module 5.5 differentiator actually differentiates (not just described differently from competitors).
 
-### Phase 4: Humanize
+### Phase 5: Humanize
 - Standard humanizer applies (`core/humanizer.md`).
-- This mode uses default settings: balanced rhythm, moderate conversational tone.
+- Pass 1-4 applied in sequence: balanced rhythm, moderate conversational tone.
 
-### Phase 5: Finalize
+### Phase 6: Finalize
 - Run the self-check checklist below.
 
 ---
@@ -1902,6 +2211,26 @@ Every GitHub README produced by this mode outputs **two files**:
    ```html
    <!-- Synced with README.md as of [date] -->
    ```
+
+---
+
+## DNA & Voice Settings
+
+**Voice:**
+- Temperature: 28°C (warm but professional)
+- Posture: Builder — personal, warm, "I built this because..."
+- Inner Voice: Optional — can add personality to the Why section
+- Translation Immunity: Mandatory for Chinese version
+
+**DNA Overrides:**
+- P10 (Scene-First): Optional
+- P11 (Progressive Revelation): Full — readers need progressive complexity
+- P12 (Scene Over Argument): Optional
+- P13 (Concession Turns): Optional
+- P14 (Analogy Crack): Optional
+- P15 (Ending as Door): Optional
+
+**Core Finding:** Simplified — focus on Shovel 4 (what does this project *really* do?) + Shovel 2 (what assumption about existing tools is wrong?).
 
 ---
 
@@ -2308,29 +2637,29 @@ The difference: the compelling version **states the same fact** but includes the
 - **Do not shortcut this.** A README written without understanding the code reads like marketing, and developers can tell.
 - **R0 (Identity Check) is the first thing you do.** Everything downstream depends on it.
 
-### Phase 1.5: Structure Design (NEW — MANDATORY)
+### Phase 2: Structure Design (MANDATORY)
 - After research, design the README skeleton using the Pre-Draft Structure Design process above
 - Present the skeleton to the user for approval
 - This catches structural problems before you've written 2000 words
 - **Do not skip this.** The most common README failure is structural (wrong ordering, missing value sections, redundant sections), not content-level.
 
-### Phase 2: Draft
+### Phase 3: Draft
 - Write English version first (README.md)
 - Follow the approved module structure
-- Apply the 7 writing principles from writing-dna.md
+- Apply the writing principles from writing-dna.md
 - After each module, re-read and apply the Objectivity Trap check: "Accurate? Yes. Would someone keep reading? If no, add the mechanism."
 
-### Phase 3: Review
+### Phase 4: Review
 - Standard review protocol applies (`core/review-protocol.md`)
 - Additional check: every claim in "How It Works" must be verifiable from the actual codebase
 - Run Perspective Audit (Dimension 4): README should be firmly in product + user perspective, minimal developer perspective
 - **Feature baseline check:** scan Key Features — is any item actually a baseline that all similar projects share? If yes, demote or remove it.
 
-### Phase 4: Humanize
-- Standard humanizer applies (`core/humanizer.md`)
+### Phase 5: Polish
+- Standard polish protocol applies (`core/humanizer.md`)
 - This mode uses builder voice — warmer and more personal than tech-article default
 
-### Phase 5: Chinese Version
+### Phase 5b: Chinese Version
 - Rewrite (not translate) the English README into Chinese
 - Verify all bilingual rules are followed
 - Run humanizer again on the Chinese version specifically (Chinese AI-slop patterns differ from English)
@@ -2349,7 +2678,7 @@ Run through every item after both README files are complete.
 ### Structure & Identity
 
 - [ ] Identity stated clearly — reader knows what kind of thing this is (tool/library/framework/etc.) within the first 3 sentences?
-- [ ] Module order follows the approved skeleton from Phase 1.5?
+- [ ] Module order follows the approved skeleton from Phase 2?
 - [ ] No module is present that was marked "skip" in the skeleton?
 
 ### Content Quality
@@ -2391,6 +2720,26 @@ ad copy, value propositions, and promotional content.
 Great-writer's "data-driven + anti-cliche" DNA applied to marketing formats.
 
 Activated when: Landing page, 广告, CTA, 社交媒体, 文案, ad copy, social post, marketing copy, value proposition
+
+---
+
+## DNA & Voice Settings
+
+**Voice:**
+- Temperature: 30°C (slightly warmer — urgency and energy)
+- Posture: Persuader — direct, with urgency, benefit-focused
+- Inner Voice: Off
+- Translation Immunity: Recommended for Chinese content
+
+**DNA Overrides:**
+- P10 (Scene-First): Optional
+- P11 (Progressive Revelation): Simplified — landing pages reveal benefit fast, not gradually
+- P12 (Scene Over Argument): Optional
+- P13 (Concession Turns): Use sparingly — concessions can weaken urgency
+- P14 (Analogy Crack): Skip
+- P15 (Ending as Door): Skip — marketing ends with CTA, not open doors
+
+**Core Finding:** Full four shovels. Focus on Shovel 3 (what emotion does the reader feel about this problem?).
 
 ---
 
@@ -2535,6 +2884,27 @@ competitive reports, investment research, and in-depth briefings.
 Core principle: **Depth ≠ obscurity. Rigor ≠ boring.**
 
 Activated when: 白皮书, 行业分析, 竞品报告, 投研, whitepaper, research report, competitive analysis, industry report, deep dive
+
+---
+
+## DNA & Voice Settings
+
+**Voice:**
+- Temperature: 22°C (cooler, more formal — data speaks)
+- Posture: Analyst — data-driven, authoritative but accessible
+- Inner Voice: Off
+- Translation Immunity: Recommended
+
+**DNA Overrides:**
+- P2 (Pain First): Changes to "Finding First" — lead with discoveries, not pain
+- P10 (Scene-First): Optional
+- P11 (Progressive Revelation): Full
+- P12 (Scene Over Argument): Optional — data serves as argument
+- P13 (Concession Turns): Full — acknowledging limitations strengthens credibility
+- P14 (Analogy Crack): Optional
+- P15 (Ending as Door): Optional — reports may end with recommendations
+
+**Core Finding:** Full four shovels. Focus on Shovel 2 (what premise does the market/industry assume?).
 
 ---
 
@@ -2689,6 +3059,27 @@ This mode overrides default humanizer settings:
 - **Emojis:** ENCOURAGED (1-2 per paragraph, as visual anchors)
 - **Exclamation marks:** Up to 5 per piece (vs. 3 default)
 - **Internet slang:** OK in moderation (绝绝子, yyds, 救命好用) — but only if contextually natural, never forced
+
+---
+
+## DNA & Voice Settings
+
+**Voice:**
+- Temperature: 35°C (warmest — enthusiastic, personal, intimate)
+- Posture: Friend — "姐妹们听我说" intimacy
+- Inner Voice: Full — "心想这也行？" style adds authenticity
+- Translation Immunity: Mandatory
+
+**DNA Overrides:**
+- P2 (Pain First): Changes to "Empathy First" — "你是不是也..." resonance
+- P10 (Scene-First): Full — personal experience hooks
+- P11 (Progressive Revelation): Simplified — short form, reveal fast
+- P12 (Scene Over Argument): Full — personal scenes over product claims
+- P13 (Concession Turns): Skip — directness works better on RED
+- P14 (Analogy Crack): Skip
+- P15 (Ending as Door): Optional
+
+**Core Finding:** Full four shovels. Focus on Shovel 3 (what emotion triggers sharing?).
 
 ---
 
@@ -2852,11 +3243,28 @@ Activated when: README, API docs, API文档, changelog, release notes, 技术文
 
 ## Humanizer Overrides
 
-This mode applies STRICTER humanizer settings:
+This mode applies STRICTER humanizer settings (all enforced in Pass 3a):
 - **No rhetorical questions** — docs answer, they don't ask
 - **No conversational asides** — every word serves a purpose
 - **No emojis** — except in changelogs where category markers are useful
 - **Pure clarity** — if a sentence can be shorter, make it shorter
+
+---
+
+## DNA & Voice Settings
+
+**Voice:**
+- Temperature: 18°C (coolest — maximum clarity, zero ambiguity)
+- Posture: Guide — every word serves comprehension
+- Inner Voice: Off
+- Translation Immunity: N/A (typically English-primary)
+
+**DNA Overrides:**
+- P2 through P15: All skip except P7 (Audience Adaptation) and P9 (Asymmetry)
+- Density: Maximum clarity — every sentence as short as possible while remaining complete
+- Focus: Clarity > Completeness > Elegance
+
+**Core Finding:** Simplified — "What is the core purpose of this document?" + "What is the reader's core confusion?" Direct answers, no shovels needed.
 
 ---
 
@@ -3092,7 +3500,23 @@ Activated when: 改写, 润色, 改一下, 帮我改, polish, rewrite, improve t
 
 ## Humanizer Note
 
-This mode always applies the full humanizer protocol. If the input text has AI-slop patterns, they WILL be removed regardless of other instructions.
+This mode always applies the full humanizer protocol (Pass 1 through Pass 4). If the input text has AI-slop patterns, they WILL be removed regardless of other instructions.
+
+---
+
+## DNA & Voice Settings
+
+**Voice:**
+- Temperature: Match original text
+- Posture: Match original — diagnose the original's voice before imposing anything
+- Inner Voice: Match original
+- Translation Immunity: Mandatory if original is Chinese
+
+**DNA Overrides:**
+- All principles: applied based on diagnosis of original text and target improvement
+- The rewrite mode doesn't impose a fixed DNA profile — it adapts to what the original needs
+
+**Core Finding:** Diagnose first — does the original have a core? If yes, verify it holds (run Attack Core). If no, run the full Find Core protocol before rewriting.
 
 ---
 
@@ -3150,7 +3574,7 @@ If the user specifies areas → focus only on those.
 - Identify the core message and key data from the original
 - Choose the appropriate mode template (tech-article, marketing, etc.) or use a general structure if no mode fits
 - Rebuild from scratch using the original's content as research material
-- Run through Phase 3 (Review) + Phase 4 (Humanize) after rewriting
+- Run through Phase 4 (Review) + Phase 5 (Polish) after rewriting
 
 ### Targeted Edits
 - Keep the original structure intact
@@ -3242,6 +3666,21 @@ Activated when: 审稿, 帮我看看这篇, 编辑审核, review this article, e
 
 ---
 
+## DNA & Voice Settings
+
+**Voice:**
+- Temperature: 20°C (cool, fair, analytical)
+- Posture: Senior editor — honest, constructive, specific, never condescending
+- Inner Voice: Off
+- Translation Immunity: N/A (reviewing, not writing)
+
+**DNA Overrides:**
+- N/A — editorial review evaluates writing, doesn't produce it. DNA principles are used as evaluation criteria, not writing guides.
+
+**Core Finding:** Evaluate whether the submitted piece has a clear, defensible core. Report findings without finding your own core.
+
+---
+
 ## Review Framework
 
 ### Layer 1: First Impression (30-second scan)
@@ -3280,7 +3719,7 @@ Output as a brief "First Impression" paragraph.
 
 | Check | What to Look For |
 |-------|-----------------|
-| **AI smell** | Run the humanizer blacklist mentally. Any banned phrases? Structural AI patterns? |
+| **AI smell** | Run the Pass 3a blacklist mentally. Any banned phrases? Structural AI patterns? |
 | **Sentence variety** | All same length? Monotonous? Or varied rhythm? |
 | **Word precision** | Vague words that could be more specific? ("thing", "stuff", "various", "very") |
 | **Active voice** | Passive constructions that should be active? |
@@ -3388,13 +3827,34 @@ Activated when: 写小说, 写故事, 写散文, 写演讲稿, 写剧本, creati
 
 ## Humanizer Override
 
-This mode applies the MOST RELAXED humanizer settings:
+This mode applies the MOST RELAXED humanizer settings (Pass 3a adjusted):
 - Sentence fragments: encouraged for rhythm and impact
 - Repetition: allowed for emphasis (when intentional)
 - Emojis: generally avoided (unless genre-appropriate)
 - Exclamation marks: used with discretion (impact over frequency)
-- Rules relaxed: perfect parallel structure is OK IF it serves a literary purpose
-- Blacklist still applies: AI-slop phrases are still banned (they're bad in any genre)
+- Pass 3a relaxed: perfect parallel structure is OK IF it serves a literary purpose
+- Pass 3a blacklist still applies: AI-slop phrases are still banned (they're bad in any genre)
+
+---
+
+## DNA & Voice Settings
+
+**Voice:**
+- Temperature: By work — varies with each piece's needs
+- Posture: By narrator — each piece has its own way of seeing the world
+- Inner Voice: Full — one of creative writing's most powerful tools
+- Translation Immunity: Mandatory for Chinese creative writing
+
+**DNA Overrides:**
+- P10 (Scene-First): Full — always start with image or moment
+- P11 (Progressive Revelation): Full
+- P12 (Scene Over Argument): Full — show, don't tell
+- P13 (Concession Turns): Full
+- P14 (Analogy Crack): Full
+- P15 (Ending as Door): Full — endings earn, not summarize
+- All ljg-derived principles are fully active in creative writing mode
+
+**Core Finding:** Full four shovels. All four equally important. Creative writing lives and dies by the depth of its core.
 
 ---
 
@@ -3521,7 +3981,7 @@ Don't tell the reader what to feel at the end. Give them an image, a moment, or 
 
 ## Research Phase Adaptation
 
-For creative writing, the research phase (Phase 1) works differently:
+For creative writing, the research phase (Phase 2) works differently:
 
 - **Skip audience targeting** (creative writing serves the story, not the audience)
 - **Skip exclusion analysis** (not relevant)

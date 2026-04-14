@@ -20,6 +20,27 @@ This mode overrides default humanizer settings:
 
 ---
 
+## DNA & Voice Settings
+
+**Voice:**
+- Temperature: 35°C (warmest — enthusiastic, personal, intimate)
+- Posture: Friend — "姐妹们听我说" intimacy
+- Inner Voice: Full — "心想这也行？" style adds authenticity
+- Translation Immunity: Mandatory
+
+**DNA Overrides:**
+- P2 (Pain First): Changes to "Empathy First" — "你是不是也..." resonance
+- P10 (Scene-First): Full — personal experience hooks
+- P11 (Progressive Revelation): Simplified — short form, reveal fast
+- P12 (Scene Over Argument): Full — personal scenes over product claims
+- P13 (Concession Turns): Skip — directness works better on RED
+- P14 (Analogy Crack): Skip
+- P15 (Ending as Door): Optional
+
+**Core Finding:** Full four shovels. Focus on Shovel 3 (what emotion triggers sharing?).
+
+---
+
 ## Sub-Type 1: 种草笔记 (Product Recommendation)
 
 ### Title

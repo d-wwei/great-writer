@@ -4,7 +4,7 @@ An enhancement module that generates specific, actionable visualization recommen
 for data-rich content. Primarily used with research-report and tech-article modes.
 
 Activated when:
-- Phase 2 (Draft) of research-report or tech-article produces data points
+- Phase 3 (Draft) of research-report or tech-article produces data points
 - User says "加图表建议" / "add chart suggestions" / "visualize this"
 - Content has 3+ data points that would benefit from visual representation
 

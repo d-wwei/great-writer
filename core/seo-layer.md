@@ -24,7 +24,7 @@ Activated when: "SEO优化", "搜索优化", "关键词", "SEO", "search optimiz
 
 ---
 
-## SEO Checklist (Apply During Phase 5)
+## SEO Checklist (Apply During Phase 6)
 
 ### Title & Meta
 
@@ -109,9 +109,9 @@ After the article is finalized, generate 3 alternative titles optimized for diff
 This layer is additive — it doesn't replace any mode's structure. It adds checks AFTER the normal pipeline:
 
 ```
-Phase 1-4: Normal pipeline
-Phase 5: Mode-specific checklist
-Phase 5+: SEO/GEO checklist (if activated)
+Phase 1-5: Normal pipeline
+Phase 6: Mode-specific checklist
+Phase 6+: SEO/GEO checklist (if activated)
 ```
 
 ### Mode-Specific SEO Notes

@@ -78,7 +78,7 @@ Last updated: 2026-03-28
 - 5 writing modes (vs industry typical 1)
 - 30+ bilingual blacklist rules
 - 60%+ context savings with modular loading
-- 5-phase pipeline with independent re-run
+- 6-phase pipeline with independent re-run
 
 ## Proven Analogies
 - "分诊台 + 专科医生" (for router architecture)
@@ -103,22 +103,22 @@ Last updated: 2026-03-28
 
 ## How Memory Is Used
 
-### During Phase 1 (Research)
+### During Phase 1 (Core Logic — Research)
 - Pre-fill audience targeting from memory (skip re-asking if already known)
 - Load key data points as starting material
 - Load competitor names and framing
 
-### During Phase 2 (Draft)
+### During Phase 3 (Draft)
 - Apply saved style fingerprint (if exists)
 - Use proven analogies where relevant
 - Insert boilerplate sections where appropriate
 - Use correct brand terminology
 
-### During Phase 4 (Humanize)
-- Apply any user-approved humanizer exceptions
+### During Phase 5 (Polish)
+- Apply any user-approved polish exceptions
 - Check against saved style fingerprint
 
-### During Phase 5 (Finalize)
+### During Phase 6 (Finalize)
 - Verify brand terminology consistency
 - Check that key data points match saved values (no contradictions)
 

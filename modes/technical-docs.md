@@ -11,11 +11,28 @@ Activated when: README, API docs, API文档, changelog, release notes, 技术文
 
 ## Humanizer Overrides
 
-This mode applies STRICTER humanizer settings:
+This mode applies STRICTER humanizer settings (all enforced in Pass 3a):
 - **No rhetorical questions** — docs answer, they don't ask
 - **No conversational asides** — every word serves a purpose
 - **No emojis** — except in changelogs where category markers are useful
 - **Pure clarity** — if a sentence can be shorter, make it shorter
+
+---
+
+## DNA & Voice Settings
+
+**Voice:**
+- Temperature: 18°C (coolest — maximum clarity, zero ambiguity)
+- Posture: Guide — every word serves comprehension
+- Inner Voice: Off
+- Translation Immunity: N/A (typically English-primary)
+
+**DNA Overrides:**
+- P2 through P15: All skip except P7 (Audience Adaptation) and P9 (Asymmetry)
+- Density: Maximum clarity — every sentence as short as possible while remaining complete
+- Focus: Clarity > Completeness > Elegance
+
+**Core Finding:** Simplified — "What is the core purpose of this document?" + "What is the reader's core confusion?" Direct answers, no shovels needed.
 
 ---
 

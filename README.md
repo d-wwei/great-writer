@@ -57,13 +57,13 @@ Say "write article", "小红书种草", or "write a README" in conversation to t
 | Editorial Review | critique this, editorial review, 审稿 | Feedback on others' writing |
 | Creative Writing | fiction, essay, speech, screenplay | Stories, essays, speeches, scripts |
 
-**Every piece goes through a 5-phase pipeline:**
+**Every piece goes through a 6-phase pipeline:**
 
 ```
-Research → Draft → Review → Humanize → Finalize
+Core Logic (Research + Find Core) → Structure Design → Draft → Review → Polish → Finalize
 ```
 
-Each phase runs independently. Say "humanize" to jump straight to phase 4 without restarting.
+Each phase runs independently. Say "polish" to jump straight to Phase 5, or "换个角度" to re-think the core.
 
 **5 enhanced capabilities (activated on demand):**
 
@@ -84,11 +84,12 @@ Layered architecture. SKILL.md routes requests, core/ holds shared capabilities,
 ```
 great-writer/
 ├── SKILL.md                    # Router + pipeline definition
-├── core/                       # Shared core (9 modules)
-│   ├── writing-dna.md          # 7 writing principles
+├── core/                       # Shared core (10 modules)
+│   ├── writing-dna.md          # 15 writing principles + density + voice
+│   ├── core-finding.md         # Find Core + Attack Core methodology
 │   ├── research-protocol.md    # Pre-writing research
 │   ├── review-protocol.md      # Post-draft review
-│   ├── humanizer.md            # Anti-AI-slop protocol
+│   ├── humanizer.md            # 4-pass polish protocol
 │   ├── style-learner.md        # Style fingerprint extraction
 │   ├── adapt-protocol.md       # Multi-platform adaptation
 │   ├── writing-memory.md       # Cross-session persistence
@@ -123,7 +124,7 @@ git clone https://github.com/d-wwei/great-writer.git
 
 **Single-file agents** (ChatGPT, custom LLM pipelines, etc.):
 
-Use `great-writer-bundled.md` as your system prompt or context injection. One file, all 17 modules included.
+Use `great-writer-bundled.md` as your system prompt or context injection. One file, all 18 modules included.
 
 ---
 

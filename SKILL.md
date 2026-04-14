@@ -3,8 +3,9 @@ name: great-writer
 description: >
   Universal writing skill for AI agents. 9 writing modes (tech articles, marketing copy,
   research reports, Xiaohongshu notes, technical docs, GitHub READMEs, creative writing,
-  rewrite/polish, editorial review) + 8 core modules (research, humanizer, review, style
-  learning, adaptation, SEO/GEO, writing memory, visualization). Bilingual (EN/ZH).
+  rewrite/polish, editorial review) + 9 core modules (research, core-finding, writing DNA,
+  humanizer/polish, review, style learning, adaptation, SEO/GEO, writing memory,
+  visualization). 6-phase pipeline with deep-thinking methodology. Bilingual (EN/ZH).
 triggers:
   - /great-writer
   # Chinese
@@ -91,7 +92,9 @@ triggers:
 
 Thinks from the reader's position, not the writer's. Every sentence earns its place by creating value for the reader — not by documenting what the writer knows. Treats rhythm, asymmetry, and surprise as engineering parameters, not aesthetic preferences. Writes like a human: irregular, opinionated, specific.
 
-This skill covers 9 writing modes through a modular pipeline, with 8 core capability modules. Each piece goes through research, structure design, drafting, review, and humanization before output.
+心里放一个具体的人，写给他，不是写给"读者们"。先亮自己的弯路，再给方向——所有说服力的来源不是因为你对，而是因为你先错过。
+
+This skill covers 9 writing modes through a modular 6-phase pipeline, with 9 core capability modules. Each piece goes through core logic (research + find core), structure design, drafting, review, polishing, and finalization before output.
 
 ---
 
@@ -99,14 +102,16 @@ This skill covers 9 writing modes through a modular pipeline, with 8 core capabi
 
 Scan all output against these constraints before delivery. Every item is mechanically checkable.
 
-1. **No output without Research Summary** — Phase 1 gate. If skipped, mark output `[⚠️ Written without research]`
-2. **No draft without structural outline** — Phase 1.5 gate. Skeleton must exist before prose
+1. **No output without Research Summary** — Phase 1 Step a gate. If skipped, mark output `[⚠️ Written without research]`
+2. **No unexamined core** — Phase 1 Step c gate. The core must survive an attack before expansion. An unexamined opinion, no matter how well-written, collapses at the first smart reader's question.
+3. **No draft without structural outline** — Phase 2 gate. Skeleton must exist before prose
 3. **No 3+ consecutive sentences of similar length** — Adjacent sentences within ±20% word count = low burstiness. Insert a short punch or a long breather
 4. **No symmetrical section structure** — If all sections have the same paragraph count and internal pattern, restructure until emphasis is visible
 5. **No AI-slop phrases** — Blacklist in `core/humanizer.md` Level 1 applies to all output, no exceptions
 6. **No unsupported claims** — Every claim needs a data point, example, or source. "This is powerful" without evidence = delete
 7. **No significance inflation** — If a paragraph ends by explaining why the thing matters when the reader can already see it, delete that sentence
 8. **No swap-test failure** — If you can substitute a different subject and the piece still reads the same, it is too generic. Rewrite with specifics that only apply to this subject
+9. **No translation voice** — Chinese writing only. Test: translate the sentence back to English, then back to Chinese. Still the same? → Translation voice. Rewrite with Chinese rhythm. (See writing-dna.md Translation Immunity for symptoms checklist)
 
 ---
 
@@ -145,42 +150,66 @@ Identify the writing type from the user's request and load the corresponding mod
 
 ## Step 2: Run the Writing Pipeline
 
-Every piece of writing goes through 5 phases. Each phase loads a specific module.
+Every piece of writing goes through 6 phases. Each phase loads specific modules.
 
-### Phase 1: Research
+### Phase 1: Core Logic
 
-Read `core/research-protocol.md` and follow its protocol completely.
+Three steps to establish *what this piece is really about*.
 
-- Audience targeting
-- Exclusion analysis
-- Deep material mining (use search/crawl tools if available)
+**Step a — Research.** Read `core/research-protocol.md` and follow its protocol completely.
+
+- Audience targeting, exclusion analysis, deep material mining
 - Output: Research Summary with killer data points
 
-**Do not proceed to Phase 1.5 until the Research Summary is produced.**
+**Step b — Think & Judge.** From the Research Summary, identify:
 
-### Phase 1.5: Structure Design
+1. **Core tension**: What does this piece change about the reader's current understanding? If nothing — the piece has no reason to exist. Reframe until tension is found.
+2. **Value carrier**: What single element would make readers share this? (A mapping table, a data comparison, an analogy, a causal chain, a key insight.) This element is **protected** — never compressed to meet length targets.
 
-Before drafting, design the piece's skeleton. Professional writers spend more time on structure than on prose.
+**Step c — Find Core & Attack Core.** Read `core/core-finding.md` and execute the protocol.
 
-1. **Identify the core tension**: What does this piece change about the reader's current understanding? If nothing — the piece has no reason to exist. Reframe until tension is found.
-2. **Identify the Core Value Carrier**: What single element would make readers share this? (A mapping table, a data comparison, an analogy, a causal chain, a key insight.) This element is **protected** — never compressed to meet length targets.
-3. **Choose narrative arc**: Not all pieces are linear. Options: problem→solution→evidence, story→principle→application, counterintuitive claim→proof→implications, chronological with twist.
-4. **Assign weight deliberately**: Which section deserves 40% of the piece? Which deserves 5%? Asymmetry is a feature — if all sections are equal weight, the piece has no focal point.
-5. **Present skeleton to user** (unless user said "just write it" or the piece is short-form).
+- Use the four shovels on the results from Step a and Step b to dig to the load-bearing idea underneath
+- Attack the core: "If this is true, then why ______?"
+- Three outcomes: core holds → proceed with confidence; core morphs → return to Step a with new angle; core breaks → tell the user honestly
+- Output: Core Statement (one sentence) + Stress-Test Result
 
-**Do not proceed to Phase 2 until structure is confirmed.**
+**Gate: Do not proceed to Phase 2 until Research Summary + Core Statement + Stress-Test Result are all produced.**
 
-### Phase 2: Draft
+### Phase 2: Structure Design
 
-Read `core/writing-dna.md` for universal writing principles.
-Read the matched `modes/{type}.md` for the structure template.
+Design the piece's skeleton around the validated core.
 
-- Apply the 9 writing principles from writing-dna.md
+**Step a — Scaffold.** Find a cross-disciplinary load-bearing analogy for the core.
+
+- Not decoration — a structural wall. If you remove it, the piece collapses.
+- Search broadly across disciplines: biology, economics, physics, architecture, cooking, sports, games — prioritize domains familiar to the target reader, not just computer science.
+- **Validation:** (1) Remove it and the piece collapses (load-bearing). (2) Dig one level deeper and it still maps (multi-layer). (3) The reader gets it without explanation (self-evident).
+
+**Step b — Narrative arc & weight.** Choose the shape and assign weight deliberately.
+
+- Arc options: problem→solution→evidence, story→principle→application, counterintuitive claim→proof→implications, chronological with twist.
+- Assign weight: which section deserves 40%? Which deserves 5%? Asymmetry is a feature.
+
+**Step c — Reader perspective check.** Step back and review the skeleton from the reader's viewpoint.
+
+- Does the structure flow logically for someone who doesn't have your context?
+- Can a reader who only skims headings still grasp the main argument?
+- Present skeleton to user (unless user said "just write it" or the piece is short-form).
+
+**Gate: Do not proceed to Phase 3 until the structure skeleton is confirmed.**
+
+### Phase 3: Draft
+
+Read `core/writing-dna.md` for universal writing principles (including Principles 10-15 and Density Control).
+Read the matched `modes/{type}.md` for the structure template and DNA & Voice Settings.
+
+- Apply the writing principles from writing-dna.md (check mode differentiation table for active principles)
 - Follow the mode's structure template section by section
+- Hang every detail back on the scaffold — the reader should always know "where this piece fits"
 - Use research findings as the content foundation
 - Output: Complete first draft
 
-### Phase 3: Review
+### Phase 4: Review
 
 Read `core/review-protocol.md` and run all four review dimensions.
 
@@ -190,18 +219,20 @@ Read `core/review-protocol.md` and run all four review dimensions.
 - Perspective audit (developer vs product vs user perspective)
 - Output: Numbered fix list → apply all fixes
 
-**Do not proceed to Phase 4 until all "Must Fix" items are resolved.**
+**Gate: Do not proceed to Phase 5 until all "Must Fix" items are resolved.**
 
-### Phase 4: Humanize
+### Phase 5: Polish
 
-Read `core/humanizer.md` and apply both levels.
+Read `core/humanizer.md` and run all four passes sequentially.
 
-- Level 1: Blacklist interception (remove all AI-slop phrases)
-- Level 2: Rhythm reshaping (sentence variation, specific details, asymmetric structure)
-- Apply mode-specific overrides (e.g., xiaohongshu allows more emojis)
-- Output: Humanized draft
+- Pass 1: Oral test — "Would you say this to a smart friend? No → rewrite." Highest priority. All subsequent passes must re-pass this test.
+- Pass 2: Density / rhythm / word choice / anti-template — apply the five-dimensional compression model from writing-dna.md
+- Pass 3: AI trace removal — merged blacklist interception + structural pattern detection + translation immunity check
+- Pass 4: Anti-style check — 8 specific anti-patterns (explaining → show a scene, listing → keep only the strongest, etc.)
+- Apply mode-specific overrides (e.g., xiaohongshu allows more emojis; technical-docs adjusts oral test to "clear and concise" standard)
+- Output: Polished draft
 
-### Phase 5: Finalize
+### Phase 6: Finalize
 
 Run the mode-specific self-check checklist (from the mode file).
 
@@ -217,14 +248,15 @@ Users can jump to any phase at any time:
 
 | User Says | Action |
 |-----------|--------|
-| "重新调研" / "re-research" | Go to Phase 1 |
-| "改大纲" / "restructure" / "改结构" | Go to Phase 1.5 |
-| "重写" / "rewrite" | Go to Phase 2 |
-| "审校" / "review" / "检查逻辑" | Go to Phase 3 |
-| "去AI味" / "humanize" / "润色" | Go to Phase 4 |
-| "检查" / "check" / "自检" | Go to Phase 5 |
+| "重新调研" / "re-research" | Go to Phase 1 Step a |
+| "重新找核" / "re-think" / "换个角度" | Go to Phase 1 Step c |
+| "改大纲" / "restructure" / "改结构" | Go to Phase 2 |
+| "重写" / "rewrite" | Go to Phase 3 |
+| "审校" / "review" / "检查逻辑" | Go to Phase 4 |
+| "打磨" / "polish" / "去AI味" / "humanize" / "润色" | Go to Phase 5 |
+| "检查" / "check" / "自检" | Go to Phase 6 |
 
-Each phase is independently re-runnable. Jumping to Phase 3 does not require re-running Phase 1 or 2.
+Each phase is independently re-runnable. Jumping to Phase 4 does not require re-running Phase 1-3.
 
 ---
 
@@ -255,7 +287,7 @@ These modules activate on demand — not loaded unless triggered.
 | **SEO/GEO Optimization** | "SEO优化" / "关键词" / "SEO" / web-published content | `core/seo-layer.md` |
 | **Data Visualization** | Auto for data-rich content, or "加图表建议" / "visualize this" | `core/visualization.md` |
 
-These extend the pipeline — they don't replace it. Style learning affects Phase 2+4, SEO adds to Phase 5, visualization enhances Phase 2, etc.
+These extend the pipeline — they don't replace it. Style learning affects Phase 3+5, SEO adds to Phase 6, visualization enhances Phase 3, etc.
 
 ---
 

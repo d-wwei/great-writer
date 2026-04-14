@@ -203,3 +203,149 @@ Expert writing has rhythmic irregularity within a coherent arc — like rubato i
 - If all sections are the same length with the same internal structure → restructure until the emphasis is visible
 - Compress ruthlessly what the reader already knows or can infer. Expand generously what is surprising, counterintuitive, or load-bearing
 - One section should be disproportionately detailed — that's where the real value lives. The reader will forgive brief treatment of context if the core insight gets the space it deserves
+
+---
+
+## Principle 10: Scene-First Opening
+
+The first sentence gives the reader a reason to continue. No warmup. No background. No "since ancient times."
+
+The best opening is an image or a specific event — something that happened last week, something you saw this morning, something someone said. Let the core idea grow naturally out of that concrete moment.
+
+Second best: a judgment that makes the reader stop. Place it quietly, don't explain it, let it create friction on its own.
+
+最好的开头是一个画面或一件具体的事。从这个画面里自然地长出核心观点。次好的开头是一句让人停下来的判断——安静放着，不解释，让它自己制造摩擦。
+
+**Relationship to Principle 2 (Pain First):** Pain-first is a subset of scene-first — a pain scenario is one type of opening scene. For product-focused writing (tech-article, marketing-copy), Principle 2 takes priority. For opinion and creative writing, Principle 10 takes priority.
+
+---
+
+## Principle 11: Progressive Revelation
+
+Don't present the complete, complex version upfront. Start with a simple version the reader already understands, show where it breaks, then introduce what you really want to say. Each step crosses only one gap. The reader walks with you — not dragged by you.
+
+One cognitive increment per paragraph — two means split it, zero means delete it. Remove any paragraph and the chain should break — if it doesn't break, the paragraph was filler.
+
+别一上来就端出完整的复杂版本。先给读者已经懂的简单版本，展示它哪里撑不住，再引出你真正要说的。
+
+---
+
+## Principle 12: Scene Over Argument
+
+Don't say "this is wrong" — construct a scene that lets the reader see it's wrong. A micro-scene with time, people, and conflict is ten times more powerful than abstract argument.
+
+不说"这是错的"，构造一个场景让读者自己看到它是错的。有时间、有人物、有冲突的微型场景，比抽象论证有力十倍。
+
+**Relationship to Principle 4 (Scenario-Based):** Principle 4 is about presenting product features through scenarios. Principle 12 is about replacing logical arguments with scenes — turning "persuasion" into "let the reader see for themselves."
+
+---
+
+## Principle 13: Concession Turns
+
+At the strongest point of your argument, hit the brakes. "That said..." "Don't get me wrong..." "This doesn't mean..." — acknowledge the other side has a point. Then press the accelerator again.
+
+The re-assertion after a concession is far more powerful than charging straight through, because the reader sees you as fair.
+
+论证走到最强势的地方，踩一脚刹车。"话说回来""别误会"——承认对面有道理。然后再把油门踩下去。让步之后的再断言比一路冲到底有力得多。
+
+---
+
+## Principle 14: Analogy Crack Handling
+
+Where does the analogy break down? That point is the most valuable paragraph in the piece.
+
+Don't announce "the analogy fails here." Let the reader feel the mismatch on their own. Push through it with narrative.
+
+An analogy that covers everything perfectly is either too vague to be useful or too neat to be honest. The crack is where insight lives.
+
+类比在哪里撑不住了？那个点就是文章最值钱的段落。不宣布"类比失效"，让读者自己感到对不上了。用叙事推过去。
+
+**Relationship to Principle 3 (Analogy Over Explanation):** Principle 3 teaches you to choose good analogies. Principle 14 teaches you to handle their boundaries — acknowledging the crack is stronger than hiding it.
+
+---
+
+## Principle 15: Ending as Door
+
+The ending doesn't summarize. The ending is the last discovery, or a door — pointing toward something you didn't write but the reader will think about on their own.
+
+Best: a short sentence with rhythm that stays in the mind. Like the last note of a song — it stops, but keeps vibrating.
+
+结尾不总结。结尾是最后一个发现，或者一扇门——指向你没写但读者会自己去想的方向。像歌的最后一个音，收住，但还在震。
+
+---
+
+## Density Control
+
+Five-dimensional compression model — run through each dimension after completing the first draft:
+
+### Cut (砍)
+Can this sentence be deleted? Can it merge with the previous one?
+
+### Shorten (短)
+If two words work, don't use four. "进行讨论" → "聊". "实现功能" → "做到". Big words don't make you sound smart — they make the reader tired.
+
+### Layer (造)
+One sentence carries two levels — surface says A, structure implies B.
+
+### Word Choice (选词)
+Every verb is a judgment. "放在" and "搁在" and "摆在" are not the same thing.
+
+### Rhythm (节奏)
+Fragments and expansions breathe in alternation —
+
+Short sentences are hammers. "就这样。" "三个字。" "没了。" Don't hammer consecutively — two or three times per piece maximum.
+
+Long sentences may stretch, but they must feel like they're moving forward, not circling.
+
+Paragraphs breathe too: one-sentence impact → three-sentence expansion → one-sentence closure. The reader neither suffocates in long blocks nor loses direction in fragments.
+
+### Anti-Template
+The same sentence structure may appear at most once. Break regularity.
+
+---
+
+## Voice System Defaults
+
+All modes inherit these defaults. Each mode may override via its own "DNA & Voice Settings" section.
+
+### Temperature
+Default 28°C — warm but direct. Neither cold nor sentimental.
+
+- **Warming allowed:** When hitting something you genuinely care about. Don't add exclamation marks — let anger or excitement seep into word choice and sentence density.
+- **Cooling allowed:** After the sharpest judgment, step back suddenly. "话说回来" / "别误会" — let the reader see you as fair. The re-assertion after cooling is more powerful than charging straight through.
+
+### Inner Voice
+Write out the thoughts that never get said aloud.
+
+Not narration — real inner activity: "心想这也行？" "等等，不对" "算了不想了". Mark with quotes. The effect: an intimacy of eavesdropping on the thinking process.
+
+### Translation Immunity (翻译腔免疫)
+**Test:** Translate the sentence back to English, then back to Chinese. Still the same? → Probably translation voice.
+
+Chinese has its own breathing rhythm. Don't let English syntax ride on top.
+
+**Common symptoms:**
+- Passive pile-up: "被认为是" → "大家觉得"
+- Nouns as verbs: "实现了优化" → "快了"
+- Nested clauses: "在我们讨论了这个之后我发现" → "聊完才发现"
+- Adjective inflation: "非常重要的关键因素" → "关键"
+- Connector overuse: "此外" / "另外" / "与此同时" → cut them, sentences connect themselves
+
+---
+
+## Mode Differentiation Table
+
+Principles 1-9 apply universally. The table below specifies overrides for Principles 10-15, Density Control, and Voice parameters:
+
+| Parameter | tech-article | marketing-copy | research-report | xiaohongshu | github-readme | technical-docs | creative-writing | rewrite | editorial-review |
+|-----------|-------------|---------------|----------------|------------|--------------|---------------|-----------------|---------|-----------------|
+| **P10 Scene-First** | Optional | Optional | Optional | Full | Optional | Skip | Full | Match original | N/A |
+| **P11 Progressive Reveal** | Full | Simplified | Full | Simplified | Full | Skip | Full | Match original | N/A |
+| **P12 Scene Over Argument** | Full | Optional | Optional | Full | Optional | Skip | Full | Match original | N/A |
+| **P13 Concession Turns** | Full | Use sparingly | Full | Skip | Optional | Skip | Full | Match original | N/A |
+| **P14 Analogy Crack** | Full | Skip | Optional | Skip | Optional | Skip | Full | Match original | N/A |
+| **P15 Ending as Door** | Full | Skip (CTA ending) | Optional | Optional | Optional | Skip | Full | Match original | N/A |
+| **Density** | High | Moderate | High | Low-moderate | Moderate | Maximum clarity | By work | Match original | N/A |
+| **Temperature** | 28°C | 30°C | 22°C | 35°C | 28°C | 18°C | By work | Match original | 20°C |
+| **Inner Voice** | Optional | Off | Off | Full | Optional | Off | Full | Match original | Off |
+| **Translation Immunity** | Mandatory (ZH) | Recommended | Recommended | Mandatory | Mandatory (ZH ver) | N/A | Mandatory (ZH) | If ZH, mandatory | N/A |

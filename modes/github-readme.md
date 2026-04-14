@@ -47,6 +47,26 @@ Every GitHub README produced by this mode outputs **two files**:
 
 ---
 
+## DNA & Voice Settings
+
+**Voice:**
+- Temperature: 28°C (warm but professional)
+- Posture: Builder — personal, warm, "I built this because..."
+- Inner Voice: Optional — can add personality to the Why section
+- Translation Immunity: Mandatory for Chinese version
+
+**DNA Overrides:**
+- P10 (Scene-First): Optional
+- P11 (Progressive Revelation): Full — readers need progressive complexity
+- P12 (Scene Over Argument): Optional
+- P13 (Concession Turns): Optional
+- P14 (Analogy Crack): Optional
+- P15 (Ending as Door): Optional
+
+**Core Finding:** Simplified — focus on Shovel 4 (what does this project *really* do?) + Shovel 2 (what assumption about existing tools is wrong?).
+
+---
+
 ## Research Protocol Override
 
 Before writing a single word, the agent MUST do deep research. A GitHub README written from surface-level understanding is immediately obvious to developers — it reads like marketing copy, not builder documentation.
@@ -450,29 +470,29 @@ The difference: the compelling version **states the same fact** but includes the
 - **Do not shortcut this.** A README written without understanding the code reads like marketing, and developers can tell.
 - **R0 (Identity Check) is the first thing you do.** Everything downstream depends on it.
 
-### Phase 1.5: Structure Design (NEW — MANDATORY)
+### Phase 2: Structure Design (MANDATORY)
 - After research, design the README skeleton using the Pre-Draft Structure Design process above
 - Present the skeleton to the user for approval
 - This catches structural problems before you've written 2000 words
 - **Do not skip this.** The most common README failure is structural (wrong ordering, missing value sections, redundant sections), not content-level.
 
-### Phase 2: Draft
+### Phase 3: Draft
 - Write English version first (README.md)
 - Follow the approved module structure
-- Apply the 7 writing principles from writing-dna.md
+- Apply the writing principles from writing-dna.md
 - After each module, re-read and apply the Objectivity Trap check: "Accurate? Yes. Would someone keep reading? If no, add the mechanism."
 
-### Phase 3: Review
+### Phase 4: Review
 - Standard review protocol applies (`core/review-protocol.md`)
 - Additional check: every claim in "How It Works" must be verifiable from the actual codebase
 - Run Perspective Audit (Dimension 4): README should be firmly in product + user perspective, minimal developer perspective
 - **Feature baseline check:** scan Key Features — is any item actually a baseline that all similar projects share? If yes, demote or remove it.
 
-### Phase 4: Humanize
-- Standard humanizer applies (`core/humanizer.md`)
+### Phase 5: Polish
+- Standard polish protocol applies (`core/humanizer.md`)
 - This mode uses builder voice — warmer and more personal than tech-article default
 
-### Phase 5: Chinese Version
+### Phase 5b: Chinese Version
 - Rewrite (not translate) the English README into Chinese
 - Verify all bilingual rules are followed
 - Run humanizer again on the Chinese version specifically (Chinese AI-slop patterns differ from English)
@@ -491,7 +511,7 @@ Run through every item after both README files are complete.
 ### Structure & Identity
 
 - [ ] Identity stated clearly — reader knows what kind of thing this is (tool/library/framework/etc.) within the first 3 sentences?
-- [ ] Module order follows the approved skeleton from Phase 1.5?
+- [ ] Module order follows the approved skeleton from Phase 2?
 - [ ] No module is present that was marked "skip" in the skeleton?
 
 ### Content Quality

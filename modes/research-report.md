@@ -9,6 +9,27 @@ Activated when: 白皮书, 行业分析, 竞品报告, 投研, whitepaper, resea
 
 ---
 
+## DNA & Voice Settings
+
+**Voice:**
+- Temperature: 22°C (cooler, more formal — data speaks)
+- Posture: Analyst — data-driven, authoritative but accessible
+- Inner Voice: Off
+- Translation Immunity: Recommended
+
+**DNA Overrides:**
+- P2 (Pain First): Changes to "Finding First" — lead with discoveries, not pain
+- P10 (Scene-First): Optional
+- P11 (Progressive Revelation): Full
+- P12 (Scene Over Argument): Optional — data serves as argument
+- P13 (Concession Turns): Full — acknowledging limitations strengthens credibility
+- P14 (Analogy Crack): Optional
+- P15 (Ending as Door): Optional — reports may end with recommendations
+
+**Core Finding:** Full four shovels. Focus on Shovel 2 (what premise does the market/industry assume?).
+
+---
+
 ## 8-Section Structure
 
 ### Section 1: Executive Summary

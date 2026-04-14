@@ -31,6 +31,26 @@ When the article's core value is the thinking process — how the team arrived a
 
 ---
 
+## DNA & Voice Settings
+
+**Voice:**
+- Temperature: 28°C (default)
+- Posture: Two sub-types — Analyst voice (third-party review: objective, evaluative) vs Builder voice (own project: frustration, dead ends, "we finally...")
+- Inner Voice: Optional (encouraged in Builder voice, use sparingly in Analyst voice)
+- Translation Immunity: Mandatory for Chinese content
+
+**DNA Overrides:**
+- P10 (Scene-First): Optional — P2 (Pain First) takes priority for product articles
+- P11 (Progressive Revelation): Full
+- P12 (Scene Over Argument): Full
+- P13 (Concession Turns): Full
+- P14 (Analogy Crack): Full
+- P15 (Ending as Door): Full
+
+**Core Finding:** Full four shovels. Product articles: focus on Shovel 4 (what does this product *really* change?). Design stories: focus on Shovel 2 (what assumption drove the design?).
+
+---
+
 ## 9-Module Structure Template (Product Introduction Subtype)
 
 Every tech product article follows these 9 modules in order. Skipping a module weakens the piece.
@@ -308,13 +328,13 @@ When writing narrative/design-story articles from source material:
 
 ## Writing Workflow (Tech Article)
 
-This mode follows the standard 5-phase pipeline (see `SKILL.md`). Mode-specific notes:
+This mode follows the standard 6-phase pipeline (see `SKILL.md`). Mode-specific notes:
 
 ### Phase 1: Research
 - Standard research protocol applies (`core/research-protocol.md`).
 - For tech articles specifically: always do competitive differentiation research. The comparison table (Module 4) and differentiation section (Module 5.5) need real competitor data.
 
-### Phase 2: Draft
+### Phase 3: Draft
 Build the 9 modules in this order:
 1. Write TL;DR first — if one sentence doesn't work, you haven't understood the product yet.
 2. Write pain point + comparison table — this is the evidence layer.
@@ -322,15 +342,15 @@ Build the 9 modules in this order:
 4. Write feature scenarios — this is the imagination layer.
 5. Add title and closing last — title needs the killer data, closing callbacks to it.
 
-### Phase 3: Review
+### Phase 4: Review
 - Standard review protocol applies (`core/review-protocol.md`).
 - Additional tech-article check: verify each Module 5.5 differentiator actually differentiates (not just described differently from competitors).
 
-### Phase 4: Humanize
+### Phase 5: Humanize
 - Standard humanizer applies (`core/humanizer.md`).
-- This mode uses default settings: balanced rhythm, moderate conversational tone.
+- Pass 1-4 applied in sequence: balanced rhythm, moderate conversational tone.
 
-### Phase 5: Finalize
+### Phase 6: Finalize
 - Run the self-check checklist below.
 
 ---

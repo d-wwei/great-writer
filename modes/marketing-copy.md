@@ -9,6 +9,26 @@ Activated when: Landing page, 广告, CTA, 社交媒体, 文案, ad copy, social
 
 ---
 
+## DNA & Voice Settings
+
+**Voice:**
+- Temperature: 30°C (slightly warmer — urgency and energy)
+- Posture: Persuader — direct, with urgency, benefit-focused
+- Inner Voice: Off
+- Translation Immunity: Recommended for Chinese content
+
+**DNA Overrides:**
+- P10 (Scene-First): Optional
+- P11 (Progressive Revelation): Simplified — landing pages reveal benefit fast, not gradually
+- P12 (Scene Over Argument): Optional
+- P13 (Concession Turns): Use sparingly — concessions can weaken urgency
+- P14 (Analogy Crack): Skip
+- P15 (Ending as Door): Skip — marketing ends with CTA, not open doors
+
+**Core Finding:** Full four shovels. Focus on Shovel 3 (what emotion does the reader feel about this problem?).
+
+---
+
 ## Sub-Type 1: Landing Page
 
 6-section structure optimized for conversion:
