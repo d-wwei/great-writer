@@ -46,7 +46,7 @@ Example status lines:
 - **Phase 5: Polish** — Four passes: oral test → density → AI trace removal → anti-style check.
 - **Phase 6: Finalize** — Running the mode-specific self-check. All items pass → output.
 
-Keep it to one line. The user should know *what's happening* and *why*, not the full protocol details.
+Keep it to one line. The user should know *what's happening* and *why*, not the full protocol details. **Output in the user's language** — if the user writes in Chinese, the status line is in Chinese; if in English, in English.
 
 ### Phase 1: Core Logic
 
