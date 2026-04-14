@@ -152,6 +152,20 @@ Identify the writing type from the user's request and load the corresponding mod
 
 Every piece of writing goes through 6 phases. Each phase loads specific modules.
 
+**Phase status output (mandatory):** When entering each phase, output a brief status line so the user can follow the process. Format:
+
+> **Phase N: [Name]** — [one sentence: what this phase does and why]
+
+Example status lines:
+- **Phase 1: Core Logic** — Researching the audience, finding the core idea, and stress-testing it before writing a single word.
+- **Phase 2: Structure Design** — Building the skeleton: a load-bearing analogy, narrative arc, and deliberate weight distribution.
+- **Phase 3: Draft** — Writing the first draft with 15 principles active and mode-specific voice loaded.
+- **Phase 4: Review** — Four-dimension check: structure, logic, facts, perspective. Fixing all must-fix items.
+- **Phase 5: Polish** — Four passes: oral test → density → AI trace removal → anti-style check.
+- **Phase 6: Finalize** — Running the mode-specific self-check. All items pass → output.
+
+Keep it to one line. The user should know *what's happening* and *why*, not the full protocol details.
+
 ### Phase 1: Core Logic
 
 Three steps to establish *what this piece is really about*.
